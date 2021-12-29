@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         verticalInput = Input.GetAxis("Vertical");
-        transform.position = new Vector2(transform.position.x, (transform.position.y + verticalInput));
+        transform.position = new Vector3(transform.position.x, (transform.position.y + verticalInput), -10);
 
 
         // Handle screen touches.
