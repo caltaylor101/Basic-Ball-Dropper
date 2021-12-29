@@ -14,6 +14,7 @@ public class ImageFade : MonoBehaviour
     public int score;
     public int scoreMultiplier;
     public int scoreValue;
+    public int ballSpawnArea = 3036;
     
 
 
@@ -40,7 +41,7 @@ public class ImageFade : MonoBehaviour
     
     private void SpawnBall(Vector3 userInput)
     {
-        if (userInput.y >= 2500 && maxBalls > ballCount)
+        if (userInput.y >= ballSpawnArea && maxBalls > ballCount)
         {
             ballCount++;
 

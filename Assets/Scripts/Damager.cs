@@ -90,6 +90,5 @@ public class Damager : MonoBehaviour
             spawn.Spawn();
         }
         Destroy(gameObject);
-        Debug.Log(ballSpawnPoints.GetComponent<Transform>().position);
     }
 }

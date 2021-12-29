@@ -5,8 +5,10 @@ using UnityEngine;
 public class Shatterable : MonoBehaviour, IHittable
 {
     public List<Spawner> spawnPoints;
-    public int damage = 0;
-    public int maxDamage = 1;
+    public float damage = 0;
+    public float maxDamage = 1;
+    public float damagePower = 1;
+    public float damageMultiplier = 1;
 
     private SpriteRenderer render;
     //public GameObject gameRun;
@@ -54,10 +56,10 @@ public class Shatterable : MonoBehaviour, IHittable
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        damage++;
+        damage = damage + (damagePower * damageMultiplier);
 
 
-        if (damage > maxDamage)
+        if (damage >= maxDamage)
         {
             HitReceived();
         }
