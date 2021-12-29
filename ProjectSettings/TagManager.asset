@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Dead
   - Gold
+  - Damage
+  - Hittable
+  - Obstacle1
   layers:
   - Default
   - TransparentFX
