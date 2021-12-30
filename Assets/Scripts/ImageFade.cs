@@ -15,13 +15,15 @@ public class ImageFade : MonoBehaviour
     public int scoreMultiplier;
     public int scoreValue;
     public int ballSpawnArea = 3036;
-    
+    public GameObject hourGlass;
+    public Vector3 startHourglass;
 
 
     void Start()
     {
+        startHourglass = hourGlass.GetComponent<Transform>().position;
+        StartCoroutine(HourglassAnim(startHourglass));
 
-       
     }
     void Update()
     {
@@ -32,13 +34,58 @@ public class ImageFade : MonoBehaviour
             var userInputPosition = Camera.main.ScreenToWorldPoint(v);
 
             SpawnBall(userInputPosition);
-
-
         }
-    }
-    
 
-    
+
+    }
+
+    IEnumerator HourglassAnim(Vector3 startHourglass)
+    {
+        for (float alpha = 0f; alpha <= 1f; alpha += Time.deltaTime/2)
+        {
+            if (alpha > 0.95f)
+            {
+                
+                alpha = 1f;
+                //hourGlass.GetComponent<Transform>().position = startHourglass;
+
+            }
+
+            //hourGlass.GetComponent<Transform>().localScale = new Vector3(alpha, alpha, alpha);
+            var delta = alpha / 20;
+            hourGlass.GetComponent<Transform>().position = new Vector3(hourGlass.GetComponent<Transform>().position.x, hourGlass.GetComponent<Transform>().position.y + delta, hourGlass.GetComponent<Transform>().position.z);
+
+            if (alpha < 0.95f)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return StartCoroutine(HourglassDown(startHourglass));
+            }
+        }
+
+    }
+
+    IEnumerator HourglassDown(Vector3 startHourglass)
+    {
+        for (float i = 1f; i >= 0; i -= Time.deltaTime/2)
+        {
+            if (hourGlass.GetComponent<Transform>().position.y - i > startHourglass.y )
+            {
+                hourGlass.GetComponent<Transform>().position = new Vector3(hourGlass.GetComponent<Transform>().position.x, hourGlass.GetComponent<Transform>().position.y - i/20, hourGlass.GetComponent<Transform>().position.z);
+            }
+            if (i < 0.10f)
+            {
+                i = 0;
+                yield return StartCoroutine(HourglassAnim(startHourglass));
+            }
+            yield return null;
+        }
+    } 
+
+
+
     private void SpawnBall(Vector3 userInput)
     {
         if (userInput.y >= ballSpawnArea && maxBalls > ballCount)
@@ -49,6 +96,8 @@ public class ImageFade : MonoBehaviour
             StartCoroutine(FadeImage(true, theBall));
         }
     }
+
+
 
     IEnumerator FadeImage(bool fadeAway, GameObject theBall)
     {
