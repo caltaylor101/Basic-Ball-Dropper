@@ -9,6 +9,8 @@ TagManager:
   - Damage
   - Hittable
   - Obstacle1
+  - Movable
+  - Movable2
   layers:
   - Default
   - TransparentFX

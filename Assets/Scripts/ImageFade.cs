@@ -9,14 +9,29 @@ public class ImageFade : MonoBehaviour
     // the image you want to fade, assign in inspector
     public GameObject ball;
     private SpriteRenderer imageRenderer;
+
+    //Ball settings
     public int maxBalls;
     public int ballCount = 0;
+    public int ballSpawnArea = 3036;
+
+
+    //Score Counter
     public int score;
     public int scoreMultiplier;
     public int scoreValue;
-    public int ballSpawnArea = 3036;
+
+    //Level 2 hourglass animation
     public GameObject hourGlass;
     public Vector3 startHourglass;
+
+    // AutoBallSpawner
+    public GameObject autoBallSpawnPoint;
+    public bool autoBallSpawn = true;
+    public Vector3 spawnPosition;
+    public float spawnTime = 10f;
+
+    
 
 
     void Start()
@@ -24,10 +39,14 @@ public class ImageFade : MonoBehaviour
         startHourglass = hourGlass.GetComponent<Transform>().position;
         StartCoroutine(HourglassAnim(startHourglass));
 
+        spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
+        InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(0) && !Physics2D.OverlapPoint(mousePosition))
         {
 
             var v = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
@@ -36,8 +55,27 @@ public class ImageFade : MonoBehaviour
             SpawnBall(userInputPosition);
         }
 
+        spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
+
+
+
+
 
     }
+    private void AutoBallSpawn()
+    {
+        if (maxBalls > ballCount && autoBallSpawn == true)
+        {
+            ballCount++;
+            GameObject theBall = Instantiate(ball, new Vector3(spawnPosition.x, spawnPosition.y, 1), Quaternion.identity);
+            theBall.tag = "Movable2";
+            SpriteRenderer theBallColor = theBall.GetComponent<SpriteRenderer>();
+            theBallColor.color = Color.red;
+            StartCoroutine(FadeImage(true, theBall, theBallColor));
+        }
+    }
+
+    
 
     IEnumerator HourglassAnim(Vector3 startHourglass)
     {
@@ -91,7 +129,6 @@ public class ImageFade : MonoBehaviour
         if (userInput.y >= ballSpawnArea && maxBalls > ballCount)
         {
             ballCount++;
-
             GameObject theBall = Instantiate(ball, new Vector3(userInput.x, userInput.y, 1), Quaternion.identity);
             StartCoroutine(FadeImage(true, theBall));
         }
@@ -99,12 +136,28 @@ public class ImageFade : MonoBehaviour
 
 
 
-    IEnumerator FadeImage(bool fadeAway, GameObject theBall)
+    IEnumerator FadeImage(bool fadeAway, GameObject theBall, SpriteRenderer theBallRender = null)
     {
         SpriteRenderer imageRenderer = theBall.GetComponent<SpriteRenderer>();
 
+        if (theBallRender)
+        {
+            if (theBallRender.color == Color.red)
+            {
+                for (float i = 0; i <= spawnTime; i += Time.deltaTime)
+                {
+
+                    // set color with i as alpha
+                    imageRenderer.color = new Color(.75f, 0, 0, i / spawnTime);
+                    yield return null;
+                }
+                theBall.AddComponent(typeof(Rigidbody2D));
+                theBall.tag = "Damage";
+
+            }
+        }
         // fade from opaque to transparent
-        if (fadeAway)
+        else if (fadeAway && !theBallRender)
         {
             // loop over 1 second backwards
             for (float i = 0; i <= 1; i += Time.deltaTime)
