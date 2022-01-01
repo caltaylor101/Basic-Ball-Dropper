@@ -7,8 +7,8 @@ public class Shatterable : MonoBehaviour, IHittable
     public List<Spawner> spawnPoints;
     public float damage = 0;
     public float maxDamage = 1;
-    public float damagePower = 1;
-    public float damageMultiplier = 1;
+    public float damagePower;
+    public float damageMultiplier;
 
     private SpriteRenderer render;
     //public GameObject gameRun;

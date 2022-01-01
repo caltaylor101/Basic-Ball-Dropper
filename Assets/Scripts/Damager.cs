@@ -18,6 +18,10 @@ public class Damager : MonoBehaviour
     private Spawner spawn5;
 
 
+    //Reworking Damage to boxes. 
+    public float damagePower = 1;
+    public float damageMultiplier = 1;
+
     void Start()
     {
         render = GetComponent<SpriteRenderer>();
@@ -66,6 +70,9 @@ public class Damager : MonoBehaviour
 
         if (collision.collider.tag == "Hittable")
         {
+            collision.gameObject.GetComponent<Shatterable>().damagePower = damagePower;
+            collision.gameObject.GetComponent<Shatterable>().damageMultiplier = damageMultiplier;
+
             ImageFade otherScript = GameObject.Find("GameRun").GetComponent<ImageFade>();
             otherScript.ballCount--;
             otherScript.score = otherScript.score + (otherScript.scoreMultiplier * otherScript.scoreValue);

@@ -4190,7 +4190,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2865756584199356711, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -4352,6 +4352,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   message: 
+  otherBall: {fileID: 0}
   selectedObject: {fileID: 0}
 --- !u!20 &519420031
 Camera:
@@ -4575,7 +4576,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2865756584199356711, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -6410,6 +6411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRun: {fileID: 1189728328}
   upgradeBallCost: 0
+  clickBall: {fileID: 0}
 --- !u!114 &1033983109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6814,7 +6816,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2865756584199356711, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -7129,9 +7131,11 @@ MonoBehaviour:
   hourGlass: {fileID: 1944078398}
   startHourglass: {x: 0, y: 0, z: 0}
   autoBallSpawnPoint: {fileID: 705716771}
+  autoBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
+    type: 3}
   autoBallSpawn: 0
   spawnPosition: {x: 0, y: 0, z: 0}
-  spawnTime: 10
+  spawnTime: 1
 --- !u!4 &1189728330
 Transform:
   m_ObjectHideFlags: 0
@@ -7199,6 +7203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRun: {fileID: 1189728328}
   upgradeBallCost: 0
+  clickBall: {fileID: 0}
 --- !u!114 &1198047438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8455,6 +8460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRun: {fileID: 1189728328}
   upgradeBallCost: 0
+  clickBall: {fileID: 2365515152847962670, guid: 98736df5084c9ab41913f2f768f80e0d,
+    type: 3}
 --- !u!1001 &1611770246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9200,7 +9207,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2865756584199356711, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}

@@ -9,6 +9,7 @@ public class UpgradeBall : MonoBehaviour
     private GameObject[] shatterableBoxes;
     public GameObject gameRun;
     public int upgradeBallCost = 10;
+    public GameObject clickBall;
     public void UpgradeBallDamage()
     {
         shatterableBoxes = GameObject.FindGameObjectsWithTag("Hittable");
@@ -16,10 +17,8 @@ public class UpgradeBall : MonoBehaviour
         {
             gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeBallCost;
             upgradeBallCost = (int)Math.Ceiling((float)upgradeBallCost * 1.25f);
-            foreach (GameObject boxes in shatterableBoxes)
-        {
-                boxes.GetComponent<Shatterable>().damageMultiplier = boxes.GetComponent<Shatterable>().damageMultiplier + 0.01f;
-        }
+
+            clickBall.GetComponent<Damager>().damageMultiplier += 0.01f;
         }
 
     }
