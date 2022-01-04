@@ -6413,6 +6413,9 @@ MonoBehaviour:
   upgradeBallCost: 0
   clickBall: {fileID: 0}
   idleBallSpawnSpot: {fileID: 0}
+  upgradeIdleButton: {fileID: 0}
+  autoBall: {fileID: 0}
+  upgradeIdleBallCost: 10
 --- !u!114 &1033983109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7288,6 +7291,9 @@ MonoBehaviour:
   upgradeBallCost: 0
   clickBall: {fileID: 0}
   idleBallSpawnSpot: {fileID: 0}
+  upgradeIdleButton: {fileID: 0}
+  autoBall: {fileID: 0}
+  upgradeIdleBallCost: 10
 --- !u!114 &1198047438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8547,6 +8553,9 @@ MonoBehaviour:
   clickBall: {fileID: 2365515152847962670, guid: 98736df5084c9ab41913f2f768f80e0d,
     type: 3}
   idleBallSpawnSpot: {fileID: 0}
+  upgradeIdleButton: {fileID: 0}
+  autoBall: {fileID: 0}
+  upgradeIdleBallCost: 10
 --- !u!1001 &1611770246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10209,7 +10218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2048303415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10227,7 +10236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45.521, y: 37.85385}
+  m_AnchoredPosition: {x: 46.2, y: 37.854}
   m_SizeDelta: {x: 91.042, y: 46.827}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2048303416
@@ -10247,6 +10256,10 @@ MonoBehaviour:
   clickBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
     type: 3}
   idleBallSpawnSpot: {fileID: 705716771}
+  upgradeIdleButton: {fileID: 0}
+  autoBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
+    type: 3}
+  upgradeIdleBallCost: 10
 --- !u!114 &2048303417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10619,7 +10632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45.521, y: 37.85385}
+  m_AnchoredPosition: {x: 46.3, y: 37.85385}
   m_SizeDelta: {x: 91.042, y: 46.827}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2069654313
@@ -10639,6 +10652,9 @@ MonoBehaviour:
   clickBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
     type: 3}
   idleBallSpawnSpot: {fileID: 705716771}
+  upgradeIdleButton: {fileID: 2048303414}
+  autoBall: {fileID: 0}
+  upgradeIdleBallCost: 10
 --- !u!114 &2069654314
 MonoBehaviour:
   m_ObjectHideFlags: 0

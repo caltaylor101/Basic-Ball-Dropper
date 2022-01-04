@@ -10,7 +10,12 @@ public class UpgradeBall : MonoBehaviour
     public GameObject gameRun;
     public int upgradeBallCost = 10;
     public GameObject clickBall;
+
+    //Idle Variables
     public GameObject idleBallSpawnSpot;
+    public GameObject upgradeIdleButton;
+    public GameObject autoBall;
+    public int upgradeIdleBallCost = 10;
     public void UpgradeBallDamage()
     {
         shatterableBoxes = GameObject.FindGameObjectsWithTag("Hittable");
@@ -26,10 +31,20 @@ public class UpgradeBall : MonoBehaviour
 
     public void UnlockIdleBall()
     {
-        
+        upgradeIdleButton.SetActive(true);
         idleBallSpawnSpot.SetActive(true);
         gameRun.GetComponent<ImageFade>().autoBallSpawn = true;
         gameObject.SetActive(false);
         Destroy(gameObject);
+    }
+
+    public void UpgradeIdleBall()
+    {
+        if (gameRun.GetComponent<ImageFade>().score >= upgradeIdleBallCost)
+        {
+            gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeIdleBallCost;
+            upgradeIdleBallCost = (int)Math.Ceiling((float)upgradeIdleBallCost * 1.33f);
+            autoBall.GetComponent<Damager>().damageMultiplier += 0.01f;
+        }
     }
 }
