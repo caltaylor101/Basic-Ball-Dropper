@@ -11,6 +11,7 @@ TagManager:
   - Obstacle1
   - Movable
   - Movable2
+  - Obstacle2
   layers:
   - Default
   - TransparentFX

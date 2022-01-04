@@ -32,7 +32,6 @@ public class ImageFade : MonoBehaviour
     public Vector3 spawnPosition;
     public float spawnTime = 10f;
 
-    
 
 
     void Start()
@@ -163,12 +162,18 @@ public class ImageFade : MonoBehaviour
             // loop over 1 second backwards
             for (float i = 0; i <= 1; i += Time.deltaTime)
             {
-
+                if (imageRenderer)
+                {
+                    imageRenderer.color = new Color(1, 1, 1, i / 1);
+                }
                 // set color with i as alpha
-                imageRenderer.color = new Color(1, 1, 1, i / 1);
                 yield return null;
+
             }
+            if (imageRenderer)
+            { 
             theBall.AddComponent(typeof(Rigidbody2D));
+            }
         }
         // fade from transparent to opaque
         else
