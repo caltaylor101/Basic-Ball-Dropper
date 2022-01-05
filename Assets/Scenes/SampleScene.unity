@@ -400,7 +400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383977052}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &60612201
 GameObject:
@@ -744,7 +744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &90719282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1830,7 +1830,7 @@ Transform:
   - {fileID: 196629588}
   - {fileID: 2079510509}
   m_Father: {fileID: 383977052}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &353984386
 PrefabInstance:
@@ -4398,12 +4398,11 @@ Transform:
   - {fileID: 417499928}
   - {fileID: 825270096}
   - {fileID: 865369115}
-  - {fileID: 1667731719}
   - {fileID: 37064204}
   - {fileID: 347146298}
   - {fileID: 705716772}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &389806818 stripped
 Transform:
@@ -5270,7 +5269,7 @@ Transform:
   - {fileID: 647003338}
   - {fileID: 615546471}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &598412898
 GameObject:
@@ -7228,6 +7227,7 @@ MonoBehaviour:
   playerController: {fileID: 519420028}
   otherPanels:
   - {fileID: 364455781}
+  - {fileID: 90719281}
 --- !u!4 &889916542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7867876366369574335, guid: 93a442e0445ee2541a7095e76523da0c,
@@ -8633,6 +8633,7 @@ MonoBehaviour:
   playerController: {fileID: 519420028}
   otherPanels:
   - {fileID: 1070588011}
+  - {fileID: 90719281}
 --- !u!114 &1213438435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9432,7 +9433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b4e9d7f8dfecd49a7341730d33016e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 364455781}
+  panel: {fileID: 90719281}
   shatterableObject: {fileID: 0}
   playerController: {fileID: 519420028}
   otherPanels:
@@ -10301,6 +10302,7 @@ MonoBehaviour:
   upgradeIdleButton: {fileID: 0}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
+  upgradeMaxBallsCost: 10
 --- !u!1 &1608107773
 GameObject:
   m_ObjectHideFlags: 0
@@ -10399,7 +10401,7 @@ PrefabInstance:
     - target: {fileID: 711541572956937489, guid: 5e4411ca0aea33e4bad58ae6fcbed8a9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 711541572956937489, guid: 5e4411ca0aea33e4bad58ae6fcbed8a9,
         type: 3}
@@ -10889,8 +10891,8 @@ RectTransform:
   m_Children:
   - {fileID: 924183247}
   - {fileID: 68344523}
-  m_Father: {fileID: 383977052}
-  m_RootOrder: 10
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12256,6 +12258,7 @@ MonoBehaviour:
   autoBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
     type: 3}
   upgradeIdleBallCost: 10
+  upgradeMaxBallsCost: 10
 --- !u!114 &2048303417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12651,6 +12654,7 @@ MonoBehaviour:
   upgradeIdleButton: {fileID: 2048303414}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
+  upgradeMaxBallsCost: 10
 --- !u!114 &2069654314
 MonoBehaviour:
   m_ObjectHideFlags: 0
