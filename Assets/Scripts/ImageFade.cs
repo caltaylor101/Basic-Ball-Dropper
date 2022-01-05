@@ -33,6 +33,8 @@ public class ImageFade : MonoBehaviour
     public float spawnTime = 10f;
 
 
+    
+
 
     void Start()
     {

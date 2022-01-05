@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UpgradeBall : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class UpgradeBall : MonoBehaviour
     public GameObject upgradeIdleButton;
     public GameObject autoBall;
     public int upgradeIdleBallCost = 10;
+
+    // max ball variables
+    public int upgradeMaxBallsCost = 10;
+
+
+
+
+
     public void UpgradeBallDamage()
     {
         shatterableBoxes = GameObject.FindGameObjectsWithTag("Hittable");
@@ -47,4 +56,17 @@ public class UpgradeBall : MonoBehaviour
             autoBall.GetComponent<Damager>().damageMultiplier += 0.01f;
         }
     }
+
+    public void PlusOneMaxBall()
+    {
+        if (gameRun.GetComponent<ImageFade>().score >= upgradeMaxBallsCost)
+        {
+            gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeMaxBallsCost;
+            upgradeMaxBallsCost = (int)Math.Ceiling((float)upgradeMaxBallsCost * 1.33f);
+            gameRun.GetComponent<ImageFade>().maxBalls += 1;
+        }
+    }
+
+
+ 
 }

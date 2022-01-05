@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
     Vector3 offset;
     Vector3 offset2;
 
+
+    // ui variables
+    public bool uiAccessed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +98,7 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(transform.position.x, (transform.position.y + verticalInput), -10);
 
         // Handle screen touches.
-        if (Input.touchCount > 0 && !selectedObject && !otherBall)
+        if (Input.touchCount > 0 && !selectedObject && !otherBall && !uiAccessed)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -117,13 +121,13 @@ public class PlayerController : MonoBehaviour
                     {
                         break;
                     }
-                    else if (direction.y > 0)
+                    else if (direction.y < 0)
                     {
-                        transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, -10);
+                        transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, -10);
                     }
                     else
                     {
-                        transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, -10);
+                        transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, -10);
                     }
                     startPos = touch.position;
                     //transform.position = new Vector2(transform.position.x, (transform.position.y + (direction.y / Math.Abs(direction.y))));
@@ -132,5 +136,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    
 }
 
