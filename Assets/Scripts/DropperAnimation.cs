@@ -41,7 +41,7 @@ public class DropperAnimation : MonoBehaviour
 
         if (dropVariable + otherFlipper.GetComponent<DropperAnimation>().dropVariable > maxCapacityDrop)
         {
-            StartCoroutine(DropPanels(5f));
+            StartCoroutine(DropPanels(dropStartDelay));
             if (readyToDrop)
             { 
                 StopAllCoroutines();
@@ -58,7 +58,6 @@ public class DropperAnimation : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         otherFlipper.GetComponent<DropperAnimation>().readyToDrop = true;
         readyToDrop = true;
-        Debug.Log("hello");
         if (readyToDrop) yield break;
     }
 
@@ -66,7 +65,6 @@ public class DropperAnimation : MonoBehaviour
     IEnumerator ResetDropPanels(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-
         for (float i = 1f; i >= 0; i -= 0.1f)
         {
             var hinge = gameObject.GetComponent<HingeJoint2D>();
@@ -115,6 +113,5 @@ public class DropperAnimation : MonoBehaviour
         }
         readyToDrop = false;
         otherFlipper.GetComponent<DropperAnimation>().readyToDrop = false;
-        Debug.Log("test");
     }
 }
