@@ -33,9 +33,7 @@ public class ImageFade : MonoBehaviour
     public float spawnTime = 10f;
 
     // Pass Gas Piston
-    public int gasCreatedBall; 
-
-    
+    public int gasCreatedBall;
 
 
     void Start()
@@ -62,6 +60,7 @@ public class ImageFade : MonoBehaviour
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
 
 
+    
 
 
 
@@ -137,7 +136,6 @@ public class ImageFade : MonoBehaviour
             StartCoroutine(FadeImage(true, theBall));
         }
     }
-
 
 
     IEnumerator FadeImage(bool fadeAway, GameObject theBall, SpriteRenderer theBallRender = null)

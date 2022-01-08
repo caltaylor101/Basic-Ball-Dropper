@@ -13,6 +13,7 @@ TagManager:
   - Movable2
   - Obstacle2
   - GasParticle
+  - GasProduct
   layers:
   - Default
   - TransparentFX

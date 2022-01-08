@@ -10,15 +10,19 @@ public class Piston : MonoBehaviour
     public int gasParticles;
     public int maxGasParticles;
     public GameObject gameRun;
+    public int gasCreatedBallProduction;
+
+    public GameObject gasBall;
     void Start()
     {
         pistonAnim = gameObject.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -43,4 +47,15 @@ public class Piston : MonoBehaviour
             }
         }
     }
+
+
+    public void instantiateGasBall()
+    {
+        Instantiate(gasBall, new Vector3(6.43f, 2934.889f, 1), Quaternion.identity);
+
+    }
 }
+    
+
+    
+

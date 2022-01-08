@@ -3140,6 +3140,8 @@ MonoBehaviour:
   gasParticles: 0
   maxGasParticles: 0
   gameRun: {fileID: 0}
+  gasCreatedBallProduction: 0
+  gasBall: {fileID: 0}
 --- !u!1 &364455781
 GameObject:
   m_ObjectHideFlags: 0
@@ -5649,8 +5651,10 @@ MonoBehaviour:
   pistonBounce: {fileID: 6200000, guid: bac8ad5b6ae171f4e988f1008d733843, type: 2}
   pistonAnim: {fileID: 0}
   gasParticles: 0
-  maxGasParticles: 5
+  maxGasParticles: 1
   gameRun: {fileID: 1189728328}
+  gasCreatedBallProduction: 2
+  gasBall: {fileID: 786009486785554525, guid: 48f76f2bbda49a047a9aad3bd75b9f8b, type: 3}
 --- !u!58 &470808550
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6473,7 +6477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.83, y: 2936.86, z: -10}
+  m_LocalPosition: {x: 4.83, y: 2924.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17056,6 +17060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1982019921}
   - component: {fileID: 1982019920}
+  - component: {fileID: 1982019922}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -17128,6 +17133,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.621}
+--- !u!68 &1982019922
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982019919}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.9175355, y: -11.591721}
+  - {x: -2.1399279, y: 13.56629}
+  - {x: -1.0020752, y: 1.4683788}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1997020357
 GameObject:
   m_ObjectHideFlags: 0
