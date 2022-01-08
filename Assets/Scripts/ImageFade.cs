@@ -32,6 +32,8 @@ public class ImageFade : MonoBehaviour
     public Vector3 spawnPosition;
     public float spawnTime = 10f;
 
+    // Pass Gas Piston
+    public int gasCreatedBall; 
 
     
 

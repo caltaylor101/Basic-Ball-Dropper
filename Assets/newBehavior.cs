@@ -23,7 +23,9 @@ public class newBehavior : StateMachineBehaviour
         GameObject[] currentGasParticles = GameObject.FindGameObjectsWithTag("GasParticle");
         foreach (GameObject gas in currentGasParticles)
         {
-        Destroy(gas);
+            Piston pistonScript = GameObject.Find("TubePiston1").GetComponent<Piston>();
+            pistonScript.gasParticles -= 1;
+            Destroy(gas);
         }
 
     }

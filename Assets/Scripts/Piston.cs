@@ -9,6 +9,7 @@ public class Piston : MonoBehaviour
     public Animator pistonAnim;
     public int gasParticles;
     public int maxGasParticles;
+    public GameObject gameRun;
     void Start()
     {
         pistonAnim = gameObject.GetComponent<Animator>();
@@ -25,6 +26,7 @@ public class Piston : MonoBehaviour
         if (collision.gameObject.tag == "Damage")
         {
             // position corners, 4.87,2945 - 7.86,2945.36 - 7.93,2940.21 - 4.92,2940.09
+            gameRun.GetComponent<ImageFade>().ballCount -= 1;
             gasParticles += 1;
             float positionX = Random.Range(4.9f, 7.93f);
             float positionY = Random.Range(2940, 2945);
@@ -36,11 +38,7 @@ public class Piston : MonoBehaviour
             if (gasParticles >= maxGasParticles)
             {
                 pistonAnim.SetBool("compressNow", true);
-                //GameObject[] currentGasParticles = GameObject.FindGameObjectsWithTag("GasParticle");
-                //foreach (GameObject gas in currentGasParticles)
-                //{
-                    //Destroy(gas);
-                //}
+                gameRun.GetComponent<ImageFade>().gasCreatedBall += 1;
 
             }
         }
