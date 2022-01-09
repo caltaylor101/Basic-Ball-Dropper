@@ -5,9 +5,11 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
     public int cannonBullets;
+    public Animator cannonAnim;
     // Start is called before the first frame update
     void Start()
     {
+       Animator cannonAnim = gameObject.GetComponent<Animator>();
 
     }
 
@@ -23,6 +25,13 @@ public class Cannon : MonoBehaviour
         {
             cannonBullets += 1;
             Destroy(collision.gameObject);
+        }
+    }
+    public void ShootCannonball()
+    {
+        if (cannonBullets > 0)
+        {
+            cannonAnim.SetBool("shootCannonball", true);
         }
     }
 }

@@ -17131,7 +17131,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982019919}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7047634, w: -0.70944244}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7047642, w: 0.7094416}
   m_LocalPosition: {x: 4.74, y: 2921.3, z: 0}
   m_LocalScale: {x: 0.3349, y: 0.3349, z: 0.3349}
   m_Children: []
@@ -17174,6 +17174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBullets: 0
+  cannonAnim: {fileID: 0}
 --- !u!95 &1982019924
 Animator:
   serializedVersion: 3
