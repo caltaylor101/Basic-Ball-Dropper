@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cannon : MonoBehaviour
 {
+    public int cannonBullets;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,10 @@ public class Cannon : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "GasProduct")
-        // { }
+        if (collision.gameObject.tag == "GasProduct")
+        {
+            cannonBullets += 1;
+            Destroy(collision.gameObject);
+        }
     }
 }

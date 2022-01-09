@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class newBehavior : StateMachineBehaviour
+public class PistonBehavior : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -31,11 +31,16 @@ public class newBehavior : StateMachineBehaviour
             pistonScript.gasParticles -= 1;
             Destroy(gas);
         }
-        if (gameRun.GetComponent<ImageFade>().gasCreatedBall >= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction)
+        for (int i = gameRun.GetComponent<ImageFade>().gasCreatedBall; i >= 0; i-=1)
         {
-            gameRun.GetComponent<ImageFade>().gasCreatedBall -= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction;
-            gasBall.GetComponent<Piston>().instantiateGasBall();
+
+            if (gameRun.GetComponent<ImageFade>().gasCreatedBall >= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction)
+            {
+                gameRun.GetComponent<ImageFade>().gasCreatedBall -= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction;
+                gasBall.GetComponent<Piston>().instantiateGasBall();
+            }
         }
+
 
     }
 
