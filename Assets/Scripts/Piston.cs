@@ -13,6 +13,8 @@ public class Piston : MonoBehaviour
     public int gasCreatedBallProduction;
 
     public GameObject gasBall;
+    public GameObject newGasBall;
+
     void Start()
     {
         pistonAnim = gameObject.GetComponent<Animator>();
@@ -51,8 +53,8 @@ public class Piston : MonoBehaviour
 
     public void instantiateGasBall()
     {
-        Instantiate(gasBall, new Vector3(6.43f, 2934.889f, 1), Quaternion.identity);
-
+        GameObject newGasBall = Instantiate(gasBall, new Vector3(6.43f, 2934.889f, 1), Quaternion.identity);
+        newGasBall.tag = "GasProduct"; 
     }
 }
     
