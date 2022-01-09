@@ -31,16 +31,12 @@ public class PistonBehavior : StateMachineBehaviour
             pistonScript.gasParticles -= 1;
             Destroy(gas);
         }
-        for (int i = gameRun.GetComponent<ImageFade>().gasCreatedBall; i >= 0; i-=1)
-        {
 
-            if (gameRun.GetComponent<ImageFade>().gasCreatedBall >= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction)
+        while (gameRun.GetComponent<ImageFade>().gasCreatedBall >= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction)
             {
                 gameRun.GetComponent<ImageFade>().gasCreatedBall -= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction;
                 gasBall.GetComponent<Piston>().instantiateGasBall();
             }
-        }
-
 
     }
 
