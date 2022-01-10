@@ -59,11 +59,7 @@ public class ImageFade : MonoBehaviour
         }
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
-        //if (gameObject.GetComponent<ImageFade>().gasCreatedBall >= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction)
-        //{
-            //gameObject.GetComponent<ImageFade>().gasCreatedBall -= GameObject.Find("TubePiston1").GetComponent<Piston>().gasCreatedBallProduction;
-            //gasBall.GetComponent<Piston>().instantiateGasBall();
-        //}
+        
 
 
 
