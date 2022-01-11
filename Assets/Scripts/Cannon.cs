@@ -7,6 +7,7 @@ public class Cannon : MonoBehaviour
     public int cannonBullets;
     public Animator cannonAnim;
     public GameObject cannonball;
+    public bool pourWater;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +35,11 @@ public class Cannon : MonoBehaviour
     }
     public void ShootCannonballBool()
     {
-        if (cannonBullets > 0)
+        if (cannonBullets > 0 && pourWater == false)
         {
             cannonAnim.SetBool("shootCannonball", true);
         }
-        if (cannonBullets == 0)
+        if (cannonBullets == 0 || pourWater == true)
         {
             cannonAnim.SetBool("shootCannonball", false);
 

@@ -15,6 +15,7 @@ TagManager:
   - GasParticle
   - GasProduct
   - cannonTest
+  - WaterDrop
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,8 @@ public class WaterGlass : MonoBehaviour
     private Spawner spawn2;
     private Spawner spawn3;
 
+    public int dropVariable;
+
     void Start()
     {
         ballSpawnPoints = GameObject.Find("WaterSpawnPoints");
@@ -23,6 +25,7 @@ public class WaterGlass : MonoBehaviour
         spawnPoints.Add(spawn1);
         spawnPoints.Add(spawn2);
         spawnPoints.Add(spawn3);
+        
     }
 
     // Update is called once per frame
@@ -39,10 +42,12 @@ public class WaterGlass : MonoBehaviour
             ImageFade otherScript = GameObject.Find("GameRun").GetComponent<ImageFade>();
             otherScript.score = otherScript.score + (otherScript.scoreMultiplier * otherScript.scoreValue);
             cannonball = collision.gameObject;
+
             Die();
         }
 
     }
+
 
     public void HitReceived()
     {
@@ -52,13 +57,10 @@ public class WaterGlass : MonoBehaviour
     public void Die()
     {
         ballSpawnPoints.GetComponent<Transform>().position = new Vector3(cannonball.transform.position.x, cannonball.transform.position.y, 1);
-        Debug.Log(cannonball.GetComponent<Transform>().position);
         foreach (Spawner spawn in spawnPoints)
         {
             spawn.Spawn();
         }
-        Debug.Log(cannonball.GetComponent<Transform>().position);
-
         Destroy(cannonball);
     }
 }
