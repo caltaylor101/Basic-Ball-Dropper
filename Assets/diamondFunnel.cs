@@ -2,25 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crystal : MonoBehaviour
+public class diamondFunnel : MonoBehaviour
 {
-    public float crystalDamage;
-    public float maxCrystalDamage;
-    public float damagePower = 1;
-    public float damageMultiplier = 1;
+    public GameObject waterDrop;
 
-    private List<Spawner> spawnPoints;
     private GameObject waterDropSpawns;
+    private List<Spawner> spawnPoints;
 
     private Spawner spawn1;
     private Spawner spawn2;
     private Spawner spawn3;
-
-    public GameObject waterDrop;
-
-    public bool spawnSand = false;
-    public int spawnSandCount;
-   public GameObject crystalSand;
 
     // Start is called before the first frame update
     void Start()
@@ -38,31 +29,17 @@ public class Crystal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (crystalDamage >= (maxCrystalDamage / 2) && spawnSandCount < 1)
-        {
-            spawnSand = true;
-            spawnSandCount += 1;
-        }
-        if (crystalDamage >= (maxCrystalDamage-5) && spawnSandCount == 1)
-        {
-            spawnSand = true;
-            spawnSandCount += 1;
-        }
-        if (crystalDamage < 50)
-        {
-            spawnSandCount = 0;
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "WaterDrop")
         {
-            crystalDamage += (damageMultiplier * damagePower);
             waterDrop = collision.gameObject;
             Die();
         }
-        
+
 
     }
 
@@ -73,18 +50,7 @@ public class Crystal : MonoBehaviour
         {
             spawn.Spawn();
         }
-        if (spawnSand)
-        {
-         GameObject crystalSandFab = Instantiate(crystalSand, new Vector3(waterDrop.transform.position.x, waterDrop.transform.position.y, -1), Quaternion.identity);
-
-        }
-        if (crystalDamage >= maxCrystalDamage)
-        {
-            gameObject.GetComponent<Transform>().localScale -= new Vector3(.01f, .01f, .01f);
-
-            crystalDamage = 0;
-        }
+       
         Destroy(waterDrop);
-        spawnSand = false;
     }
 }

@@ -24,8 +24,14 @@ public class WaterGlass : MonoBehaviour
         spawnPoints = new List<Spawner>();
         spawnPoints.Add(spawn1);
         spawnPoints.Add(spawn2);
-        spawnPoints.Add(spawn3);
-        
+        spawnPoints.Add(spawn2);
+        spawnPoints.Add(spawn2);
+        spawnPoints.Add(spawn2);
+        spawnPoints.Add(spawn2);
+        spawnPoints.Add(spawn2);
+        spawnPoints.Add(spawn2);
+
+
     }
 
     // Update is called once per frame
