@@ -20,6 +20,7 @@ public class ImageFade : MonoBehaviour
     public int score;
     public int scoreMultiplier;
     public int scoreValue;
+    public long totalScore;
 
     //Level 2 hourglass animation
     public GameObject hourGlass;
@@ -31,9 +32,12 @@ public class ImageFade : MonoBehaviour
     public bool autoBallSpawn = true;
     public Vector3 spawnPosition;
     public float spawnTime = 10f;
+    public int maxIdleBalls = 5;
+    public int idleBallCount = 0;
 
 
-    
+
+
 
 
     void Start()
@@ -66,7 +70,7 @@ public class ImageFade : MonoBehaviour
     }
     private void AutoBallSpawn()
     {
-        if (maxBalls > ballCount && autoBallSpawn == true)
+        if (maxIdleBalls > ballCount && autoBallSpawn == true)
         {
             ballCount++;
             GameObject theBall = Instantiate(autoBall, new Vector3(spawnPosition.x, spawnPosition.y, 1), Quaternion.identity);

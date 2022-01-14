@@ -20,6 +20,9 @@ public class UpgradeBall : MonoBehaviour
 
     // max ball variables
     public int upgradeMaxBallsCost = 10;
+    public int upgradeMaxIdleBallsCost = 10;
+    public GameObject maxIdleBallsButton;
+
 
 
 
@@ -40,11 +43,17 @@ public class UpgradeBall : MonoBehaviour
 
     public void UnlockIdleBall()
     {
-        upgradeIdleButton.SetActive(true);
-        idleBallSpawnSpot.SetActive(true);
-        gameRun.GetComponent<ImageFade>().autoBallSpawn = true;
-        gameObject.SetActive(false);
-        Destroy(gameObject);
+        if (gameRun.GetComponent<ImageFade>().score >= upgradeIdleBallCost)
+        {
+            gameRun.GetComponent<ImageFade>().score -= upgradeIdleBallCost;
+            upgradeIdleButton.SetActive(true);
+            idleBallSpawnSpot.SetActive(true);
+            maxIdleBallsButton.SetActive(true);
+            gameRun.GetComponent<ImageFade>().autoBallSpawn = true;
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+
     }
 
     public void UpgradeIdleBall()
@@ -62,8 +71,24 @@ public class UpgradeBall : MonoBehaviour
         if (gameRun.GetComponent<ImageFade>().score >= upgradeMaxBallsCost)
         {
             gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeMaxBallsCost;
-            upgradeMaxBallsCost = (int)Math.Ceiling((float)upgradeMaxBallsCost * 1.33f);
+            if (upgradeMaxBallsCost <= 250 && gameRun.GetComponent<ImageFade>().maxBalls <= 100)
+            {
+                upgradeMaxBallsCost = (int)Math.Ceiling((float)upgradeMaxBallsCost * 1.1f);
+            }
             gameRun.GetComponent<ImageFade>().maxBalls += 1;
+        }
+    }
+
+    public void PlusIdleBall()
+    {
+        if (gameRun.GetComponent<ImageFade>().score >= upgradeMaxIdleBallsCost)
+        {
+            gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeMaxIdleBallsCost;
+            if (upgradeMaxIdleBallsCost <= 250 && gameRun.GetComponent<ImageFade>().maxIdleBalls <= 100)
+            {
+                upgradeMaxIdleBallsCost = (int)Math.Ceiling((float)upgradeMaxIdleBallsCost * 1.1f);
+            }
+            gameRun.GetComponent<ImageFade>().maxIdleBalls += 1;
         }
     }
 

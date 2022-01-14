@@ -76,6 +76,7 @@ public class Damager : MonoBehaviour
             ImageFade otherScript = GameObject.Find("GameRun").GetComponent<ImageFade>();
             otherScript.ballCount--;
             otherScript.score = otherScript.score + (otherScript.scoreMultiplier * otherScript.scoreValue);
+            otherScript.totalScore = otherScript.totalScore + (otherScript.scoreMultiplier * otherScript.scoreValue);
             DestroyBall();
         }
     }

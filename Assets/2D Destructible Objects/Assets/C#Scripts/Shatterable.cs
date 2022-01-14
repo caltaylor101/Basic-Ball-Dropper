@@ -9,6 +9,8 @@ public class Shatterable : MonoBehaviour, IHittable
     public float maxDamage = 1;
     public float damagePower;
     public float damageMultiplier;
+    public int destructionScore;
+    public GameObject gameRun;
 
     private SpriteRenderer render;
     //public GameObject gameRun;
@@ -79,6 +81,7 @@ public class Shatterable : MonoBehaviour, IHittable
             spawn.Spawn();
         }
 
+        gameRun.GetComponent<ImageFade>().score += (destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
         Destroy(gameObject);
     }
 }

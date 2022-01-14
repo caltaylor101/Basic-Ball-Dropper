@@ -9,6 +9,7 @@ public class UIVariables : MonoBehaviour
     [SerializeField] private GameObject gameRun;
     private int score;
     private string scoreUI;
+    private long totalScore;
     
     void Start()
     {
@@ -22,6 +23,10 @@ public class UIVariables : MonoBehaviour
     void Update()
     {
         score = gameRun.GetComponent<ImageFade>().score;
+        totalScore = gameRun.GetComponent<ImageFade>().totalScore;
         gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
+        gameObject.GetComponent<TextMeshProUGUI>().text = totalScore.ToString();
+        gameObject.GetComponent<TextMeshProUGUI>().text = totalScore.ToString();
+
     }
 }
