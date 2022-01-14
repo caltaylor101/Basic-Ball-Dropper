@@ -154,6 +154,8 @@ public class ImageFade : MonoBehaviour
                     yield return null;
                 }
                 theBall.AddComponent(typeof(Rigidbody2D));
+
+
                 theBall.tag = "Damage";
 
             }
@@ -175,6 +177,7 @@ public class ImageFade : MonoBehaviour
             if (imageRenderer)
             { 
             theBall.AddComponent(typeof(Rigidbody2D));
+
             }
         }
         // fade from transparent to opaque
