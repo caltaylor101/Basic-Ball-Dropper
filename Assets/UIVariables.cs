@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,19 +15,25 @@ public class UIVariables : MonoBehaviour
     void Start()
     {
         score = gameRun.GetComponent<ImageFade>().score;
-        Debug.Log(score);
-        Debug.Log(gameRun.GetComponent<ImageFade>().score);
-        gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString(); 
+        gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        gameRun.GetComponent<ImageFade>().prestigeBonus = Math.Round(gameRun.GetComponent<ImageFade>().totalScore * .0006f, 2);
+
         score = gameRun.GetComponent<ImageFade>().score;
         totalScore = gameRun.GetComponent<ImageFade>().totalScore;
-        gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
-        gameObject.GetComponent<TextMeshProUGUI>().text = totalScore.ToString();
-        gameObject.GetComponent<TextMeshProUGUI>().text = totalScore.ToString();
+        if (gameObject.name == "PrestigeValue")
+        {
+            gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
+        }
+        else if (gameObject.name == "BonusValue")
+        {
+            gameObject.GetComponent<TextMeshProUGUI>().text = gameRun.GetComponent<ImageFade>().prestigeBonus.ToString();
+        }
 
     }
 }

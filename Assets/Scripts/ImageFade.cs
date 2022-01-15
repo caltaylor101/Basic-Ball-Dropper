@@ -18,9 +18,11 @@ public class ImageFade : MonoBehaviour
 
     //Score Counter
     public int score;
-    public int scoreMultiplier;
+    public double scoreMultiplier;
     public int scoreValue;
     public long totalScore;
+    public long previousTotalScore;
+    public double prestigeBonus;
 
     //Level 2 hourglass animation
     public GameObject hourGlass;
@@ -62,6 +64,8 @@ public class ImageFade : MonoBehaviour
         }
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
+
+
 
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,8 @@ public class Damager : MonoBehaviour
 
 
     //Reworking Damage to boxes. 
-    public float damagePower = 1;
-    public float damageMultiplier = 1;
+    public double damagePower = 1;
+    public double damageMultiplier = 1;
 
     void Start()
     {
@@ -75,8 +76,8 @@ public class Damager : MonoBehaviour
 
             ImageFade otherScript = GameObject.Find("GameRun").GetComponent<ImageFade>();
             otherScript.ballCount--;
-            otherScript.score = otherScript.score + (otherScript.scoreMultiplier * otherScript.scoreValue);
-            otherScript.totalScore = otherScript.totalScore + (otherScript.scoreMultiplier * otherScript.scoreValue);
+            otherScript.score = otherScript.score + (int)Math.Ceiling(otherScript.scoreMultiplier * otherScript.scoreValue);
+            otherScript.totalScore = otherScript.totalScore + (int)Math.Ceiling(otherScript.scoreMultiplier * otherScript.scoreValue);
             DestroyBall();
         }
     }

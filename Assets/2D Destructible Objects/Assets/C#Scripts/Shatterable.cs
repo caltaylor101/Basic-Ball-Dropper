@@ -1,20 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shatterable : MonoBehaviour, IHittable
 {
     public List<Spawner> spawnPoints;
-    public float damage = 0;
-    public float maxDamage = 1;
-    public float damagePower;
-    public float damageMultiplier;
+    public double damage = 0;
+    public double maxDamage = 1;
+    public double damagePower;
+    public double damageMultiplier;
     public int destructionScore;
     public GameObject gameRun;
 
     private SpriteRenderer render;
-    //public GameObject gameRun;
-   // private ImageFade imageFade;
 
     BoxCollider2D objectCollider;
     Color32 brown = new Color32(116, 77, 40, 250);
@@ -23,9 +22,6 @@ public class Shatterable : MonoBehaviour, IHittable
     {
         render = GetComponent<SpriteRenderer>();
         objectCollider = GetComponent<BoxCollider2D>();
-       // imageFade = gameRun.GetComponent<ImageFade>();
-
-
     }
 
     void Update()
@@ -81,7 +77,8 @@ public class Shatterable : MonoBehaviour, IHittable
             spawn.Spawn();
         }
 
-        gameRun.GetComponent<ImageFade>().score += (destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
+        gameRun.GetComponent<ImageFade>().score += (int)Math.Ceiling(destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
+        gameRun.GetComponent<ImageFade>().totalScore += (int)Math.Ceiling(destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
         Destroy(gameObject);
     }
 }
