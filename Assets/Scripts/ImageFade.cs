@@ -41,7 +41,12 @@ public class ImageFade : MonoBehaviour
 
 
 
-
+    private void Awake()
+    {
+        double levelData = Prestige.GetDifferentiatingVariable();
+        scoreMultiplier = levelData;
+        // do here what you need to differentiate the level
+    }
     void Start()
     {
         startHourglass = hourGlass.GetComponent<Transform>().position;
@@ -64,14 +69,11 @@ public class ImageFade : MonoBehaviour
         }
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
-
-
-
-
-
-
-
     }
+
+   
+
+
     private void AutoBallSpawn()
     {
         if (maxIdleBalls > ballCount && autoBallSpawn == true)

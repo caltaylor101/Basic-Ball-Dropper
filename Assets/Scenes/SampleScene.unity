@@ -4244,6 +4244,7 @@ MonoBehaviour:
   prestigeVerification: {fileID: 1049899975}
   gameRun: {fileID: 0}
   damager: {fileID: 0}
+  damager2: {fileID: 0}
 --- !u!114 &555103477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7755,7 +7756,7 @@ MonoBehaviour:
   ball: {fileID: 2365515152847962670, guid: 98736df5084c9ab41913f2f768f80e0d, type: 3}
   maxBalls: 10
   ballCount: 0
-  ballSpawnArea: 3036
+  ballSpawnArea: 303
   score: 0
   scoreMultiplier: 1
   scoreValue: 1
@@ -15474,7 +15475,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prestigeVerification: {fileID: 1049899975}
   gameRun: {fileID: 862655763}
-  damager: {fileID: 0}
+  damager: {fileID: 2365515152847962670, guid: 98736df5084c9ab41913f2f768f80e0d, type: 3}
+  damager2: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
+    type: 3}
 --- !u!114 &1645116418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17388,9 +17391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee24bd9765bbf740bd1366d599af336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prestigeVerification: {fileID: 733985387}
-  gameRun: {fileID: 0}
-  damager: {fileID: 0}
+  prestigeVerification: {fileID: 1049899975}
+  gameRun: {fileID: 862655763}
+  damager: {fileID: 2365515152847962670, guid: 98736df5084c9ab41913f2f768f80e0d, type: 3}
+  damager2: {fileID: 0}
 --- !u!114 &1876593853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18705,7 +18709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2088097453
 MonoBehaviour:
   m_ObjectHideFlags: 0
