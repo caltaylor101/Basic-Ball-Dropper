@@ -58,7 +58,7 @@ public class ImageFade : MonoBehaviour
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
         InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
 
-        //InvokeRepeating("SaveGame", 5f, 5f);
+        InvokeRepeating("SaveGame", 5f, 5f);
     }
     void Update()
     {
@@ -81,23 +81,8 @@ public class ImageFade : MonoBehaviour
 
     }
 
-    private void SaveGame()
+    void OnApplicationQuit()
     {
-        Debug.Log("GameSaved");
-        so.maxBalls = maxBalls;
-        so.ballCount = ballCount;
-        so.score = score;
-        so.scoreMultiplier = scoreMultiplier;
-        so.scoreValue = scoreValue;
-        so.totalScore = totalScore;
-        so.previousTotalScore = previousTotalScore;
-        so.prestigeBonus = prestigeBonus;
-        so.autoBallSpawn = autoBallSpawn;
-        so.maxIdleBalls = maxIdleBalls;
-        so.idleBallCount = idleBallCount;
-
-        SaveManager.Save(so);
-
         GameObject[] prefabList = GameObject.FindGameObjectsWithTag("Damage");
         List<SavePrefab> savePrefabList = new List<SavePrefab>();
         foreach (GameObject prefab in prefabList)
@@ -114,7 +99,23 @@ public class ImageFade : MonoBehaviour
         SavePrefabs savePrefabs = new SavePrefabs();
         savePrefabs.prefabList = savePrefabList;
         SaveManager.SavePrefabs(savePrefabs);
+    }
 
+    private void SaveGame()
+    {
+        Debug.Log("GameSaved");
+        so.maxBalls = maxBalls;
+        so.ballCount = ballCount;
+        so.score = score;
+        so.scoreMultiplier = scoreMultiplier;
+        so.scoreValue = scoreValue;
+        so.totalScore = totalScore;
+        so.previousTotalScore = previousTotalScore;
+        so.prestigeBonus = prestigeBonus;
+        so.autoBallSpawn = autoBallSpawn;
+        so.maxIdleBalls = maxIdleBalls;
+        so.idleBallCount = idleBallCount;
+        SaveManager.Save(so);
     }
 
     private void LoadGame()
@@ -148,17 +149,26 @@ public class ImageFade : MonoBehaviour
 
         SavePrefabs sp = new SavePrefabs();
         sp = SaveManager.LoadPrefabs();
-        Debug.Log("Tried Loading");
         if (sp.prefabList != null)
         {
+            ballCount = 0;
             foreach (SavePrefab prefab in sp.prefabList)
             {
-                Debug.Log("load prefabs");
-
-                Instantiate(ball, new Vector3(prefab.positionX, prefab.positionY, prefab.positionZ), Quaternion.identity);
-                ball.AddComponent<Rigidbody2D>();
+                GameObject loadedBall = Instantiate(ball, new Vector3(prefab.positionX, prefab.positionY, prefab.positionZ), Quaternion.identity);
+                loadedBall.AddComponent<Rigidbody2D>();
+                ballCount += 1;
             }
         }
+
+        HittableObjectList objectList = new HittableObjectList();
+        objectList = SaveManager.LoadHittableObjects();
+        foreach (string name in objectList.nameList)
+        {
+            GameObject deleteObject = GameObject.Find(name);
+            Destroy(deleteObject);
+        }
+
+
     }
 
 

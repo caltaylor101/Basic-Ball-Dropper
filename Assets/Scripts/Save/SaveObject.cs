@@ -55,4 +55,15 @@ public class SavePrefab
     public double damageMultiplier;
 
 }
+[System.Serializable]
+
+public class HittableObject
+{
+    public string name;
+}
+
+public class HittableObjectList
+{
+    public List<string> nameList;
+}
 

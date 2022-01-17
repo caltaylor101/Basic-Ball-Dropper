@@ -749,7 +749,7 @@ PrefabInstance:
     - target: {fileID: 2869793964687302333, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: m_Name
-      value: Box (4)
+      value: Level2Box4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df2b579df1e4754bb3d8c8b5015ae88, type: 3}
@@ -2110,7 +2110,7 @@ PrefabInstance:
     - target: {fileID: 2869793964687302333, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: m_Name
-      value: Box
+      value: Level2Box
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df2b579df1e4754bb3d8c8b5015ae88, type: 3}
@@ -2333,7 +2333,8 @@ MonoBehaviour:
   clickBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
     type: 3}
   idleBallSpawnSpot: {fileID: 1052605258}
-  upgradeIdleButton: {fileID: 0}
+  upgradeIdleButton: {fileID: 346704958}
+  unlockIdleButton: {fileID: 1887406897}
   autoBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
     type: 3}
   upgradeIdleBallCost: 10
@@ -5066,6 +5067,7 @@ MonoBehaviour:
   clickBall: {fileID: 0}
   idleBallSpawnSpot: {fileID: 0}
   upgradeIdleButton: {fileID: 0}
+  unlockIdleButton: {fileID: 0}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
   upgradeMaxBallsCost: 10
@@ -5969,7 +5971,7 @@ PrefabInstance:
     - target: {fileID: 2869793964687302333, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: m_Name
-      value: Box (2)
+      value: Level2Box2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df2b579df1e4754bb3d8c8b5015ae88, type: 3}
@@ -8049,7 +8051,7 @@ PrefabInstance:
     - target: {fileID: 2869793964687302333, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: m_Name
-      value: Box (3)
+      value: Level2Box3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df2b579df1e4754bb3d8c8b5015ae88, type: 3}
@@ -9505,7 +9507,7 @@ PrefabInstance:
     - target: {fileID: 2869793964687302333, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: m_Name
-      value: Box (1)
+      value: Level2Box1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df2b579df1e4754bb3d8c8b5015ae88, type: 3}
@@ -14737,6 +14739,7 @@ MonoBehaviour:
   clickBall: {fileID: 0}
   idleBallSpawnSpot: {fileID: 0}
   upgradeIdleButton: {fileID: 0}
+  unlockIdleButton: {fileID: 0}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
   upgradeMaxBallsCost: 10
@@ -16735,7 +16738,8 @@ MonoBehaviour:
   clickBall: {fileID: 2365515152847962670, guid: 98736df5084c9ab41913f2f768f80e0d,
     type: 3}
   idleBallSpawnSpot: {fileID: 0}
-  upgradeIdleButton: {fileID: 0}
+  upgradeIdleButton: {fileID: 346704958}
+  unlockIdleButton: {fileID: 1887406897}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
   upgradeMaxBallsCost: 10
@@ -17559,6 +17563,7 @@ MonoBehaviour:
     type: 3}
   idleBallSpawnSpot: {fileID: 1052605258}
   upgradeIdleButton: {fileID: 346704958}
+  unlockIdleButton: {fileID: 1887406897}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
   upgradeMaxBallsCost: 10

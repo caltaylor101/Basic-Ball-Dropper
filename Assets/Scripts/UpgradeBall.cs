@@ -15,6 +15,7 @@ public class UpgradeBall : MonoBehaviour
     //Idle Variables
     public GameObject idleBallSpawnSpot;
     public GameObject upgradeIdleButton;
+    public GameObject unlockIdleButton;
     public GameObject autoBall;
     public int upgradeIdleBallCost = 10;
 
@@ -26,7 +27,14 @@ public class UpgradeBall : MonoBehaviour
 
 
 
-
+    private void Awake()
+    {
+        if (gameRun.GetComponent<ImageFade>().autoBallSpawn)
+        {
+            upgradeIdleButton.SetActive(true);
+            unlockIdleButton.SetActive(false);
+        }
+    }
 
     public void UpgradeBallDamage()
     {

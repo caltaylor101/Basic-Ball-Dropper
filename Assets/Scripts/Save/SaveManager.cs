@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public static class SaveManager
@@ -11,6 +12,7 @@ public static class SaveManager
     public static string fileName2 = "MyData2.obb";
     public static string fileName3 = "MyData3.obb";
     public static string fileName4 = "MyData4.obb";
+    public static string fileName5 = "MyData5.obb";
 
     public static void Save(SaveObject so)
     {
@@ -77,6 +79,37 @@ public static class SaveManager
 
         File.WriteAllText(dir + fileName4, listToJson);
     }
+
+    public static void SaveHittableObjects(HittableObject so)
+    {
+        string dir = Application.persistentDataPath + directory;
+
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+
+        if (File.Exists(dir + fileName5))
+        {
+            string json = File.ReadAllText(dir + fileName5);
+            string[] _tempNameList = JsonHelper.FromJson<string>(json);
+            List<string> _editNameList = _tempNameList.OfType<string>().ToList();
+            _editNameList.Add(so.name);
+            string[] newArrayToSave = _editNameList.ToArray();
+            string newJsonToSave = JsonHelper.ToJson<string>(newArrayToSave);
+            File.WriteAllText(dir + fileName5, newJsonToSave);
+        }
+        else
+        {
+            List<string> nameList = new List<string>();
+            nameList.Add(so.name);
+            string[] arrayToSave = nameList.ToArray();
+            string jsonToSave = JsonHelper.ToJson<string>(arrayToSave);
+            File.WriteAllText(dir + fileName5, jsonToSave);
+        }
+
+    }
+
 
 
 
@@ -145,7 +178,7 @@ public static class SaveManager
             SavePrefab[] newList = JsonHelper.FromJson<SavePrefab>(json);
             List<SavePrefab> prefabList = new List<SavePrefab>();
             
-            for (int i = 0; i < newList.Length; i++)
+            for (int i = 0; i < newList.Length -1; i++)
             {
                 SavePrefab newPrefab = new SavePrefab();
                 newPrefab.positionX = newList[i].positionX;
@@ -163,6 +196,27 @@ public static class SaveManager
             Debug.Log("Save file for prefabs doesn't exist");
         }
         return sp;
+
+    }
+
+    public static HittableObjectList LoadHittableObjects()
+    {
+        string fullPath5 = Application.persistentDataPath + directory + fileName5;
+        HittableObjectList returnObject = new HittableObjectList();
+        if (File.Exists(fullPath5))
+        {
+            string json = File.ReadAllText(fullPath5);
+            string[] newArray = JsonHelper.FromJson<string>(json);
+            List<string> nameList = new List<string>();
+            nameList = newArray.OfType<string>().ToList();
+
+            returnObject.nameList = nameList;
+        }
+        else
+        {
+            Debug.Log("Save file for prefabs doesn't exist");
+        }
+        return returnObject;
 
     }
 
