@@ -142,8 +142,21 @@ public static class SaveManager
         if (File.Exists(fullPath4))
         {
             string json = File.ReadAllText(fullPath4);
-            sp = JsonUtility.FromJson<SavePrefabs>(json);
+            SavePrefab[] newList = JsonHelper.FromJson<SavePrefab>(json);
+            List<SavePrefab> prefabList = new List<SavePrefab>();
+            
+            for (int i = 0; i < newList.Length; i++)
+            {
+                SavePrefab newPrefab = new SavePrefab();
+                newPrefab.positionX = newList[i].positionX;
+                newPrefab.positionY = newList[i].positionY;
+                newPrefab.positionZ = newList[i].positionZ;
+                newPrefab.damagePower = newList[i].damagePower;
+                newPrefab.damageMultiplier = newList[i].damageMultiplier;
+                prefabList.Add(newPrefab);
+            }
 
+            sp.prefabList = prefabList;
         }
         else
         {

@@ -58,7 +58,7 @@ public class ImageFade : MonoBehaviour
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
         InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
 
-        InvokeRepeating("SaveGame", 5f, 5f);
+        //InvokeRepeating("SaveGame", 5f, 5f);
     }
     void Update()
     {
@@ -156,6 +156,7 @@ public class ImageFade : MonoBehaviour
                 Debug.Log("load prefabs");
 
                 Instantiate(ball, new Vector3(prefab.positionX, prefab.positionY, prefab.positionZ), Quaternion.identity);
+                ball.AddComponent<Rigidbody2D>();
             }
         }
     }
