@@ -38,13 +38,17 @@ public class ImageFade : MonoBehaviour
     public int idleBallCount = 0;
 
 
-
+    // save testing
+    public SaveObject so;
 
 
     private void Awake()
     {
+
         double levelData = Prestige.GetDifferentiatingVariable();
         scoreMultiplier = levelData;
+        SaveGame();
+        LoadGame();
         // do here what you need to differentiate the level
     }
     void Start()
@@ -54,6 +58,8 @@ public class ImageFade : MonoBehaviour
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
         InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
+
+        InvokeRepeating("SaveGame", 30f, 30f);
     }
     void Update()
     {
@@ -69,9 +75,47 @@ public class ImageFade : MonoBehaviour
         }
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
+
+
+       
+
+
     }
 
-   
+    private void SaveGame()
+    {
+        Debug.Log("GameSaved");
+        so.maxBalls = maxBalls;
+        so.ballCount = ballCount;
+        so.score = score;
+        so.scoreMultiplier = scoreMultiplier;
+        so.scoreValue = scoreValue;
+        so.totalScore = totalScore;
+        so.previousTotalScore = previousTotalScore;
+        so.prestigeBonus = prestigeBonus;
+        so.autoBallSpawn = autoBallSpawn;
+        so.maxIdleBalls = maxIdleBalls;
+        so.idleBallCount = idleBallCount;
+
+        SaveManager.Save(so);
+    }
+
+    private void LoadGame()
+    {
+        Debug.Log("GameLoaded");
+        so = SaveManager.Load();
+        maxBalls = so.maxBalls;
+        ballCount = so.ballCount;
+        score = so.score;
+        scoreMultiplier = so.scoreMultiplier;
+        scoreValue = so.scoreValue;
+        totalScore = so.totalScore;
+        previousTotalScore = so.previousTotalScore;
+        prestigeBonus = so.prestigeBonus;
+        autoBallSpawn = so.autoBallSpawn;
+        maxIdleBalls = so.maxIdleBalls;
+        idleBallCount = so.idleBallCount;
+    }
 
 
     private void AutoBallSpawn()
