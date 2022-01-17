@@ -12,7 +12,40 @@ public class Prestige : MonoBehaviour
     [SerializeField] GameObject damager;
     [SerializeField] GameObject damager2;
     private static double newScoreBonus;
-    public static double GetDifferentiatingVariable() { return newScoreBonus; }
+    private static double prestigeBonus;
+    private static double prestigeBonus2;
+    private static bool autoBallExists;
+    public static void GetDifferentiatingVariable() 
+    {
+        SaveObject so = new SaveObject();
+        so.maxBalls = 10;
+        so.ballCount = 0;
+        so.score = 0;
+        so.scoreMultiplier = newScoreBonus;
+        so.scoreValue = 1;
+        so.totalScore = 0;
+        so.previousTotalScore = GameObject.Find("GameRun").GetComponent<ImageFade>().totalScore + GameObject.Find("GameRun").GetComponent<ImageFade>().totalScore;
+        so.prestigeBonus = 0;
+        so.autoBallSpawn = false;
+        so.maxIdleBalls = 5;
+        so.idleBallCount = 0;
+        if (so.scoreMultiplier == 0)
+        {
+            so.scoreMultiplier = 1;
+        }
+        SaveManager.Save(so);
+
+        SaveClickBall saveDamager = new SaveClickBall();
+        saveDamager.prestigeBonus = prestigeBonus;
+        SaveManager.SaveClickBall(saveDamager);
+        
+        SaveAutoBall saveDamager2 = new SaveAutoBall();
+        saveDamager2.prestigeBonus = prestigeBonus2;
+        SaveManager.SaveAutoBall(saveDamager);
+
+
+
+    }
 
     void Start()
     {
@@ -39,6 +72,11 @@ public class Prestige : MonoBehaviour
         damager2.GetComponent<Damager>().damageMultiplier += script.prestigeBonus;
         damager2.GetComponent<Damager>().damageMultiplier = Math.Round(damager2.GetComponent<Damager>().damageMultiplier, 2);
         newScoreBonus = Math.Round((gameRun.GetComponent<ImageFade>().scoreMultiplier + script.prestigeBonus), 2);
+        prestigeBonus = script.prestigeBonus + damager.GetComponent<Damager>().prestigeBonus;
+
+        prestigeBonus2 = script.prestigeBonus + damager2.GetComponent<Damager>().prestigeBonus;
+
+        GetDifferentiatingVariable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
        
 

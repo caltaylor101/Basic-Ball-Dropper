@@ -31,7 +31,7 @@ public class ImageFade : MonoBehaviour
     // AutoBallSpawner
     public GameObject autoBallSpawnPoint;
     public GameObject autoBall;
-    public bool autoBallSpawn = true;
+    public bool autoBallSpawn = false;
     public Vector3 spawnPosition;
     public float spawnTime = 10f;
     public int maxIdleBalls = 5;
@@ -45,10 +45,9 @@ public class ImageFade : MonoBehaviour
     private void Awake()
     {
 
-        double levelData = Prestige.GetDifferentiatingVariable();
-        scoreMultiplier = levelData;
-        SaveGame();
+        
         LoadGame();
+       
         // do here what you need to differentiate the level
     }
     void Start()
@@ -98,11 +97,15 @@ public class ImageFade : MonoBehaviour
         so.idleBallCount = idleBallCount;
 
         SaveManager.Save(so);
+
+        GameObject[] prefabList = GameObject.FindGameObjectsWithTag("Damager");
+
     }
 
     private void LoadGame()
     {
         Debug.Log("GameLoaded");
+        SaveObject so = new SaveObject();
         so = SaveManager.Load();
         maxBalls = so.maxBalls;
         ballCount = so.ballCount;
@@ -115,6 +118,18 @@ public class ImageFade : MonoBehaviour
         autoBallSpawn = so.autoBallSpawn;
         maxIdleBalls = so.maxIdleBalls;
         idleBallCount = so.idleBallCount;
+
+        SaveClickBall cb = new SaveClickBall();
+        cb = SaveManager.LoadClickBall();
+        ball.GetComponent<Damager>().damagePower = cb.damagePower;
+        ball.GetComponent<Damager>().damageMultiplier = System.Math.Round(cb.damageMultiplier + cb.prestigeBonus, 2);
+
+
+        SaveAutoBall ab = new SaveAutoBall();
+        ab = SaveManager.LoadAutoball();
+        autoBall.GetComponent<Damager>().damagePower = ab.damagePower;
+        autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier + ab.prestigeBonus, 2);
+
     }
 
 

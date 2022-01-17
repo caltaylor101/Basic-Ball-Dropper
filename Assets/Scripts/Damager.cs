@@ -22,6 +22,7 @@ public class Damager : MonoBehaviour
     //Reworking Damage to boxes. 
     public double damagePower = 1;
     public double damageMultiplier = 1;
+    public double prestigeBonus;
 
     void Start()
     {

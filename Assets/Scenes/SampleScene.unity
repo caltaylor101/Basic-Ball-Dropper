@@ -7756,7 +7756,7 @@ MonoBehaviour:
   ball: {fileID: 2365515152847962670, guid: 98736df5084c9ab41913f2f768f80e0d, type: 3}
   maxBalls: 10
   ballCount: 0
-  ballSpawnArea: 303
+  ballSpawnArea: 3030
   score: 0
   scoreMultiplier: 1
   scoreValue: 1
@@ -7773,6 +7773,18 @@ MonoBehaviour:
   spawnTime: 1
   maxIdleBalls: 5
   idleBallCount: 0
+  so:
+    maxBalls: 0
+    ballCount: 0
+    score: 0
+    scoreMultiplier: 0
+    scoreValue: 0
+    totalScore: 0
+    previousTotalScore: 0
+    prestigeBonus: 0
+    autoBallSpawn: 0
+    maxIdleBalls: 0
+    idleBallCount: 0
 --- !u!4 &862655765
 Transform:
   m_ObjectHideFlags: 0

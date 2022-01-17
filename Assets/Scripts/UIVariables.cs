@@ -28,7 +28,7 @@ public class UIVariables : MonoBehaviour
         totalScore = gameRun.GetComponent<ImageFade>().totalScore;
         if (gameObject.name == "PrestigeValue")
         {
-            gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
+            gameObject.GetComponent<TextMeshProUGUI>().text = totalScore.ToString();
         }
         else if (gameObject.name == "BonusValue")
         {
