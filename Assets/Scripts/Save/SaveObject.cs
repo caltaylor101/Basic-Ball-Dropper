@@ -30,6 +30,7 @@ public class SaveClickBall
     public double prestigeBonus;
 
 }
+[System.Serializable]
 
 public class SaveAutoBall
 {
@@ -37,9 +38,21 @@ public class SaveAutoBall
     public double damageMultiplier = 1;
     public double prestigeBonus;
 }
+[System.Serializable]
 
 public class SavePrefabs
 {
-    GameObject[] saveBalls;
+    public List<SavePrefab> prefabList;
+}
+[System.Serializable]
+
+public class SavePrefab
+{
+    public float positionX;
+    public float positionY;
+    public float positionZ;
+    public double damagePower;
+    public double damageMultiplier;
+
 }
 

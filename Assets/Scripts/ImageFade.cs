@@ -58,7 +58,7 @@ public class ImageFade : MonoBehaviour
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
         InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
 
-        InvokeRepeating("SaveGame", 30f, 30f);
+        InvokeRepeating("SaveGame", 5f, 5f);
     }
     void Update()
     {
@@ -98,7 +98,22 @@ public class ImageFade : MonoBehaviour
 
         SaveManager.Save(so);
 
-        GameObject[] prefabList = GameObject.FindGameObjectsWithTag("Damager");
+        GameObject[] prefabList = GameObject.FindGameObjectsWithTag("Damage");
+        List<SavePrefab> savePrefabList = new List<SavePrefab>();
+        foreach (GameObject prefab in prefabList)
+        {
+            SavePrefab sf = new SavePrefab();
+            sf.positionX = prefab.GetComponent<Transform>().position.x;
+            sf.positionY = prefab.GetComponent<Transform>().position.y;
+            sf.positionZ = prefab.GetComponent<Transform>().position.z;
+            sf.damagePower = prefab.GetComponent<Damager>().damagePower;
+            sf.damageMultiplier = prefab.GetComponent<Damager>().damageMultiplier;
+
+            savePrefabList.Add(sf);
+        }
+        SavePrefabs savePrefabs = new SavePrefabs();
+        savePrefabs.prefabList = savePrefabList;
+        SaveManager.SavePrefabs(savePrefabs);
 
     }
 
@@ -130,6 +145,19 @@ public class ImageFade : MonoBehaviour
         autoBall.GetComponent<Damager>().damagePower = ab.damagePower;
         autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier + ab.prestigeBonus, 2);
 
+
+        SavePrefabs sp = new SavePrefabs();
+        sp = SaveManager.LoadPrefabs();
+        Debug.Log("Tried Loading");
+        if (sp.prefabList != null)
+        {
+            foreach (SavePrefab prefab in sp.prefabList)
+            {
+                Debug.Log("load prefabs");
+
+                Instantiate(ball, new Vector3(prefab.positionX, prefab.positionY, prefab.positionZ), Quaternion.identity);
+            }
+        }
     }
 
 
