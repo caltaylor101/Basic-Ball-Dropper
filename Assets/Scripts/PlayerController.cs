@@ -97,8 +97,9 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         transform.position = new Vector3(transform.position.x, (transform.position.y + verticalInput), -10);
 
+
         // Handle screen touches.
-        if (Input.touchCount > 0 && !selectedObject && !otherBall && !uiAccessed)
+        if (Input.touchCount > 0 && !selectedObject && !otherBall && !uiAccessed && Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position).y < 3035.5f)
         {
             Touch touch = Input.GetTouch(0);
 
