@@ -71,7 +71,6 @@ public class Prestige : MonoBehaviour
     public void PrestigeWorld()
     {
         ImageFade script = gameRun.GetComponent<ImageFade>();
-        script.prestigeBonus = script.totalScore * .0006f;
         damager.GetComponent<Damager>().damageMultiplier += script.prestigeBonus;
         damager.GetComponent<Damager>().damageMultiplier = Math.Round(damager.GetComponent<Damager>().damageMultiplier, 2);
         damager2.GetComponent<Damager>().damageMultiplier += script.prestigeBonus;

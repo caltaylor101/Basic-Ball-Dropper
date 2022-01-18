@@ -22,7 +22,8 @@ public class UIVariables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameRun.GetComponent<ImageFade>().prestigeBonus = Math.Round(gameRun.GetComponent<ImageFade>().totalScore * .0006f, 2);
+
+        CalculatePrestigeBonus();
 
         score = gameRun.GetComponent<ImageFade>().score;
         gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
@@ -34,8 +35,25 @@ public class UIVariables : MonoBehaviour
         }
         else if (gameObject.name == "BonusValue")
         {
+            
             gameObject.GetComponent<TextMeshProUGUI>().text = gameRun.GetComponent<ImageFade>().prestigeBonus.ToString();
         }
 
+    }
+
+    private void CalculatePrestigeBonus()
+    {
+        gameRun.GetComponent<ImageFade>().prestigeBonus = Math.Round(gameRun.GetComponent<ImageFade>().totalScore * .0001f, 4);
+        // 150 = .015
+        // .005
+        if (gameRun.GetComponent<ImageFade>().prestigeBonus - Math.Round(gameRun.GetComponent<ImageFade>().prestigeBonus, 2) >= .009)
+        {
+            Debug.Log(gameRun.GetComponent<ImageFade>().prestigeBonus - Math.Round(gameRun.GetComponent<ImageFade>().prestigeBonus, 2));
+            gameRun.GetComponent<ImageFade>().prestigeBonus = Math.Round(gameRun.GetComponent<ImageFade>().prestigeBonus, 2); 
+        }
+        else if(gameRun.GetComponent<ImageFade>().prestigeBonus - Math.Round(gameRun.GetComponent<ImageFade>().prestigeBonus, 2) < .009)
+        {
+            gameRun.GetComponent<ImageFade>().prestigeBonus = Math.Round(Math.Floor(gameRun.GetComponent<ImageFade>().prestigeBonus * 100)/100, 2);
+        }
     }
 }
