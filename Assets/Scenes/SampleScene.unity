@@ -4401,7 +4401,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -8896,7 +8896,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -9629,7 +9629,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -12032,7 +12032,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -14744,7 +14744,7 @@ MonoBehaviour:
   upgradeIdleBallCost: 10
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 10
-  maxIdleBallsButton: {fileID: 0}
+  maxIdleBallsButton: {fileID: 686299453}
 --- !u!114 &1550416231
 MonoBehaviour:
   m_ObjectHideFlags: 0
