@@ -45,9 +45,9 @@ public class ImageFade : MonoBehaviour
     private void Awake()
     {
 
-        
+
         LoadGame();
-       
+
         // do here what you need to differentiate the level
     }
     void Start()
@@ -76,7 +76,7 @@ public class ImageFade : MonoBehaviour
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
 
 
-       
+
 
 
     }
@@ -116,6 +116,19 @@ public class ImageFade : MonoBehaviour
         so.maxIdleBalls = maxIdleBalls;
         so.idleBallCount = idleBallCount;
         SaveManager.Save(so);
+
+        SaveClickBall cb = new SaveClickBall();
+        cb.damagePower = ball.GetComponent<Damager>().damagePower;
+        cb.damageMultiplier = ball.GetComponent<Damager>().damageMultiplier;
+        cb.prestigeBonus = ball.GetComponent<Damager>().prestigeBonus;
+        SaveManager.SaveClickBall(cb);
+
+        SaveAutoBall ab = new SaveAutoBall();
+        ab.damagePower = autoBall.GetComponent<Damager>().damagePower;
+        ab.damageMultiplier = autoBall.GetComponent<Damager>().damageMultiplier;
+        ab.prestigeBonus = autoBall.GetComponent<Damager>().prestigeBonus;
+        SaveManager.SaveAutoBall(ab);
+
     }
 
     private void LoadGame()
@@ -138,13 +151,32 @@ public class ImageFade : MonoBehaviour
         SaveClickBall cb = new SaveClickBall();
         cb = SaveManager.LoadClickBall();
         ball.GetComponent<Damager>().damagePower = cb.damagePower;
-        ball.GetComponent<Damager>().damageMultiplier = System.Math.Round(cb.damageMultiplier + cb.prestigeBonus, 2);
+        if (ball.GetComponent<Damager>().damageMultiplier > 1 + cb.prestigeBonus)
+        {
+            ball.GetComponent<Damager>().damageMultiplier = cb.damageMultiplier;
+        }
+        else
+        {
+            ball.GetComponent<Damager>().damageMultiplier = System.Math.Round(cb.damageMultiplier + cb.prestigeBonus, 2);
+        }
+        ball.GetComponent<Damager>().prestigeBonus = cb.prestigeBonus;
 
 
         SaveAutoBall ab = new SaveAutoBall();
         ab = SaveManager.LoadAutoball();
         autoBall.GetComponent<Damager>().damagePower = ab.damagePower;
         autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier + ab.prestigeBonus, 2);
+        if (autoBall.GetComponent<Damager>().damageMultiplier > 1 + cb.prestigeBonus)
+        {
+            autoBall.GetComponent<Damager>().damageMultiplier = ab.damageMultiplier;
+
+        }
+        else
+        {
+            autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier + ab.prestigeBonus, 2);
+        }
+        autoBall.GetComponent<Damager>().prestigeBonus = ab.prestigeBonus;
+
 
 
         SavePrefabs sp = new SavePrefabs();
@@ -162,12 +194,14 @@ public class ImageFade : MonoBehaviour
 
         HittableObjectList objectList = new HittableObjectList();
         objectList = SaveManager.LoadHittableObjects();
-        foreach (string name in objectList.nameList)
+        if (objectList.nameList != null)
         {
-            GameObject deleteObject = GameObject.Find(name);
-            Destroy(deleteObject);
+            foreach (string name in objectList.nameList)
+            {
+                GameObject deleteObject = GameObject.Find(name);
+                Destroy(deleteObject);
+            }
         }
-
 
     }
 
@@ -185,15 +219,15 @@ public class ImageFade : MonoBehaviour
         }
     }
 
-    
+
 
     IEnumerator HourglassAnim(Vector3 startHourglass)
     {
-        for (float alpha = 0f; alpha <= 1f; alpha += Time.deltaTime/2)
+        for (float alpha = 0f; alpha <= 1f; alpha += Time.deltaTime / 2)
         {
             if (alpha > 0.95f)
             {
-                
+
                 alpha = 1f;
                 //hourGlass.GetComponent<Transform>().position = startHourglass;
 
@@ -217,11 +251,11 @@ public class ImageFade : MonoBehaviour
 
     IEnumerator HourglassDown(Vector3 startHourglass)
     {
-        for (float i = 1f; i >= 0; i -= Time.deltaTime/2)
+        for (float i = 1f; i >= 0; i -= Time.deltaTime / 2)
         {
-            if (hourGlass.GetComponent<Transform>().position.y - i > startHourglass.y )
+            if (hourGlass.GetComponent<Transform>().position.y - i > startHourglass.y)
             {
-                hourGlass.GetComponent<Transform>().position = new Vector3(hourGlass.GetComponent<Transform>().position.x, hourGlass.GetComponent<Transform>().position.y - i/20, hourGlass.GetComponent<Transform>().position.z);
+                hourGlass.GetComponent<Transform>().position = new Vector3(hourGlass.GetComponent<Transform>().position.x, hourGlass.GetComponent<Transform>().position.y - i / 20, hourGlass.GetComponent<Transform>().position.z);
             }
             if (i < 0.10f)
             {
@@ -230,7 +264,7 @@ public class ImageFade : MonoBehaviour
             }
             yield return null;
         }
-    } 
+    }
 
 
 
@@ -283,8 +317,8 @@ public class ImageFade : MonoBehaviour
 
             }
             if (imageRenderer)
-            { 
-            theBall.AddComponent(typeof(Rigidbody2D));
+            {
+                theBall.AddComponent(typeof(Rigidbody2D));
 
             }
         }

@@ -36,14 +36,19 @@ public class Prestige : MonoBehaviour
         SaveManager.Save(so);
 
         SaveClickBall saveDamager = new SaveClickBall();
+        saveDamager.damageMultiplier = 1;
+        saveDamager.damagePower = 1;
         saveDamager.prestigeBonus = prestigeBonus;
         SaveManager.SaveClickBall(saveDamager);
         
         SaveAutoBall saveDamager2 = new SaveAutoBall();
         saveDamager2.prestigeBonus = prestigeBonus2;
-        SaveManager.SaveAutoBall(saveDamager);
+        saveDamager2.damagePower = 1;
+        saveDamager2.damageMultiplier = 1;
+        SaveManager.SaveAutoBall(saveDamager2);
 
-
+        SaveManager.DeleteObjectListData();
+        SaveManager.DeleteBallListData();
 
     }
 
@@ -72,9 +77,8 @@ public class Prestige : MonoBehaviour
         damager2.GetComponent<Damager>().damageMultiplier += script.prestigeBonus;
         damager2.GetComponent<Damager>().damageMultiplier = Math.Round(damager2.GetComponent<Damager>().damageMultiplier, 2);
         newScoreBonus = Math.Round((gameRun.GetComponent<ImageFade>().scoreMultiplier + script.prestigeBonus), 2);
-        prestigeBonus = script.prestigeBonus + damager.GetComponent<Damager>().prestigeBonus;
-
-        prestigeBonus2 = script.prestigeBonus + damager2.GetComponent<Damager>().prestigeBonus;
+        prestigeBonus = Math.Round(script.prestigeBonus + damager.GetComponent<Damager>().prestigeBonus, 2);
+        prestigeBonus2 = Math.Round(script.prestigeBonus + damager2.GetComponent<Damager>().prestigeBonus, 2);
 
         GetDifferentiatingVariable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

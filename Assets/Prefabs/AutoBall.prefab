@@ -135,3 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePower: 1
   damageMultiplier: 1
+  prestigeBonus: 1

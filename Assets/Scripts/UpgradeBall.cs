@@ -31,8 +31,20 @@ public class UpgradeBall : MonoBehaviour
     {
         if (gameRun.GetComponent<ImageFade>().autoBallSpawn)
         {
-            upgradeIdleButton.SetActive(true);
-            unlockIdleButton.SetActive(false);
+            if (upgradeIdleButton != null)
+            {
+                upgradeIdleButton.SetActive(true);
+            }
+            if (unlockIdleButton != null)
+            {
+                unlockIdleButton.SetActive(false);
+            }
+            if (maxIdleBallsButton != null)
+            {
+                maxIdleBallsButton.SetActive(true);
+
+            }
+
         }
     }
 
@@ -44,8 +56,9 @@ public class UpgradeBall : MonoBehaviour
             gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeBallCost;
             upgradeBallCost = (int)Math.Ceiling((float)upgradeBallCost * 1.25f);
 
-            clickBall.GetComponent<Damager>().damageMultiplier += 0.01f;
+            clickBall.GetComponent<Damager>().damageMultiplier += Math.Round(0.01f, 2);
         }
+
 
     }
 
@@ -70,7 +83,7 @@ public class UpgradeBall : MonoBehaviour
         {
             gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeIdleBallCost;
             upgradeIdleBallCost = (int)Math.Ceiling((float)upgradeIdleBallCost * 1.33f);
-            autoBall.GetComponent<Damager>().damageMultiplier += 0.01f;
+            autoBall.GetComponent<Damager>().damageMultiplier += Math.Round(0.01f, 2);
         }
     }
 

@@ -40,7 +40,7 @@ public static class SaveManager
         File.WriteAllText(dir + fileName2, json);
     }
 
-    public static void SaveAutoBall(SaveClickBall so)
+    public static void SaveAutoBall(SaveAutoBall so)
     {
         string dir = Application.persistentDataPath + directory;
 
@@ -218,6 +218,17 @@ public static class SaveManager
         }
         return returnObject;
 
+    }
+
+    public static void DeleteObjectListData()
+    {
+        string fullPath5 = Application.persistentDataPath + directory + fileName5;
+        File.Delete(fullPath5);
+    }
+    public static void DeleteBallListData()
+    {
+        string fullPath4 = Application.persistentDataPath + directory + fileName4;
+        File.Delete(fullPath4);
     }
 
 

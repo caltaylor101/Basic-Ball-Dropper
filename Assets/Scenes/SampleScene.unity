@@ -4401,7 +4401,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -6931,7 +6931,7 @@ PrefabInstance:
     - target: {fileID: 5288736992410899560, guid: 82dbb63fe0040864599b814aed122390,
         type: 3}
       propertyPath: m_Name
-      value: chest
+      value: chest2
       objectReference: {fileID: 0}
     - target: {fileID: 5288736992410899561, guid: 82dbb63fe0040864599b814aed122390,
         type: 3}
@@ -8896,7 +8896,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -9629,7 +9629,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
@@ -12032,7 +12032,7 @@ PrefabInstance:
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
       propertyPath: maxDamage
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757324383449649119, guid: 4df2b579df1e4754bb3d8c8b5015ae88,
         type: 3}
