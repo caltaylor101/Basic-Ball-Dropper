@@ -29,5 +29,6 @@ public class GameplayButtons : MonoBehaviour
                 Destroy(ball);
             }
         }
+        gameRun.GetComponent<ImageFade>().ballCount = 0;
     }
 }

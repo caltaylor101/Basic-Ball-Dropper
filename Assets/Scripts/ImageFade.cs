@@ -36,6 +36,7 @@ public class ImageFade : MonoBehaviour
     public float spawnTime = 10f;
     public int maxIdleBalls = 5;
     public int idleBallCount = 0;
+    public bool pausing = false;
 
 
     // save testing
@@ -54,7 +55,10 @@ public class ImageFade : MonoBehaviour
     {
         startHourglass = hourGlass.GetComponent<Transform>().position;
         StartCoroutine(HourglassAnim(startHourglass));
-
+        if (autoBallSpawn)
+        {
+            autoBallSpawnPoint.SetActive(true);
+        }
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
         InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
 
@@ -76,7 +80,26 @@ public class ImageFade : MonoBehaviour
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
 
 
+        if(pausing)
+        {
+            GameObject[] prefabList = GameObject.FindGameObjectsWithTag("Damage");
+            List<SavePrefab> savePrefabList = new List<SavePrefab>();
+            foreach (GameObject prefab in prefabList)
+            {
+                SavePrefab sf = new SavePrefab();
+                sf.positionX = prefab.GetComponent<Transform>().position.x;
+                sf.positionY = prefab.GetComponent<Transform>().position.y;
+                sf.positionZ = prefab.GetComponent<Transform>().position.z;
+                sf.damagePower = prefab.GetComponent<Damager>().damagePower;
+                sf.damageMultiplier = prefab.GetComponent<Damager>().damageMultiplier;
 
+                savePrefabList.Add(sf);
+            }
+            SavePrefabs savePrefabs = new SavePrefabs();
+            savePrefabs.prefabList = savePrefabList;
+            SaveManager.SavePrefabs(savePrefabs);
+            pausing = false;
+        }
 
 
     }
@@ -100,6 +123,32 @@ public class ImageFade : MonoBehaviour
         savePrefabs.prefabList = savePrefabList;
         SaveManager.SavePrefabs(savePrefabs);
     }
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            pausing = true;
+            GameObject[] prefabList = GameObject.FindGameObjectsWithTag("Damage");
+            List<SavePrefab> savePrefabList = new List<SavePrefab>();
+            foreach (GameObject prefab in prefabList)
+            {
+                SavePrefab sf = new SavePrefab();
+                sf.positionX = prefab.GetComponent<Transform>().position.x;
+                sf.positionY = prefab.GetComponent<Transform>().position.y;
+                sf.positionZ = prefab.GetComponent<Transform>().position.z;
+                sf.damagePower = prefab.GetComponent<Damager>().damagePower;
+                sf.damageMultiplier = prefab.GetComponent<Damager>().damageMultiplier;
+
+                savePrefabList.Add(sf);
+            }
+            SavePrefabs savePrefabs = new SavePrefabs();
+            savePrefabs.prefabList = savePrefabList;
+            SaveManager.SavePrefabs(savePrefabs);
+        }
+        
+    }
+
 
     private void SaveGame()
     {
