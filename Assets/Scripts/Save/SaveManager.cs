@@ -56,7 +56,6 @@ public static class SaveManager
 
     public static void SavePrefabs(SavePrefabs so)
     {
-        Debug.Log("start saving prefabs");
         string dir = Application.persistentDataPath + directory;
 
         if (!Directory.Exists(dir))
@@ -75,14 +74,10 @@ public static class SaveManager
             prefabList[i].damagePower = so.prefabList[i].damagePower;
             prefabList[i].damageMultiplier = so.prefabList[i].damageMultiplier;
         }
-        Debug.Log("start JSON Helper");
 
         string listToJson = JsonHelper.ToJson(prefabList, true);
 
-        Debug.Log("start Wrtiting to file");
-
         File.WriteAllText(dir + fileName4, listToJson);
-        Debug.Log("END Wrtiting to file");
         
     }
 
@@ -176,7 +171,6 @@ public static class SaveManager
 
     public static SavePrefabs LoadPrefabs()
     {
-        Debug.Log("LOAD Prefab");
 
         string fullPath4 = Application.persistentDataPath + directory + fileName4;
         SavePrefabs sp = new SavePrefabs();
@@ -209,8 +203,6 @@ public static class SaveManager
 
     public static HittableObjectList LoadHittableObjects()
     {
-        Debug.Log("LOAD hittable objects");
-
         string fullPath5 = Application.persistentDataPath + directory + fileName5;
         HittableObjectList returnObject = new HittableObjectList();
         if (File.Exists(fullPath5))
