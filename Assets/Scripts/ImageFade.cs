@@ -257,9 +257,9 @@ public class ImageFade : MonoBehaviour
 
     private void AutoBallSpawn()
     {
-        if (maxIdleBalls > ballCount && autoBallSpawn == true)
+        if (maxIdleBalls > idleBallCount && autoBallSpawn == true)
         {
-            ballCount++;
+            idleBallCount++;
             GameObject theBall = Instantiate(autoBall, new Vector3(spawnPosition.x, spawnPosition.y, 1), Quaternion.identity);
             theBall.tag = "Movable2";
             SpriteRenderer theBallColor = theBall.GetComponent<SpriteRenderer>();

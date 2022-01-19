@@ -76,7 +76,16 @@ public class Damager : MonoBehaviour
             collision.gameObject.GetComponent<Shatterable>().damageMultiplier = damageMultiplier;
 
             ImageFade otherScript = GameObject.Find("GameRun").GetComponent<ImageFade>();
-            otherScript.ballCount--;
+            if (gameObject.name == "ClickBall(Clone)")
+            {
+                otherScript.ballCount--;
+
+            }
+            if (gameObject.name == "AutoBall(Clone)")
+            {
+                otherScript.idleBallCount--;
+
+            }
             otherScript.score = otherScript.score + (int)Math.Ceiling(otherScript.scoreMultiplier * otherScript.scoreValue);
             otherScript.totalScore = otherScript.totalScore + (int)Math.Ceiling(otherScript.scoreMultiplier * otherScript.scoreValue);
             DestroyBall();
