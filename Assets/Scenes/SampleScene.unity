@@ -1529,6 +1529,9 @@ MonoBehaviour:
   currentButton: {fileID: 201414045}
   upgradeBallScriptObject: {fileID: 0}
   upgradeObjectScriptObject: {fileID: 0}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &212069238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,6 +1890,9 @@ MonoBehaviour:
   currentButton: {fileID: 282664822}
   upgradeBallScriptObject: {fileID: 0}
   upgradeObjectScriptObject: {fileID: 1994379576}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &282664825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,7 +1914,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f9fc5159b9edb47e183292f13f53cbb5, type: 3}
     m_FontSize: 8
     m_FontStyle: 0
     m_BestFit: 0
@@ -2434,6 +2440,9 @@ MonoBehaviour:
   currentButton: {fileID: 305305536}
   upgradeBallScriptObject: {fileID: 1825176738}
   upgradeObjectScriptObject: {fileID: 0}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &305305539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7870,6 +7879,9 @@ MonoBehaviour:
   currentButton: {fileID: 841284723}
   upgradeBallScriptObject: {fileID: 1550416228}
   upgradeObjectScriptObject: {fileID: 0}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &841284726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8249,6 +8261,9 @@ MonoBehaviour:
   currentButton: {fileID: 867310705}
   upgradeBallScriptObject: {fileID: 1887406897}
   upgradeObjectScriptObject: {fileID: 0}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &867310708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10250,6 +10265,9 @@ MonoBehaviour:
   currentButton: {fileID: 1152593726}
   upgradeBallScriptObject: {fileID: 0}
   upgradeObjectScriptObject: {fileID: 0}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1152593729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12614,6 +12632,9 @@ MonoBehaviour:
   currentButton: {fileID: 1221227629}
   upgradeBallScriptObject: {fileID: 686299453}
   upgradeObjectScriptObject: {fileID: 0}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1221227632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15101,6 +15122,9 @@ MonoBehaviour:
   currentButton: {fileID: 1499024966}
   upgradeBallScriptObject: {fileID: 346704958}
   upgradeObjectScriptObject: {fileID: 0}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1499024969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16151,6 +16175,9 @@ MonoBehaviour:
   currentButton: {fileID: 1597359748}
   upgradeBallScriptObject: {fileID: 0}
   upgradeObjectScriptObject: {fileID: 1825675074}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1597359751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16172,7 +16199,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f9fc5159b9edb47e183292f13f53cbb5, type: 3}
     m_FontSize: 8
     m_FontStyle: 0
     m_BestFit: 0
@@ -17698,7 +17725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.75, g: 1, b: 0.7817393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20142,6 +20169,9 @@ MonoBehaviour:
   currentButton: {fileID: 2112220007}
   upgradeBallScriptObject: {fileID: 0}
   upgradeObjectScriptObject: {fileID: 1504025290}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2112220010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20163,7 +20193,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f9fc5159b9edb47e183292f13f53cbb5, type: 3}
     m_FontSize: 8
     m_FontStyle: 0
     m_BestFit: 0
