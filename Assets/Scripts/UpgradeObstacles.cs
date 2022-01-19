@@ -22,7 +22,7 @@ public class UpgradeObstacles : MonoBehaviour
             upgradeObstacleCost = (int)System.Math.Ceiling((float)upgradeObstacleCost * 1.75f);
             foreach (GameObject obstacle in obstacles)
             {
-                obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(0.02f, 0.02f, 0.02f);
+                obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(0.04f, 0.04f, 0.04f);
             }
         }
 

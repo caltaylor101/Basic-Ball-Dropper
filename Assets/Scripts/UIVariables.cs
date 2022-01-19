@@ -11,11 +11,12 @@ public class UIVariables : MonoBehaviour
     private int score;
     private string scoreUI;
     private long totalScore;
+
     
     void Start()
     {
         score = gameRun.GetComponent<ImageFade>().score;
-        gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
+            gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
 
     }
 
@@ -23,12 +24,14 @@ public class UIVariables : MonoBehaviour
     void Update()
     {
 
-        CalculatePrestigeBonus();
 
-        score = gameRun.GetComponent<ImageFade>().score;
-        gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
+        
+            score = gameRun.GetComponent<ImageFade>().score;
+            gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
 
-        totalScore = gameRun.GetComponent<ImageFade>().totalScore;
+            totalScore = gameRun.GetComponent<ImageFade>().totalScore;
+        
+       
         if (gameObject.name == "PrestigeValue")
         {
             gameObject.GetComponent<TextMeshProUGUI>().text = totalScore.ToString();
