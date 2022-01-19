@@ -38,6 +38,18 @@ public class UIVariableHandler : MonoBehaviour
         {
             currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeIdleBallCost.ToString();
         }
+        if (upgradeBallScriptObject && gameObject.name == "UnlockIdleCost")
+        {
+            currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeIdleBallCost.ToString();
+        }
+        if (upgradeBallScriptObject && gameObject.name == "MaxBallsCost")
+        {
+            currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeMaxBallsCost.ToString();
+        }
+        if (upgradeBallScriptObject && gameObject.name == "MaxIdleBallsCost")
+        {
+            currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeMaxIdleBallsCost.ToString();
+        }
 
         //ObstaclCosts
         if (upgradeObjectScriptObject && gameObject.name == "Obstacle1Cost")
