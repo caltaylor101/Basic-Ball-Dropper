@@ -255,6 +255,7 @@ public class ImageFade : MonoBehaviour
                 loadedBall.AddComponent<Rigidbody2D>();
                 ballCount += 1;
             }
+            idleBallCount = 0;
         }
 
         HittableObjectList objectList = new HittableObjectList();
@@ -275,7 +276,7 @@ public class ImageFade : MonoBehaviour
             upgradeBallCost = ballVariables.upgradeBallCost;
             upgradeIdleBallCost = ballVariables.upgradeIdleBallCost;
             upgradeMaxBallsCost = ballVariables.upgradeMaxBallsCost;
-            upgradeMaxIdleBallsCost = ballVariables.upgradeMaxBallsCost;
+            upgradeMaxIdleBallsCost = ballVariables.upgradeMaxIdleBallsCost;
         }
 
         ObstacleVariables obstacleVariables = new ObstacleVariables();
