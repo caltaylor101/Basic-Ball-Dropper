@@ -13,6 +13,7 @@ public static class SaveManager
     public static string fileName3 = "MyData3.txt";
     public static string fileName4 = "MyData4.txt";
     public static string fileName5 = "MyData5.txt";
+    public static string fileName6 = "MyData6.txt";
 
     public static void Save(SaveObject so)
     {
@@ -109,6 +110,19 @@ public static class SaveManager
             File.WriteAllText(dir + fileName5, jsonToSave);
         }
 
+    }
+
+    public static void SaveUpgradeBallVariables(UpgradeBallVariables so)
+    {
+        string dir = Application.persistentDataPath + directory;
+
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+
+        string json = JsonUtility.ToJson(so);
+        File.WriteAllText(dir + fileName6, json);
     }
 
 
@@ -221,6 +235,23 @@ public static class SaveManager
         return returnObject;
 
     }
+
+    public static UpgradeBallVariables LoadUpgradeBallVariables()
+    {
+        string fullPath6 = Application.persistentDataPath + directory + fileName6;
+        UpgradeBallVariables ab = new UpgradeBallVariables();
+        if (File.Exists(fullPath6))
+        {
+            string json = File.ReadAllText(fullPath6);
+            ab = JsonUtility.FromJson<UpgradeBallVariables>(json);
+        }
+        else
+        {
+            Debug.Log("Save file for autoball doesn't exist");
+        }
+        return ab;
+    }
+
 
     public static void DeleteObjectListData()
     {

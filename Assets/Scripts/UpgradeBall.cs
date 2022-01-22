@@ -46,6 +46,16 @@ public class UpgradeBall : MonoBehaviour
             }
 
         }
+
+        
+    }
+
+    private void Start()
+    {
+        upgradeBallCost = gameRun.GetComponent<ImageFade>().upgradeBallCost;
+        upgradeIdleBallCost = gameRun.GetComponent<ImageFade>().upgradeIdleBallCost;
+        upgradeMaxBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxBallsCost;
+        upgradeMaxIdleBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost;
     }
 
     public void UpgradeBallDamage()
@@ -59,6 +69,14 @@ public class UpgradeBall : MonoBehaviour
             clickBall.GetComponent<Damager>().damageMultiplier += Math.Round(0.05f, 2);
         }
 
+        gameRun.GetComponent<ImageFade>().upgradeBallCost = upgradeBallCost;
+
+        UpgradeBallVariables saveObject = new UpgradeBallVariables();
+        saveObject.upgradeBallCost = gameRun.GetComponent<ImageFade>().upgradeBallCost;
+        saveObject.upgradeIdleBallCost = gameRun.GetComponent<ImageFade>().upgradeIdleBallCost;
+        saveObject.upgradeMaxBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxBallsCost;
+        saveObject.upgradeMaxIdleBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost;
+        SaveManager.SaveUpgradeBallVariables(saveObject);
 
     }
 
@@ -85,6 +103,14 @@ public class UpgradeBall : MonoBehaviour
             upgradeIdleBallCost = (int)Math.Ceiling((float)upgradeIdleBallCost * 1.15f);
             autoBall.GetComponent<Damager>().damageMultiplier += Math.Round(0.06f, 2);
         }
+        gameRun.GetComponent<ImageFade>().upgradeIdleBallCost = upgradeIdleBallCost;
+
+        UpgradeBallVariables saveObject = new UpgradeBallVariables();
+        saveObject.upgradeBallCost = gameRun.GetComponent<ImageFade>().upgradeBallCost;
+        saveObject.upgradeIdleBallCost = gameRun.GetComponent<ImageFade>().upgradeIdleBallCost;
+        saveObject.upgradeMaxBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxBallsCost;
+        saveObject.upgradeMaxIdleBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost;
+        SaveManager.SaveUpgradeBallVariables(saveObject);
     }
 
     public void PlusOneMaxBall()
@@ -98,6 +124,15 @@ public class UpgradeBall : MonoBehaviour
             }
             gameRun.GetComponent<ImageFade>().maxBalls += 1;
         }
+
+        gameRun.GetComponent<ImageFade>().upgradeMaxBallsCost = upgradeMaxBallsCost;
+
+        UpgradeBallVariables saveObject = new UpgradeBallVariables();
+        saveObject.upgradeBallCost = gameRun.GetComponent<ImageFade>().upgradeBallCost;
+        saveObject.upgradeIdleBallCost = gameRun.GetComponent<ImageFade>().upgradeIdleBallCost;
+        saveObject.upgradeMaxBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxBallsCost;
+        saveObject.upgradeMaxIdleBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost;
+        SaveManager.SaveUpgradeBallVariables(saveObject);
     }
 
     public void PlusIdleBall()
@@ -111,6 +146,15 @@ public class UpgradeBall : MonoBehaviour
             }
             gameRun.GetComponent<ImageFade>().maxIdleBalls += 1;
         }
+
+        gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost = upgradeMaxIdleBallsCost;
+
+        UpgradeBallVariables saveObject = new UpgradeBallVariables();
+        saveObject.upgradeBallCost = gameRun.GetComponent<ImageFade>().upgradeBallCost;
+        saveObject.upgradeIdleBallCost = gameRun.GetComponent<ImageFade>().upgradeIdleBallCost;
+        saveObject.upgradeMaxBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxBallsCost;
+        saveObject.upgradeMaxIdleBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost;
+        SaveManager.SaveUpgradeBallVariables(saveObject);
     }
 
 

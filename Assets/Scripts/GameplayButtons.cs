@@ -23,12 +23,12 @@ public class GameplayButtons : MonoBehaviour
         GameObject[] allBalls = GameObject.FindGameObjectsWithTag("Damage");
         foreach (GameObject ball in allBalls)
         {
-            gameRun.GetComponent<ImageFade>().ballCount -= 1;
             if (ball)
             {
                 Destroy(ball);
             }
         }
         gameRun.GetComponent<ImageFade>().ballCount = 0;
+        gameRun.GetComponent<ImageFade>().idleBallCount = 0;
     }
 }

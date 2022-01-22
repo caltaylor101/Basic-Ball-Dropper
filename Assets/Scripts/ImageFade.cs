@@ -42,6 +42,13 @@ public class ImageFade : MonoBehaviour
     // save testing
     public SaveObject so;
 
+    // upgrade ball variables
+    public int upgradeBallCost = 10;
+    public int upgradeIdleBallCost = 15;
+    public int upgradeMaxBallsCost = 10;
+    public int upgradeMaxIdleBallsCost = 10;
+
+
 
     private void Awake()
     {
@@ -80,7 +87,7 @@ public class ImageFade : MonoBehaviour
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
 
 
-        if(pausing)
+        if (pausing)
         {
             GameObject[] prefabList = GameObject.FindGameObjectsWithTag("Damage");
             List<SavePrefab> savePrefabList = new List<SavePrefab>();
@@ -146,7 +153,7 @@ public class ImageFade : MonoBehaviour
             savePrefabs.prefabList = savePrefabList;
             SaveManager.SavePrefabs(savePrefabs);
         }
-        
+
     }
 
 
@@ -251,6 +258,17 @@ public class ImageFade : MonoBehaviour
                 Destroy(deleteObject);
             }
         }
+
+        UpgradeBallVariables ballVariables = new UpgradeBallVariables();
+        ballVariables = SaveManager.LoadUpgradeBallVariables();
+        if (ballVariables != null)
+        {
+            upgradeBallCost = ballVariables.upgradeBallCost;
+            upgradeIdleBallCost = ballVariables.upgradeIdleBallCost;
+            upgradeMaxBallsCost = ballVariables.upgradeMaxBallsCost;
+            upgradeMaxIdleBallsCost = ballVariables.upgradeMaxBallsCost;
+        }
+
 
     }
 

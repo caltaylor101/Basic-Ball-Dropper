@@ -61,9 +61,19 @@ public class HittableObject
 {
     public string name;
 }
+[System.Serializable]
 
 public class HittableObjectList
 {
     public List<string> nameList;
+}
+[System.Serializable]
+
+public class UpgradeBallVariables
+{
+    public int upgradeBallCost = 10;
+    public int upgradeMaxBallsCost = 10;
+    public int upgradeIdleBallCost = 20;
+    public int upgradeMaxIdleBallsCost = 15;
 }
 
