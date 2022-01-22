@@ -51,10 +51,13 @@ public class Prestige : MonoBehaviour
 
         UpgradeBallVariables saveObject = new UpgradeBallVariables();
         SaveManager.SaveUpgradeBallVariables(saveObject);
-    
+
+        ObstacleVariables obstacleVariables = new ObstacleVariables();
+        SaveManager.SaveUpgradeObstacleVariables(obstacleVariables);
 
 
-        
+
+
 
         SaveManager.DeleteObjectListData();
         SaveManager.DeleteBallListData();

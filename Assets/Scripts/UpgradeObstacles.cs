@@ -19,7 +19,7 @@ public class UpgradeObstacles : MonoBehaviour
     public float positionY;
     public float positionZ;
 
-
+    
     void Start()
     {
         upgradeObstacleCost = gameRun.GetComponent<ImageFade>().upgradeObstacleCost;
