@@ -24,7 +24,7 @@ public class UIVariables : MonoBehaviour
     void Update()
     {
 
-
+        CalculatePrestigeBonus();
         
             score = gameRun.GetComponent<ImageFade>().score;
             gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();

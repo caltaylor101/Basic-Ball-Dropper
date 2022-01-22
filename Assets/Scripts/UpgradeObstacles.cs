@@ -13,9 +13,24 @@ public class UpgradeObstacles : MonoBehaviour
     public GameObject hourglassImage;
     public GameObject hourglassCollider;
     public int upgradeObstacleCost3 = 1000;
+
+    // To save scale
+    public float positionX;
+    public float positionY;
+    public float positionZ;
+
+
+    void Start()
+    {
+        upgradeObstacleCost = gameRun.GetComponent<ImageFade>().upgradeObstacleCost;
+        upgradeObstacleCost2 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost2;
+        upgradeObstacleCost3 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost3;
+    }
+
     public void UpgradeObstacle1()
     {
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle1");
+
         if (gameRun.GetComponent<ImageFade>().score >= upgradeObstacleCost)
         {
             gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeObstacleCost;
@@ -23,9 +38,31 @@ public class UpgradeObstacles : MonoBehaviour
             foreach (GameObject obstacle in obstacles)
             {
                 obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(0.04f, 0.04f, 0.04f);
+                positionX = obstacle.GetComponent<Transform>().localScale.x;
+                positionY = obstacle.GetComponent<Transform>().localScale.y;
+                positionZ = obstacle.GetComponent<Transform>().localScale.z;
             }
+
+        SaveUpgradeObstacleVariables();
+
+        SaveUpgradeObstacle1 saveObject = new SaveUpgradeObstacle1();
+        saveObject.positionX = positionX;
+        saveObject.positionY = positionY;
+        saveObject.positionZ = positionZ;
+        SaveManager.SaveUpgradeObstacle1Scale(saveObject);
+
         }
 
+
+    }
+
+    private void SaveUpgradeObstacleVariables()
+    {
+        UpgradeObstacles saveObject = new UpgradeObstacles();
+        saveObject.upgradeObstacleCost = upgradeObstacleCost;
+        saveObject.upgradeObstacleCost2 = upgradeObstacleCost2;
+        saveObject.upgradeObstacleCost3 = upgradeObstacleCost3;
+        SaveManager.SaveUpgradeObstacleVariables(saveObject);
     }
 
     public void UpgradeObstacle2()
@@ -38,9 +75,24 @@ public class UpgradeObstacles : MonoBehaviour
             upgradeObstacleCost2 = (int)System.Math.Ceiling((float)upgradeObstacleCost2 * 1.75f);
             foreach (GameObject obstacle in obstacles)
             {
-                obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(0.02f, 0.02f, 0.02f);
+                obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(0.04f, 0.04f, 0.04f);
+                positionX = obstacle.GetComponent<Transform>().localScale.x;
+                positionY = obstacle.GetComponent<Transform>().localScale.y;
+                positionZ = obstacle.GetComponent<Transform>().localScale.z;
             }
+
+            SaveUpgradeObstacle1 saveObject = new SaveUpgradeObstacle1();
+            saveObject.positionX = positionX;
+            saveObject.positionY = positionY;
+            saveObject.positionZ = positionZ;
+            SaveManager.SaveUpgradeObstacle2Scale(saveObject);
         }
+        SaveUpgradeObstacleVariables();
+
+
+
+        
+
     }
 
     public void UpgradeObstacle3()
@@ -51,7 +103,17 @@ public class UpgradeObstacles : MonoBehaviour
             upgradeObstacleCost3 = (int)System.Math.Ceiling((float)upgradeObstacleCost3 * 1.15f);
             hourglassImage.GetComponent<Transform>().localScale += new Vector3(.02f, .0f, .0f);
             hourglassCollider.GetComponent<Transform>().localScale += new Vector3(.02f, .0f, .0f);
-            
+            positionX = hourglassCollider.GetComponent<Transform>().localScale.x;
+            positionY = hourglassCollider.GetComponent<Transform>().localScale.y;
+            positionZ = hourglassCollider.GetComponent<Transform>().localScale.z;
+            SaveUpgradeObstacle1 saveObject = new SaveUpgradeObstacle1();
+            saveObject.positionX = positionX;
+            saveObject.positionY = positionY;
+            saveObject.positionZ = positionZ;
+            SaveManager.SaveUpgradeObstacle3Scale(saveObject);
+
         }
+        SaveUpgradeObstacleVariables();
+
     }
 }

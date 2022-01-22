@@ -14,6 +14,10 @@ public static class SaveManager
     public static string fileName4 = "MyData4.txt";
     public static string fileName5 = "MyData5.txt";
     public static string fileName6 = "MyData6.txt";
+    public static string fileName7 = "MyData7.txt";
+    public static string fileName8 = "MyData8.txt";
+    public static string fileName9 = "MyData9.txt";
+    public static string fileName10 = "MyData10.txt";
 
     public static void Save(SaveObject so)
     {
@@ -125,6 +129,56 @@ public static class SaveManager
         File.WriteAllText(dir + fileName6, json);
     }
 
+    public static void SaveUpgradeObstacleVariables(UpgradeObstacles so)
+    {
+        string dir = Application.persistentDataPath + directory;
+
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+
+        string json = JsonUtility.ToJson(so);
+        File.WriteAllText(dir + fileName7, json);
+    }
+
+    public static void SaveUpgradeObstacle1Scale(SaveUpgradeObstacle1 so)
+    {
+        string dir = Application.persistentDataPath + directory;
+
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+
+        string json = JsonUtility.ToJson(so);
+        File.WriteAllText(dir + fileName8, json);
+    }
+    public static void SaveUpgradeObstacle2Scale(SaveUpgradeObstacle1 so)
+    {
+        string dir = Application.persistentDataPath + directory;
+
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+
+        string json = JsonUtility.ToJson(so);
+        File.WriteAllText(dir + fileName9, json);
+    }
+    public static void SaveUpgradeObstacle3Scale(SaveUpgradeObstacle1 so)
+    {
+        string dir = Application.persistentDataPath + directory;
+
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+
+        string json = JsonUtility.ToJson(so);
+        File.WriteAllText(dir + fileName10, json);
+    }
+
 
 
 
@@ -230,7 +284,7 @@ public static class SaveManager
         }
         else
         {
-            Debug.Log("Save file for prefabs doesn't exist");
+            Debug.Log("Save file for HittableObjects doesn't exist");
         }
         return returnObject;
 
@@ -247,10 +301,75 @@ public static class SaveManager
         }
         else
         {
-            Debug.Log("Save file for autoball doesn't exist");
+            Debug.Log("Save file for BallVariables doesn't exist");
         }
         return ab;
     }
+
+    public static SaveUpgradeObstacleVariables LoadUpgradeObstacleVariables()
+    {
+        string fullPath7 = Application.persistentDataPath + directory + fileName7;
+        SaveUpgradeObstacleVariables ab = new SaveUpgradeObstacleVariables();
+        if (File.Exists(fullPath7))
+        {
+            string json = File.ReadAllText(fullPath7);
+            ab = JsonUtility.FromJson<SaveUpgradeObstacleVariables>(json);
+        }
+        else
+        {
+            Debug.Log("Save file for ObstacleVariables doesn't exist");
+        }
+        return ab;
+    }
+
+    public static SaveUpgradeObstacle1 LoadObstacle1()
+    {
+        string fullPath8 = Application.persistentDataPath + directory + fileName8;
+        SaveUpgradeObstacle1 ab = new SaveUpgradeObstacle1();
+        if (File.Exists(fullPath8))
+        {
+            string json = File.ReadAllText(fullPath8);
+            ab = JsonUtility.FromJson<SaveUpgradeObstacle1>(json);
+        }
+        else
+        {
+            Debug.Log("Save file for Obstacle1 doesn't exist");
+        }
+        return ab;
+    }
+
+    public static SaveUpgradeObstacle1 LoadObstacle2()
+    {
+        string fullPath9 = Application.persistentDataPath + directory + fileName9;
+        SaveUpgradeObstacle1 ab = new SaveUpgradeObstacle1();
+        if (File.Exists(fullPath9))
+        {
+            string json = File.ReadAllText(fullPath9);
+            ab = JsonUtility.FromJson<SaveUpgradeObstacle1>(json);
+        }
+        else
+        {
+            Debug.Log("Save file for Obstacle2 doesn't exist");
+        }
+        return ab;
+    }
+
+    public static SaveUpgradeObstacle1 LoadObstacle3()
+    {
+        string fullPath10 = Application.persistentDataPath + directory + fileName10;
+        SaveUpgradeObstacle1 ab = new SaveUpgradeObstacle1();
+        if (File.Exists(fullPath10))
+        {
+            string json = File.ReadAllText(fullPath10);
+            ab = JsonUtility.FromJson<SaveUpgradeObstacle1>(json);
+        }
+        else
+        {
+            Debug.Log("Save file for Obstacle3 doesn't exist");
+        }
+        return ab;
+    }
+
 
 
     public static void DeleteObjectListData()

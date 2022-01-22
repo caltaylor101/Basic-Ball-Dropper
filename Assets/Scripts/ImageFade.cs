@@ -26,6 +26,8 @@ public class ImageFade : MonoBehaviour
 
     //Level 2 hourglass animation
     public GameObject hourGlass;
+    public GameObject hourGlassGraphic;
+    public GameObject hourGlassBase;
     public Vector3 startHourglass;
 
     // AutoBallSpawner
@@ -47,6 +49,12 @@ public class ImageFade : MonoBehaviour
     public int upgradeIdleBallCost = 15;
     public int upgradeMaxBallsCost = 10;
     public int upgradeMaxIdleBallsCost = 10;
+
+    // upgrade Obstacle Variables
+    public int upgradeObstacleCost = 10;
+    public int upgradeObstacleCost2 = 100;
+    public int upgradeObstacleCost3 = 1000;
+
 
 
 
@@ -210,10 +218,11 @@ public class ImageFade : MonoBehaviour
         if (ball.GetComponent<Damager>().damageMultiplier > 1 + cb.prestigeBonus)
         {
             ball.GetComponent<Damager>().damageMultiplier = cb.damageMultiplier;
+            Debug.Log("Greater than" + cb.damageMultiplier);
         }
         else
         {
-            ball.GetComponent<Damager>().damageMultiplier = System.Math.Round(cb.damageMultiplier + cb.prestigeBonus, 2);
+            ball.GetComponent<Damager>().damageMultiplier = System.Math.Round(cb.damageMultiplier, 2);
         }
         ball.GetComponent<Damager>().prestigeBonus = cb.prestigeBonus;
 
@@ -221,7 +230,7 @@ public class ImageFade : MonoBehaviour
         SaveAutoBall ab = new SaveAutoBall();
         ab = SaveManager.LoadAutoball();
         autoBall.GetComponent<Damager>().damagePower = ab.damagePower;
-        autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier + ab.prestigeBonus, 2);
+        autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier, 2);
         if (autoBall.GetComponent<Damager>().damageMultiplier > 1 + cb.prestigeBonus)
         {
             autoBall.GetComponent<Damager>().damageMultiplier = ab.damageMultiplier;
@@ -229,7 +238,7 @@ public class ImageFade : MonoBehaviour
         }
         else
         {
-            autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier + ab.prestigeBonus, 2);
+            autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier, 2);
         }
         autoBall.GetComponent<Damager>().prestigeBonus = ab.prestigeBonus;
 
@@ -268,6 +277,46 @@ public class ImageFade : MonoBehaviour
             upgradeMaxBallsCost = ballVariables.upgradeMaxBallsCost;
             upgradeMaxIdleBallsCost = ballVariables.upgradeMaxBallsCost;
         }
+
+        SaveUpgradeObstacleVariables obstacleVariables = new SaveUpgradeObstacleVariables();
+        obstacleVariables = SaveManager.LoadUpgradeObstacleVariables();
+        if (obstacleVariables != null)
+        {
+            upgradeObstacleCost = obstacleVariables.upgradeObstacleCost;
+            upgradeObstacleCost2 = obstacleVariables.upgradeObstacleCost2;
+            upgradeObstacleCost3 = obstacleVariables.upgradeObstacleCost3;
+        }
+
+        SaveUpgradeObstacle1 obstacle1 = new SaveUpgradeObstacle1();
+        obstacle1 = SaveManager.LoadObstacle1();
+        if (obstacle1.positionX != 0)
+        {
+            GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle1");
+            foreach (GameObject obstacle in obstacles)
+            {
+                obstacle.GetComponent<Transform>().localScale = new Vector3(obstacle1.positionX, obstacle1.positionY, obstacle1.positionZ);
+            }
+        }
+        SaveUpgradeObstacle1 obstacle2 = new SaveUpgradeObstacle1();
+        obstacle2 = SaveManager.LoadObstacle2();
+        if (obstacle2.positionX != 0)
+        {
+            GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle2");
+            foreach (GameObject obstacle in obstacles)
+            {
+                obstacle.GetComponent<Transform>().localScale = new Vector3(obstacle2.positionX, obstacle2.positionY, obstacle2.positionZ);
+            }
+        }
+        
+        SaveUpgradeObstacle1 obstacle3 = new SaveUpgradeObstacle1();
+        obstacle3 = SaveManager.LoadObstacle3();
+        if (obstacle3.positionX != 0)
+        {
+            hourGlassGraphic.GetComponent<Transform>().localScale = new Vector3(obstacle3.positionX, obstacle3.positionY, obstacle3.positionZ);
+            hourGlassBase.GetComponent<Transform>().localScale = new Vector3(obstacle3.positionX, obstacle3.positionY, obstacle3.positionZ);
+        }
+        
+        
 
 
     }

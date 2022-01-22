@@ -36,7 +36,8 @@ public class Prestige : MonoBehaviour
         SaveManager.Save(so);
 
         SaveClickBall saveDamager = new SaveClickBall();
-        saveDamager.damageMultiplier = 1;
+        saveDamager.damageMultiplier = 1 + prestigeBonus;
+        Debug.Log(saveDamager.damageMultiplier);
         saveDamager.damagePower = 1;
         saveDamager.prestigeBonus = prestigeBonus;
         SaveManager.SaveClickBall(saveDamager);
@@ -44,8 +45,16 @@ public class Prestige : MonoBehaviour
         SaveAutoBall saveDamager2 = new SaveAutoBall();
         saveDamager2.prestigeBonus = prestigeBonus2;
         saveDamager2.damagePower = 1;
-        saveDamager2.damageMultiplier = 1;
+        saveDamager2.damageMultiplier = 1 + prestigeBonus2;
+        Debug.Log(saveDamager2.damageMultiplier);
         SaveManager.SaveAutoBall(saveDamager2);
+
+        UpgradeBallVariables saveObject = new UpgradeBallVariables();
+        SaveManager.SaveUpgradeBallVariables(saveObject);
+    
+
+
+        
 
         SaveManager.DeleteObjectListData();
         SaveManager.DeleteBallListData();
@@ -54,13 +63,13 @@ public class Prestige : MonoBehaviour
 
     void Start()
     {
-        
+        gameRun = GameObject.Find("GameRun");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameRun = GameObject.Find("GameRun");
     }
 
     public void PrestigeWorldVerification()
@@ -71,6 +80,7 @@ public class Prestige : MonoBehaviour
     public void PrestigeWorld()
     {
         ImageFade script = gameRun.GetComponent<ImageFade>();
+        //script.prestigeBonus = script.totalScore * .0001f;
         damager.GetComponent<Damager>().damageMultiplier += script.prestigeBonus;
         damager.GetComponent<Damager>().damageMultiplier = Math.Round(damager.GetComponent<Damager>().damageMultiplier, 2);
         damager2.GetComponent<Damager>().damageMultiplier += script.prestigeBonus;
@@ -79,6 +89,8 @@ public class Prestige : MonoBehaviour
         prestigeBonus = Math.Round(script.prestigeBonus + damager.GetComponent<Damager>().prestigeBonus, 2);
         prestigeBonus2 = Math.Round(script.prestigeBonus + damager2.GetComponent<Damager>().prestigeBonus, 2);
 
+        Debug.Log(prestigeBonus);
+        Debug.Log(prestigeBonus2);
         GetDifferentiatingVariable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
        

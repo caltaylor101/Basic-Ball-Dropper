@@ -77,3 +77,19 @@ public class UpgradeBallVariables
     public int upgradeMaxIdleBallsCost = 15;
 }
 
+[System.Serializable]
+public class SaveUpgradeObstacleVariables
+{
+    public int upgradeObstacleCost = 10;
+    public int upgradeObstacleCost2 = 100;
+    public int upgradeObstacleCost3 = 1000;
+}
+
+[System.Serializable]
+public class SaveUpgradeObstacle1
+{
+    public float positionX;
+    public float positionY;
+    public float positionZ;
+}
+
