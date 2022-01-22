@@ -278,7 +278,7 @@ public class ImageFade : MonoBehaviour
             upgradeMaxIdleBallsCost = ballVariables.upgradeMaxBallsCost;
         }
 
-        SaveUpgradeObstacleVariables obstacleVariables = new SaveUpgradeObstacleVariables();
+        ObstacleVariables obstacleVariables = new ObstacleVariables();
         obstacleVariables = SaveManager.LoadUpgradeObstacleVariables();
         if (obstacleVariables != null)
         {

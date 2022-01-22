@@ -78,7 +78,7 @@ public class UpgradeBallVariables
 }
 
 [System.Serializable]
-public class SaveUpgradeObstacleVariables
+public class ObstacleVariables
 {
     public int upgradeObstacleCost = 10;
     public int upgradeObstacleCost2 = 100;

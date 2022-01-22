@@ -58,7 +58,7 @@ public class UpgradeObstacles : MonoBehaviour
 
     private void SaveUpgradeObstacleVariables()
     {
-        UpgradeObstacles saveObject = new UpgradeObstacles();
+        ObstacleVariables saveObject = new ObstacleVariables();
         saveObject.upgradeObstacleCost = upgradeObstacleCost;
         saveObject.upgradeObstacleCost2 = upgradeObstacleCost2;
         saveObject.upgradeObstacleCost3 = upgradeObstacleCost3;

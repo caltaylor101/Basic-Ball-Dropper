@@ -8170,6 +8170,8 @@ MonoBehaviour:
   previousTotalScore: 0
   prestigeBonus: 0
   hourGlass: {fileID: 522153477}
+  hourGlassGraphic: {fileID: 398676045}
+  hourGlassBase: {fileID: 1209897288}
   startHourglass: {x: 0, y: 0, z: 0}
   autoBallSpawnPoint: {fileID: 1052605258}
   autoBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
@@ -8196,6 +8198,9 @@ MonoBehaviour:
   upgradeIdleBallCost: 20
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 15
+  upgradeObstacleCost: 10
+  upgradeObstacleCost2: 100
+  upgradeObstacleCost3: 1000
 --- !u!4 &862655765
 Transform:
   m_ObjectHideFlags: 0
@@ -15319,6 +15324,9 @@ MonoBehaviour:
   hourglassImage: {fileID: 0}
   hourglassCollider: {fileID: 0}
   upgradeObstacleCost3: 100
+  positionX: 0
+  positionY: 0
+  positionZ: 0
 --- !u!114 &1504025293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17814,6 +17822,9 @@ MonoBehaviour:
   hourglassImage: {fileID: 398676045}
   hourglassCollider: {fileID: 1209897288}
   upgradeObstacleCost3: 100
+  positionX: 0
+  positionY: 0
+  positionZ: 0
 --- !u!114 &1825675077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19173,6 +19184,9 @@ MonoBehaviour:
   hourglassImage: {fileID: 0}
   hourglassCollider: {fileID: 0}
   upgradeObstacleCost3: 100
+  positionX: 0
+  positionY: 0
+  positionZ: 0
 --- !u!114 &1994379579
 MonoBehaviour:
   m_ObjectHideFlags: 0

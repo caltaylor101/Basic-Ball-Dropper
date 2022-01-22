@@ -129,7 +129,7 @@ public static class SaveManager
         File.WriteAllText(dir + fileName6, json);
     }
 
-    public static void SaveUpgradeObstacleVariables(UpgradeObstacles so)
+    public static void SaveUpgradeObstacleVariables(ObstacleVariables so)
     {
         string dir = Application.persistentDataPath + directory;
 
@@ -306,14 +306,14 @@ public static class SaveManager
         return ab;
     }
 
-    public static SaveUpgradeObstacleVariables LoadUpgradeObstacleVariables()
+    public static ObstacleVariables LoadUpgradeObstacleVariables()
     {
         string fullPath7 = Application.persistentDataPath + directory + fileName7;
-        SaveUpgradeObstacleVariables ab = new SaveUpgradeObstacleVariables();
+        ObstacleVariables ab = new ObstacleVariables();
         if (File.Exists(fullPath7))
         {
             string json = File.ReadAllText(fullPath7);
-            ab = JsonUtility.FromJson<SaveUpgradeObstacleVariables>(json);
+            ab = JsonUtility.FromJson<ObstacleVariables>(json);
         }
         else
         {
