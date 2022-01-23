@@ -21,6 +21,7 @@ public class Prestige : MonoBehaviour
         so.maxBalls = 10;
         so.ballCount = 0;
         so.score = 0;
+        so.scoreCalculator = 0;
         so.scoreMultiplier = newScoreBonus;
         so.scoreValue = 1;
         so.totalScore = 0;
