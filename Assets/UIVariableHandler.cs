@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIVariableHandler : MonoBehaviour
@@ -11,6 +12,7 @@ public class UIVariableHandler : MonoBehaviour
     [SerializeField] private GameObject currentButton;
     [SerializeField] private GameObject upgradeBallScriptObject;
     [SerializeField] private GameObject upgradeObjectScriptObject;
+    [SerializeField] private GameObject bonusGate1;
     public GameObject gameRun;
     public Color colorGreen = new Color(0.75f, 1, 0.7817f, 1);
     public Color colorWhite = new Color(1, 1, 1, 1);
@@ -23,13 +25,22 @@ public class UIVariableHandler : MonoBehaviour
     void Update()
     {
         UpgradeMenuVariables();
-
+        GameUIVariables();
 
 
     }
 
+    private void GameUIVariables()
+    {
+        if (bonusGate1)
+        {
+            bonusGate1.GetComponent<TextMeshProUGUI>().text = "X " + Math.Round(gameRun.GetComponent<ImageFade>().scoreMultiplier, 2).ToString();
+
+        }
+    }
     private void UpgradeMenuVariables()
     {
+        
         //Ball damagers
         if (clickBall)
         {
