@@ -88,8 +88,8 @@ public class Shatterable : MonoBehaviour, IHittable
             spawn.Spawn();
         }
 
-        gameRun.GetComponent<ImageFade>().score += (int)Math.Ceiling(destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
-        gameRun.GetComponent<ImageFade>().totalScore += (int)Math.Ceiling(destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
+        gameRun.GetComponent<ImageFade>().scoreCalculator += (destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
+        gameRun.GetComponent<ImageFade>().totalScore += (destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
         HittableObject thisObject = new HittableObject();
         thisObject.name = gameObject.name;
         SaveManager.SaveHittableObjects(thisObject);

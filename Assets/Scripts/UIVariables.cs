@@ -10,7 +10,7 @@ public class UIVariables : MonoBehaviour
     [SerializeField] private GameObject gameRun;
     private int score;
     private string scoreUI;
-    private long totalScore;
+    private double totalScore;
 
     
     void Start()

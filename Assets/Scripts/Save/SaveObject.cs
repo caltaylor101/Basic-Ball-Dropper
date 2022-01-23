@@ -10,10 +10,11 @@ public class SaveObject
     public int ballCount = 0;
 
     public int score = 0;
+    public double scoreCalculator = 0;
     public double scoreMultiplier = 1;
     public int scoreValue = 1;
-    public long totalScore = 0;
-    public long previousTotalScore = 0;
+    public double totalScore = 0;
+    public double previousTotalScore = 0;
     public double prestigeBonus = 0;
 
 

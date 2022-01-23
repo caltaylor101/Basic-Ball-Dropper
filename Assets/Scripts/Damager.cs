@@ -86,7 +86,7 @@ public class Damager : MonoBehaviour
                 otherScript.idleBallCount--;
 
             }
-            otherScript.score = otherScript.score + (int)Math.Ceiling(otherScript.scoreMultiplier * otherScript.scoreValue);
+            otherScript.scoreCalculator = otherScript.scoreCalculator + (otherScript.scoreMultiplier * otherScript.scoreValue);
             otherScript.totalScore = otherScript.totalScore + (int)Math.Ceiling(otherScript.scoreMultiplier * otherScript.scoreValue);
             DestroyBall();
         }

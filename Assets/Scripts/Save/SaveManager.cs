@@ -184,6 +184,14 @@ public static class SaveManager
             string json = File.ReadAllText(dir + fileName11);
             HittableObjectDamage[] _tempObjectList = JsonHelper.FromJson<HittableObjectDamage>(json);
             List<HittableObjectDamage> _editObjectList = _tempObjectList.OfType<HittableObjectDamage>().ToList();
+            foreach (HittableObjectDamage objectDamage in _editObjectList)
+            {
+                if (objectDamage.name == so.name)
+                {
+                    _editObjectList.Remove(objectDamage);
+                    break;
+                }
+            }
             _editObjectList.Add(so);
             HittableObjectDamage[] newArrayToSave = _editObjectList.ToArray();
             string newJsonToSave = JsonHelper.ToJson<HittableObjectDamage>(newArrayToSave);

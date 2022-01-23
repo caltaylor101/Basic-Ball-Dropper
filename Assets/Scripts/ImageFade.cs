@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,10 +19,11 @@ public class ImageFade : MonoBehaviour
 
     //Score Counter
     public int score;
+    public double scoreCalculator;
     public double scoreMultiplier;
     public int scoreValue;
-    public long totalScore;
-    public long previousTotalScore;
+    public double totalScore;
+    public double previousTotalScore;
     public double prestigeBonus;
 
     //Level 2 hourglass animation
@@ -85,6 +87,8 @@ public class ImageFade : MonoBehaviour
     }
     void Update()
     {
+
+        score = (int)Math.Floor(scoreCalculator);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0) && !Physics2D.OverlapPoint(mousePosition))
@@ -97,7 +101,6 @@ public class ImageFade : MonoBehaviour
         }
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
-
 
         if (pausing)
         {
@@ -180,6 +183,7 @@ public class ImageFade : MonoBehaviour
         so.maxBalls = maxBalls;
         so.ballCount = ballCount;
         so.score = score;
+        so.scoreCalculator = scoreCalculator;
         so.scoreMultiplier = scoreMultiplier;
         so.scoreValue = scoreValue;
         so.totalScore = totalScore;
@@ -212,6 +216,7 @@ public class ImageFade : MonoBehaviour
         maxBalls = so.maxBalls;
         ballCount = so.ballCount;
         score = so.score;
+        scoreCalculator = so.scoreCalculator;
         scoreMultiplier = so.scoreMultiplier;
         scoreValue = so.scoreValue;
         totalScore = so.totalScore;
@@ -227,7 +232,6 @@ public class ImageFade : MonoBehaviour
         if (ball.GetComponent<Damager>().damageMultiplier > 1 + cb.prestigeBonus)
         {
             ball.GetComponent<Damager>().damageMultiplier = cb.damageMultiplier;
-            Debug.Log("Greater than" + cb.damageMultiplier);
         }
         else
         {
@@ -381,10 +385,6 @@ public class ImageFade : MonoBehaviour
         GameObject box3 = GameObject.Find("Box (2)");
         GameObject box4 = GameObject.Find("Box (3)");
 
-        Debug.Log(box1);
-        Debug.Log(box2);
-        Debug.Log(box3);
-        Debug.Log(box4);
         if (box1 == null && box2 == null && box3 == null & box4 == null)
         {
             return true;

@@ -7921,6 +7921,7 @@ MonoBehaviour:
   ballCount: 0
   ballSpawnArea: 3036
   score: 0
+  scoreCalculator: 0
   scoreMultiplier: 1
   scoreValue: 1
   totalScore: 0
@@ -7963,7 +7964,7 @@ MonoBehaviour:
   obstacle2Box: {fileID: 316636880846207118, guid: 1faf9f67f30887c4c8f7b0a13baddbc7,
     type: 3}
   level1Start: 0
-  bonusGate1: {fileID: 0}
+  bonusGate1: {fileID: 344347270}
 --- !u!4 &862655765
 Transform:
   m_ObjectHideFlags: 0
