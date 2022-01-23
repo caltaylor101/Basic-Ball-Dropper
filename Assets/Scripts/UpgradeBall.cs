@@ -63,7 +63,7 @@ public class UpgradeBall : MonoBehaviour
         shatterableBoxes = GameObject.FindGameObjectsWithTag("Hittable");
         if (gameRun.GetComponent<ImageFade>().score >= upgradeBallCost)
         {
-            gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeBallCost;
+            gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeBallCost;
             upgradeBallCost = (int)Math.Ceiling((float)upgradeBallCost * 1.10f);
 
             clickBall.GetComponent<Damager>().damageMultiplier += Math.Round(0.05f, 2);
@@ -84,7 +84,7 @@ public class UpgradeBall : MonoBehaviour
     {
         if (gameRun.GetComponent<ImageFade>().score >= upgradeIdleBallCost)
         {
-            gameRun.GetComponent<ImageFade>().score -= upgradeIdleBallCost;
+            gameRun.GetComponent<ImageFade>().scoreCalculator -= upgradeIdleBallCost;
             upgradeIdleButton.SetActive(true);
             idleBallSpawnSpot.SetActive(true);
             maxIdleBallsButton.SetActive(true);
@@ -99,7 +99,7 @@ public class UpgradeBall : MonoBehaviour
     {
         if (gameRun.GetComponent<ImageFade>().score >= upgradeIdleBallCost)
         {
-            gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeIdleBallCost;
+            gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeIdleBallCost;
             upgradeIdleBallCost = (int)Math.Ceiling((float)upgradeIdleBallCost * 1.15f);
             autoBall.GetComponent<Damager>().damageMultiplier += Math.Round(0.06f, 2);
         }
@@ -117,7 +117,7 @@ public class UpgradeBall : MonoBehaviour
     {
         if (gameRun.GetComponent<ImageFade>().score >= upgradeMaxBallsCost)
         {
-            gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeMaxBallsCost;
+            gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeMaxBallsCost;
             if (upgradeMaxBallsCost <= 250 && gameRun.GetComponent<ImageFade>().maxBalls <= 100)
             {
                 upgradeMaxBallsCost = (int)Math.Ceiling((float)upgradeMaxBallsCost * 1.1f);
@@ -139,7 +139,7 @@ public class UpgradeBall : MonoBehaviour
     {
         if (gameRun.GetComponent<ImageFade>().score >= upgradeMaxIdleBallsCost)
         {
-            gameRun.GetComponent<ImageFade>().score = gameRun.GetComponent<ImageFade>().score - upgradeMaxIdleBallsCost;
+            gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeMaxIdleBallsCost;
             if (upgradeMaxIdleBallsCost <= 250 && gameRun.GetComponent<ImageFade>().maxIdleBalls <= 100)
             {
                 upgradeMaxIdleBallsCost = (int)Math.Ceiling((float)upgradeMaxIdleBallsCost * 1.1f);
