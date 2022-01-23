@@ -53,7 +53,7 @@ public class ImageFade : MonoBehaviour
     // upgrade Obstacle Variables
     public int upgradeObstacleCost = 10;
     public int upgradeObstacleCost2 = 100;
-    public int upgradeObstacleCost3 = 1000;
+    public int upgradeObstacleCost3 = 200;
 
 
 

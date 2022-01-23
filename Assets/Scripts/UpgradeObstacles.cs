@@ -12,7 +12,7 @@ public class UpgradeObstacles : MonoBehaviour
 
     public GameObject hourglassImage;
     public GameObject hourglassCollider;
-    public int upgradeObstacleCost3 = 1000;
+    public int upgradeObstacleCost3 = 200;
 
     // To save scale
     public float positionX;

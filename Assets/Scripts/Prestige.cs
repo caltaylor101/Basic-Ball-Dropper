@@ -55,6 +55,25 @@ public class Prestige : MonoBehaviour
         ObstacleVariables obstacleVariables = new ObstacleVariables();
         SaveManager.SaveUpgradeObstacleVariables(obstacleVariables);
 
+        SaveUpgradeObstacle1 obstacle1Save = new SaveUpgradeObstacle1();
+        obstacle1Save.positionX = 1;
+        obstacle1Save.positionY = 1;
+        obstacle1Save.positionZ = 1;
+        SaveManager.SaveUpgradeObstacle1Scale(obstacle1Save);
+
+        SaveUpgradeObstacle1 obstacle2Save = new SaveUpgradeObstacle1();
+        obstacle1Save.positionX = 4.5f;
+        obstacle1Save.positionY = 4.5f;
+        obstacle1Save.positionZ = 4.5f;
+        SaveManager.SaveUpgradeObstacle1Scale(obstacle2Save);
+
+        SaveUpgradeObstacle1 obstacle3Save = new SaveUpgradeObstacle1();
+        obstacle1Save.positionX = 0.5f;
+        obstacle1Save.positionY = 0.76f;
+        obstacle1Save.positionZ = 0.48f;
+        SaveManager.SaveUpgradeObstacle1Scale(obstacle3Save);
+
+
 
 
 
