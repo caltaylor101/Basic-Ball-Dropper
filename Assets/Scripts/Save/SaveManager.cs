@@ -18,6 +18,7 @@ public static class SaveManager
     public static string fileName8 = "MyData8.txt";
     public static string fileName9 = "MyData9.txt";
     public static string fileName10 = "MyData10.txt";
+    public static string fileName11 = "MyData11.txt";
 
     public static void Save(SaveObject so)
     {
@@ -113,18 +114,15 @@ public static class SaveManager
             string jsonToSave = JsonHelper.ToJson<string>(arrayToSave);
             File.WriteAllText(dir + fileName5, jsonToSave);
         }
-
     }
 
     public static void SaveUpgradeBallVariables(UpgradeBallVariables so)
     {
         string dir = Application.persistentDataPath + directory;
-
         if (!Directory.Exists(dir))
         {
             Directory.CreateDirectory(dir);
         }
-
         string json = JsonUtility.ToJson(so);
         File.WriteAllText(dir + fileName6, json);
     }
@@ -132,12 +130,10 @@ public static class SaveManager
     public static void SaveUpgradeObstacleVariables(ObstacleVariables so)
     {
         string dir = Application.persistentDataPath + directory;
-
         if (!Directory.Exists(dir))
         {
             Directory.CreateDirectory(dir);
         }
-
         string json = JsonUtility.ToJson(so);
         File.WriteAllText(dir + fileName7, json);
     }
@@ -145,28 +141,36 @@ public static class SaveManager
     public static void SaveUpgradeObstacle1Scale(SaveUpgradeObstacle1 so)
     {
         string dir = Application.persistentDataPath + directory;
-
         if (!Directory.Exists(dir))
         {
             Directory.CreateDirectory(dir);
         }
-
         string json = JsonUtility.ToJson(so);
         File.WriteAllText(dir + fileName8, json);
     }
     public static void SaveUpgradeObstacle2Scale(SaveUpgradeObstacle1 so)
     {
         string dir = Application.persistentDataPath + directory;
-
         if (!Directory.Exists(dir))
         {
             Directory.CreateDirectory(dir);
         }
-
         string json = JsonUtility.ToJson(so);
         File.WriteAllText(dir + fileName9, json);
     }
     public static void SaveUpgradeObstacle3Scale(SaveUpgradeObstacle1 so)
+    {
+        string dir = Application.persistentDataPath + directory;
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+        string json = JsonUtility.ToJson(so);
+        File.WriteAllText(dir + fileName10, json);
+    }
+
+    // This is to save the damage on hittable objects
+    public static void SaveHittableDamage(HittableObjectDamage so)
     {
         string dir = Application.persistentDataPath + directory;
 
@@ -175,9 +179,27 @@ public static class SaveManager
             Directory.CreateDirectory(dir);
         }
 
-        string json = JsonUtility.ToJson(so);
-        File.WriteAllText(dir + fileName10, json);
+        if (File.Exists(dir + fileName11))
+        {
+            string json = File.ReadAllText(dir + fileName11);
+            HittableObjectDamage[] _tempObjectList = JsonHelper.FromJson<HittableObjectDamage>(json);
+            List<HittableObjectDamage> _editObjectList = _tempObjectList.OfType<HittableObjectDamage>().ToList();
+            _editObjectList.Add(so);
+            HittableObjectDamage[] newArrayToSave = _editObjectList.ToArray();
+            string newJsonToSave = JsonHelper.ToJson<HittableObjectDamage>(newArrayToSave);
+            File.WriteAllText(dir + fileName11, newJsonToSave);
+        }
+        else
+        {
+            List<HittableObjectDamage> objectList = new List<HittableObjectDamage>();
+            objectList.Add(so);
+            HittableObjectDamage[] arrayToSave = objectList.ToArray();
+            string jsonToSave = JsonHelper.ToJson<HittableObjectDamage>(arrayToSave);
+            File.WriteAllText(dir + fileName11, jsonToSave);
+        }
     }
+
+
 
 
 
@@ -371,6 +393,27 @@ public static class SaveManager
     }
 
 
+    public static HittableObjectDamageList LoadHittableObjectDamage()
+    {
+        string fullPath11 = Application.persistentDataPath + directory + fileName11;
+        HittableObjectDamageList returnObject = new HittableObjectDamageList();
+        if (File.Exists(fullPath11))
+        {
+            string json = File.ReadAllText(fullPath11);
+            HittableObjectDamage[] newArray = JsonHelper.FromJson<HittableObjectDamage>(json);
+            List<HittableObjectDamage> objectList = new List<HittableObjectDamage>();
+            objectList = newArray.OfType<HittableObjectDamage>().ToList();
+            returnObject.damageObjects = objectList;
+        }
+        else
+        {
+            Debug.Log("Save file for HittableObjects doesn't exist");
+        }
+        return returnObject;
+
+    }
+
+
 
     public static void DeleteObjectListData()
     {
@@ -380,6 +423,11 @@ public static class SaveManager
     public static void DeleteBallListData()
     {
         string fullPath4 = Application.persistentDataPath + directory + fileName4;
+        File.Delete(fullPath4);
+    }
+    public static void DeleteObjectDamageListData()
+    {
+        string fullPath4 = Application.persistentDataPath + directory + fileName11;
         File.Delete(fullPath4);
     }
 

@@ -69,6 +69,25 @@ public class HittableObjectList
 }
 [System.Serializable]
 
+public class HittableObjectDamage
+{
+    public string name;
+    public string tag;
+    public double damage;
+    public double maxDamage;
+    public float positionX;
+    public float positionY;
+    public float positionZ;
+
+}
+[System.Serializable]
+
+public class HittableObjectDamageList
+{
+    public List<HittableObjectDamage> damageObjects;
+}
+
+[System.Serializable]
 public class UpgradeBallVariables
 {
     public int upgradeBallCost = 10;

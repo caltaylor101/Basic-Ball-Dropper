@@ -54,6 +54,7 @@ public class ImageFade : MonoBehaviour
     public int upgradeObstacleCost = 10;
     public int upgradeObstacleCost2 = 100;
     public int upgradeObstacleCost3 = 200;
+    public GameObject obstacle1Box;
 
 
 
@@ -258,16 +259,7 @@ public class ImageFade : MonoBehaviour
             idleBallCount = 0;
         }
 
-        HittableObjectList objectList = new HittableObjectList();
-        objectList = SaveManager.LoadHittableObjects();
-        if (objectList.nameList != null)
-        {
-            foreach (string name in objectList.nameList)
-            {
-                GameObject deleteObject = GameObject.Find(name);
-                Destroy(deleteObject);
-            }
-        }
+
 
         UpgradeBallVariables ballVariables = new UpgradeBallVariables();
         ballVariables = SaveManager.LoadUpgradeBallVariables();
@@ -316,8 +308,59 @@ public class ImageFade : MonoBehaviour
             hourGlassGraphic.GetComponent<Transform>().localScale = new Vector3(obstacle3.positionX, obstacle3.positionY, obstacle3.positionZ);
             hourGlassBase.GetComponent<Transform>().localScale = new Vector3(obstacle3.positionX, obstacle3.positionY, obstacle3.positionZ);
         }
-        
-        
+
+        HittableObjectDamageList hittableList = new HittableObjectDamageList();
+        hittableList = SaveManager.LoadHittableObjectDamage();
+        if (hittableList.damageObjects != null)
+        {
+            foreach (HittableObjectDamage damageObject in hittableList.damageObjects)
+            {
+                if (damageObject.maxDamage == 100 && damageObject.damage != damageObject.maxDamage)
+                {
+                    GameObject destroyObject = GameObject.Find(damageObject.name);
+                    Destroy(destroyObject);
+                    GameObject obstacleLoadInstantiation = Instantiate(obstacle1Box, new Vector3(damageObject.positionX, damageObject.positionY, damageObject.positionZ), Quaternion.identity);
+                    obstacleLoadInstantiation.name = damageObject.name;
+                    obstacleLoadInstantiation.tag = damageObject.tag;
+                    obstacleLoadInstantiation.GetComponent<Shatterable>().damage = damageObject.damage;
+                    obstacleLoadInstantiation.GetComponent<Shatterable>().maxDamage = damageObject.maxDamage;
+                    obstacleLoadInstantiation.GetComponent<Shatterable>().gameRun = gameObject;
+
+                }
+                else if (damageObject.maxDamage == 1000)
+                {
+                    GameObject destroyObject = GameObject.Find(damageObject.name);
+                    Destroy(destroyObject);
+                    GameObject obstacleLoadInstantiation = Instantiate(obstacle1Box, new Vector3(damageObject.positionX, damageObject.positionY, damageObject.positionZ), Quaternion.identity);
+                    obstacleLoadInstantiation.name = damageObject.name;
+                    obstacleLoadInstantiation.tag = damageObject.tag;
+                    obstacleLoadInstantiation.GetComponent<Shatterable>().damage = damageObject.damage;
+                    obstacleLoadInstantiation.GetComponent<Shatterable>().maxDamage = damageObject.maxDamage;
+                    obstacleLoadInstantiation.GetComponent<Shatterable>().gameRun = gameObject;
+                }
+            }
+        }
+
+        HittableObjectList objectList = new HittableObjectList();
+        objectList = SaveManager.LoadHittableObjects();
+        if (objectList.nameList != null)
+        {
+            foreach (string name in objectList.nameList)
+            {
+                GameObject[] deleteObjectList = GameObject.FindGameObjectsWithTag("Hittable");
+                foreach (GameObject objectToDelete in deleteObjectList)
+                {
+                    if (objectToDelete.name == name)
+                    {
+                        Destroy(objectToDelete);
+                    }
+                }
+                GameObject deleteObject = GameObject.Find(name);
+                Destroy(deleteObject);
+            }
+        }
+
+
 
 
     }
