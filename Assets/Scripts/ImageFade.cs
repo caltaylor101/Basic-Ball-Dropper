@@ -55,6 +55,7 @@ public class ImageFade : MonoBehaviour
     public int upgradeObstacleCost2 = 100;
     public int upgradeObstacleCost3 = 200;
     public GameObject obstacle1Box;
+    public GameObject obstacle2Box;
 
 
 
