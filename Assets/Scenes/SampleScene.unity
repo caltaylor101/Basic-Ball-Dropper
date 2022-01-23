@@ -2270,6 +2270,7 @@ GameObject:
   - component: {fileID: 344347272}
   - component: {fileID: 344347274}
   - component: {fileID: 344347273}
+  - component: {fileID: 344347275}
   m_Layer: 0
   m_Name: BonusGate1
   m_TagString: Untagged
@@ -2405,6 +2406,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba0cc275e2dedd458b8f064c483b2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameRun: {fileID: 0}
+--- !u!114 &344347275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344347270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba0cc275e2dedd458b8f064c483b2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameRun: {fileID: 0}
 --- !u!1 &346704958
 GameObject:
   m_ObjectHideFlags: 0

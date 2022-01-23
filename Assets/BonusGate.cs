@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BonusGate : MonoBehaviour
 {
+    public GameObject gameRun;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,6 @@ public class BonusGate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        gameRun.GetComponent<ImageFade>().scoreCalculator += gameRun.GetComponent<ImageFade>().scoreMultiplier;
     }
 }
