@@ -339,11 +339,11 @@ public class ImageFade : MonoBehaviour
                     obstacleLoadInstantiation.GetComponent<Shatterable>().gameRun = gameObject;
 
                 }
-                else if (damageObject.maxDamage == 1000)
+                else if (damageObject.maxDamage == 250)
                 {
                     GameObject destroyObject = GameObject.Find(damageObject.name);
                     Destroy(destroyObject);
-                    GameObject obstacleLoadInstantiation = Instantiate(obstacle1Box, new Vector3(damageObject.positionX, damageObject.positionY, damageObject.positionZ), Quaternion.identity);
+                    GameObject obstacleLoadInstantiation = Instantiate(obstacle2Box, new Vector3(damageObject.positionX, damageObject.positionY, damageObject.positionZ), Quaternion.identity);
                     obstacleLoadInstantiation.name = damageObject.name;
                     obstacleLoadInstantiation.tag = damageObject.tag;
                     obstacleLoadInstantiation.GetComponent<Shatterable>().damage = damageObject.damage;

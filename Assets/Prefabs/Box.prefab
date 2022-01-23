@@ -318,6 +318,8 @@ MonoBehaviour:
   maxDamage: 100
   damagePower: 1
   damageMultiplier: 1
+  destructionScore: 100
+  gameRun: {fileID: 0}
 --- !u!1 &2869806862000844285
 GameObject:
   m_ObjectHideFlags: 0

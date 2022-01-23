@@ -247,7 +247,7 @@ MonoBehaviour:
   - {fileID: 2573637823620636740}
   - {fileID: 2573637824893427570}
   damage: 0
-  maxDamage: 1000
+  maxDamage: 250
   damagePower: 1
   damageMultiplier: 1
   destructionScore: 1000
