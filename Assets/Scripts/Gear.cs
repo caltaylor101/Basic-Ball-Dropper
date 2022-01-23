@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gear : MonoBehaviour
 {
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class Gear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
+
 }

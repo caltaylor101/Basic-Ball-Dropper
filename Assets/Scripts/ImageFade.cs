@@ -57,7 +57,9 @@ public class ImageFade : MonoBehaviour
     public GameObject obstacle1Box;
     public GameObject obstacle2Box;
 
-
+    // bonus gate
+    public bool level1Start;
+    public GameObject bonusGate1;
 
 
     private void Awake()
@@ -118,6 +120,11 @@ public class ImageFade : MonoBehaviour
             pausing = false;
         }
 
+        level1Start = Level1Check();
+        if (level1Start)
+        {
+            StartGate();
+        }
 
     }
 
@@ -366,6 +373,29 @@ public class ImageFade : MonoBehaviour
 
     }
 
+
+    private bool Level1Check()
+    {
+        GameObject box1 = GameObject.Find("Box");
+        GameObject box2 = GameObject.Find("Box (1)");
+        GameObject box3 = GameObject.Find("Box (2)");
+        GameObject box4 = GameObject.Find("Box (3)");
+
+        Debug.Log(box1);
+        Debug.Log(box2);
+        Debug.Log(box3);
+        Debug.Log(box4);
+        if (box1 == null && box2 == null && box3 == null & box4 == null)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    private void StartGate()
+    {
+        bonusGate1.SetActive(true);
+    }
 
     private void AutoBallSpawn()
     {
