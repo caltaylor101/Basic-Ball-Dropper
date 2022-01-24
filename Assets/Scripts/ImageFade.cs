@@ -209,6 +209,7 @@ public class ImageFade : MonoBehaviour
         so.previousTotalScore = previousTotalScore;
         so.prestigeBonus = prestigeBonus;
         so.autoBallSpawn = autoBallSpawn;
+        so.multiBallSpawn = multiBallSpawn;
         so.maxIdleBalls = maxIdleBalls;
         so.idleBallCount = idleBallCount;
         SaveManager.Save(so);
@@ -242,6 +243,7 @@ public class ImageFade : MonoBehaviour
         previousTotalScore = so.previousTotalScore;
         prestigeBonus = so.prestigeBonus;
         autoBallSpawn = so.autoBallSpawn;
+        multiBallSpawn = so.multiBallSpawn;
         maxIdleBalls = so.maxIdleBalls;
         idleBallCount = so.idleBallCount;
 

@@ -19,6 +19,7 @@ public class SaveObject
 
 
     public bool autoBallSpawn = false;
+    public bool multiBallSpawn = false;
     public int maxIdleBalls = 5;
     public int idleBallCount = 0;
 }
