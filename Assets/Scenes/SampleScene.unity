@@ -1315,7 +1315,10 @@ GameObject:
   - component: {fileID: 168526185}
   - component: {fileID: 168526188}
   - component: {fileID: 168526187}
+<<<<<<< HEAD
   - component: {fileID: 168526186}
+=======
+>>>>>>> parent of b0cbe48 (Made it scalable for all devices)
   m_Layer: 0
   m_Name: RightWall
   m_TagString: Untagged
@@ -1337,6 +1340,7 @@ Transform:
   m_Father: {fileID: 463476758}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!50 &168526186
 Rigidbody2D:
   serializedVersion: 4
@@ -1358,6 +1362,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+=======
+>>>>>>> parent of b0cbe48 (Made it scalable for all devices)
 --- !u!61 &168526187
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1564,7 +1570,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212069238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -5.43, y: 2.8000488, z: 0}
+=======
+  m_LocalPosition: {x: -5.38, y: 2.8000488, z: 0}
+>>>>>>> parent of b0cbe48 (Made it scalable for all devices)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 358487293}
@@ -4932,10 +4942,17 @@ RectTransform:
   m_Father: {fileID: 1005864354}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -31, y: 80.1}
   m_SizeDelta: {x: 1, y: 1}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -3.2000008, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> parent of b0cbe48 (Made it scalable for all devices)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &621722817
 SpriteRenderer:
@@ -18004,7 +18021,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -54.03, y: 181.81}
+=======
+  m_AnchoredPosition: {x: -56.6, y: 162.4}
+>>>>>>> parent of b0cbe48 (Made it scalable for all devices)
   m_SizeDelta: {x: 66.396, y: 27.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1870902034
@@ -20418,8 +20439,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -64.8, y: 159}
   m_SizeDelta: {x: 55.69, y: 18.378}
+=======
+  m_AnchoredPosition: {x: -62.963, y: 185.977}
+  m_SizeDelta: {x: 53.671, y: 12.825}
+>>>>>>> parent of b0cbe48 (Made it scalable for all devices)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143789762
 MonoBehaviour:
