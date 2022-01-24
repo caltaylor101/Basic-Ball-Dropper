@@ -446,7 +446,7 @@ public class ImageFade : MonoBehaviour
         {
             multiBallCount++;
             GameObject theBall = Instantiate(multiBall, new Vector3(multiSpawnPosition.x, multiSpawnPosition.y, 1), Quaternion.identity);
-            theBall.tag = "MultiMovable2";
+            theBall.tag = "Movable2";
             SpriteRenderer theBallColor = theBall.GetComponent<SpriteRenderer>();
             theBallColor.color = Color.green;
             StartCoroutine(FadeImage(true, theBall, theBallColor));

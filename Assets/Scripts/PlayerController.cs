@@ -69,27 +69,6 @@ public class PlayerController : MonoBehaviour
                 offset = selectedObject.transform.position - mousePosition;
                 offset2 = otherBall.transform.position - mousePosition;
             }
-            if (targetObject.tag == "MultiMovable1")
-            {
-                if (GameObject.FindWithTag("MultiMovable2"))
-                {
-                    otherBall = GameObject.FindWithTag("MultiMovable2");
-                    otherBall = otherBall.transform.gameObject;
-                    offset2 = otherBall.transform.position - mousePosition;
-                }
-
-                selectedObject = targetObject.transform.gameObject;
-                offset = selectedObject.transform.position - mousePosition;
-            }
-            else if (targetObject.tag == "MultiMovable2")
-            {
-                otherBall = GameObject.FindWithTag("MultiMovable1");
-                selectedObject = selectedObject.transform.gameObject;
-                otherBall = targetObject.transform.gameObject;
-                offset = selectedObject.transform.position - mousePosition;
-                offset2 = otherBall.transform.position - mousePosition;
-            }
-
         }
 
         if (selectedObject)
