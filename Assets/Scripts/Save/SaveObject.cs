@@ -101,8 +101,9 @@ public class UpgradeBallVariables
 public class ObstacleVariables
 {
     public int upgradeObstacleCost = 10;
-    public int upgradeObstacleCost2 = 100;
+    public int upgradeObstacleCost2 = 50;
     public int upgradeObstacleCost3 = 200;
+    public int upgradeObstacleCost4 = 500;
 }
 
 [System.Serializable]

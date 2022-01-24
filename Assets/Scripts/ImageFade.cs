@@ -54,8 +54,9 @@ public class ImageFade : MonoBehaviour
 
     // upgrade Obstacle Variables
     public int upgradeObstacleCost = 10;
-    public int upgradeObstacleCost2 = 100;
+    public int upgradeObstacleCost2 = 50;
     public int upgradeObstacleCost3 = 200;
+    public int upgradeObstacleCost4 = 500;
     public GameObject obstacle1Box;
     public GameObject obstacle2Box;
 
@@ -290,6 +291,7 @@ public class ImageFade : MonoBehaviour
             upgradeObstacleCost = obstacleVariables.upgradeObstacleCost;
             upgradeObstacleCost2 = obstacleVariables.upgradeObstacleCost2;
             upgradeObstacleCost3 = obstacleVariables.upgradeObstacleCost3;
+            upgradeObstacleCost4 = obstacleVariables.upgradeObstacleCost4;
         }
 
         SaveUpgradeObstacle1 obstacle1 = new SaveUpgradeObstacle1();
@@ -319,6 +321,17 @@ public class ImageFade : MonoBehaviour
         {
             hourGlassGraphic.GetComponent<Transform>().localScale = new Vector3(obstacle3.positionX, obstacle3.positionY, obstacle3.positionZ);
             hourGlassBase.GetComponent<Transform>().localScale = new Vector3(obstacle3.positionX, obstacle3.positionY, obstacle3.positionZ);
+        }
+
+        SaveUpgradeObstacle1 obstacle4 = new SaveUpgradeObstacle1();
+        obstacle4 = SaveManager.LoadObstacle4();
+        if (obstacle4.positionY != 0)
+        {
+            GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle4");
+            foreach (GameObject obstacle in obstacles)
+            {
+                obstacle.GetComponent<Transform>().localScale = new Vector3(obstacle2.positionX, obstacle2.positionY, obstacle2.positionZ);
+            }
         }
 
         HittableObjectDamageList hittableList = new HittableObjectDamageList();
