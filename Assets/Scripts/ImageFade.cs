@@ -42,6 +42,15 @@ public class ImageFade : MonoBehaviour
     public int idleBallCount = 0;
     public bool pausing = false;
 
+    // MultiBallSpawner
+    public GameObject multiBallSpawnPoint;
+    public GameObject multiBall;
+    public bool multiBallSpawn = false;
+    public Vector3 multiSpawnPosition;
+    public float multiSpawnTime = 10f;
+    public int maxMultiBalls = 5;
+    public int multiBallCount = 0;
+
 
     // save testing
     public SaveObject so;
@@ -419,6 +428,19 @@ public class ImageFade : MonoBehaviour
             theBall.tag = "Movable2";
             SpriteRenderer theBallColor = theBall.GetComponent<SpriteRenderer>();
             theBallColor.color = Color.red;
+            StartCoroutine(FadeImage(true, theBall, theBallColor));
+        }
+    }
+
+        private void MultiBallSpawn()
+    {
+        if (maxMultiBalls > multiBallCount && multiBallSpawn == true)
+        {
+            multiBallCount++;
+            GameObject theBall = Instantiate(multiBall, new Vector3(multiSpawnPosition.x, multiSpawnPosition.y, 1), Quaternion.identity);
+            theBall.tag = "Movable2";
+            SpriteRenderer theBallColor = theBall.GetComponent<SpriteRenderer>();
+            theBallColor.color = Color.green;
             StartCoroutine(FadeImage(true, theBall, theBallColor));
         }
     }
