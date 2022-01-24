@@ -60,6 +60,8 @@ public class ImageFade : MonoBehaviour
     public int upgradeIdleBallCost = 15;
     public int upgradeMaxBallsCost = 10;
     public int upgradeMaxIdleBallsCost = 10;
+    public int upgradeMaxMultiBallsCost = 30;
+
 
     // upgrade Obstacle Variables
     public int upgradeObstacleCost = 10;
