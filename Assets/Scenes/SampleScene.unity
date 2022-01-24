@@ -4578,8 +4578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1047f508f63e81041bde4fa4c5277f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orthographicSize: 20
-  aspect: 1.33333
 --- !u!1 &522153477
 GameObject:
   m_ObjectHideFlags: 0
@@ -9216,9 +9214,10 @@ MonoBehaviour:
   maxIdleBalls: 5
   idleBallCount: 0
   pausing: 0
-  multiBallSpawnPoint: {fileID: 0}
-  multiBall: {fileID: 0}
-  multiBallSpawn: 0
+  multiBallSpawnPoint: {fileID: 1931312073}
+  multiBall: {fileID: 3602095141036410658, guid: 0874ab0ae0df3e242aeb669041f9b6c9,
+    type: 3}
+  multiBallSpawn: 1
   multiSpawnPosition: {x: 0, y: 0, z: 0}
   multiSpawnTime: 10
   maxMultiBalls: 5
@@ -19774,12 +19773,12 @@ PrefabInstance:
     - target: {fileID: 711541572956937489, guid: 5e4411ca0aea33e4bad58ae6fcbed8a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.46
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 711541572956937489, guid: 5e4411ca0aea33e4bad58ae6fcbed8a9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.02
+      value: 10.86
       objectReference: {fileID: 0}
     - target: {fileID: 711541572956937489, guid: 5e4411ca0aea33e4bad58ae6fcbed8a9,
         type: 3}
