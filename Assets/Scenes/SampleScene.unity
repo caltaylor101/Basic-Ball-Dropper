@@ -2758,7 +2758,7 @@ MonoBehaviour:
   gameRun: {fileID: 862655763}
   multiBall: {fileID: 3602095141036410658, guid: 0874ab0ae0df3e242aeb669041f9b6c9,
     type: 3}
-  numberOfMultiBalls: 2
+  numberOfMultiBalls: 1
 --- !u!1 &346704958
 GameObject:
   m_ObjectHideFlags: 0
@@ -17021,7 +17021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1514163649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18076,7 +18076,7 @@ GameObject:
   - component: {fileID: 1613396896}
   - component: {fileID: 1613396895}
   m_Layer: 5
-  m_Name: MaxBallsCost
+  m_Name: MaxMultiBallsCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20872,7 +20872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1936132782
 RectTransform:
   m_ObjectHideFlags: 0

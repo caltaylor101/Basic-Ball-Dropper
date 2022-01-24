@@ -27,7 +27,7 @@ public class BonusGate : MonoBehaviour
         {
             Vector3 prefabPosition = collision.gameObject.GetComponent<Transform>().position;
 
-            for (int i = 0; i <= numberOfMultiBalls; i++)
+            for (int i = 0; i < numberOfMultiBalls; i++)
             {
                 if (prefabPosition.x >= 4.6f)
                 {

@@ -122,6 +122,8 @@ public class ImageFade : MonoBehaviour
         }
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
+        multiSpawnPosition = multiBallSpawnPoint.GetComponent<Transform>().position;
+
 
         if (pausing)
         {
@@ -451,7 +453,7 @@ public class ImageFade : MonoBehaviour
         {
             multiBallCount++;
             GameObject theBall = Instantiate(multiBall, new Vector3(multiSpawnPosition.x, multiSpawnPosition.y, 1), Quaternion.identity);
-            theBall.tag = "Movable2";
+            theBall.tag = "MultiMovable2";
             SpriteRenderer theBallColor = theBall.GetComponent<SpriteRenderer>();
             theBallColor.color = Color.green;
             StartCoroutine(FadeImage(true, theBall, theBallColor));
