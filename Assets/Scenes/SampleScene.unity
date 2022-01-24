@@ -2756,6 +2756,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameRun: {fileID: 862655763}
+  multiBall: {fileID: 3602095141036410658, guid: 0874ab0ae0df3e242aeb669041f9b6c9,
+    type: 3}
+  numberOfMultiBalls: 2
 --- !u!1 &346704958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2832,7 @@ MonoBehaviour:
   multiBallSpawnSpot: {fileID: 0}
   upgradeMultiButton: {fileID: 1369905456}
   multiBall: {fileID: 0}
+  plusMultiBallButton: {fileID: 0}
 --- !u!114 &346704961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6149,7 +6153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &686299454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6201,6 +6205,7 @@ MonoBehaviour:
   multiBallSpawnSpot: {fileID: 0}
   upgradeMultiButton: {fileID: 0}
   multiBall: {fileID: 0}
+  plusMultiBallButton: {fileID: 0}
 --- !u!114 &686299456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9273,6 +9278,7 @@ MonoBehaviour:
   upgradeIdleBallCost: 20
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 15
+  upgradeMaxMultiBallsCost: 30
   upgradeObstacleCost: 10
   upgradeObstacleCost2: 100
   upgradeObstacleCost3: 1000
@@ -16091,6 +16097,7 @@ MonoBehaviour:
   upgradeMultiButton: {fileID: 0}
   multiBall: {fileID: 3602095141036410658, guid: 0874ab0ae0df3e242aeb669041f9b6c9,
     type: 3}
+  plusMultiBallButton: {fileID: 0}
 --- !u!114 &1369905459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16480,6 +16487,7 @@ MonoBehaviour:
   multiBallSpawnSpot: {fileID: 1931312073}
   upgradeMultiButton: {fileID: 1369905456}
   multiBall: {fileID: 0}
+  plusMultiBallButton: {fileID: 0}
 --- !u!114 &1481004718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17013,7 +17021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1514163649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17065,6 +17073,7 @@ MonoBehaviour:
   multiBallSpawnSpot: {fileID: 0}
   upgradeMultiButton: {fileID: 0}
   multiBall: {fileID: 0}
+  plusMultiBallButton: {fileID: 0}
 --- !u!114 &1514163651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17111,7 +17120,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1514163650}
         m_TargetAssemblyTypeName: UpgradeBall, Assembly-CSharp
-        m_MethodName: PlusOneMaxBall
+        m_MethodName: PlusMultiBall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17310,6 +17319,7 @@ MonoBehaviour:
   multiBallSpawnSpot: {fileID: 0}
   upgradeMultiButton: {fileID: 0}
   multiBall: {fileID: 0}
+  plusMultiBallButton: {fileID: 1514163648}
 --- !u!114 &1550416231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19784,6 +19794,7 @@ MonoBehaviour:
   multiBallSpawnSpot: {fileID: 0}
   upgradeMultiButton: {fileID: 0}
   multiBall: {fileID: 0}
+  plusMultiBallButton: {fileID: 0}
 --- !u!114 &1825176741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20620,6 +20631,7 @@ MonoBehaviour:
   multiBallSpawnSpot: {fileID: 0}
   upgradeMultiButton: {fileID: 0}
   multiBall: {fileID: 0}
+  plusMultiBallButton: {fileID: 0}
 --- !u!114 &1887406900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20860,7 +20872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1936132782
 RectTransform:
   m_ObjectHideFlags: 0

@@ -30,5 +30,6 @@ public class GameplayButtons : MonoBehaviour
         }
         gameRun.GetComponent<ImageFade>().ballCount = 0;
         gameRun.GetComponent<ImageFade>().idleBallCount = 0;
+        gameRun.GetComponent<ImageFade>().multiBallCount = 0;
     }
 }

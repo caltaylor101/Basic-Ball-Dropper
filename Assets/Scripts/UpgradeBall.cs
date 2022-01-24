@@ -31,6 +31,7 @@ public class UpgradeBall : MonoBehaviour
     public GameObject multiBallSpawnSpot;
     public GameObject upgradeMultiButton;
     public GameObject multiBall;
+    public GameObject plusMultiBallButton;
 
 
 
@@ -69,6 +70,10 @@ public class UpgradeBall : MonoBehaviour
             if (unlockMultiButton != null)
             {
                 unlockMultiButton.SetActive(false);
+            }
+            if (plusMultiBallButton != null)
+            {
+                plusMultiBallButton.SetActive(true);
             }
 
         }
