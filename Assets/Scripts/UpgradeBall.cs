@@ -91,6 +91,7 @@ public class UpgradeBall : MonoBehaviour
         upgradeIdleBallCost = gameRun.GetComponent<ImageFade>().upgradeIdleBallCost;
         upgradeMaxBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxBallsCost;
         upgradeMaxIdleBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost;
+        upgradeMaxMultiBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxMultiBallsCost;
     }
 
     
@@ -235,14 +236,14 @@ public class UpgradeBall : MonoBehaviour
     {
         if (gameRun.GetComponent<ImageFade>().score >= upgradeMaxMultiBallsCost)
         {
-            gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeMaxIdleBallsCost;
+            upgradeMaxMultiBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxMultiBallsCost;
+            gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeMaxMultiBallsCost;
             if (upgradeMaxMultiBallsCost <= 250 && gameRun.GetComponent<ImageFade>().maxMultiBalls <= 100)
             {
-                upgradeMaxIdleBallsCost = (int)Math.Ceiling((float)upgradeMaxIdleBallsCost * 1.1f);
+                upgradeMaxMultiBallsCost = (int)Math.Ceiling((float)upgradeMaxMultiBallsCost * 1.1f);
             }
             gameRun.GetComponent<ImageFade>().maxMultiBalls += 1;
         }
-
         gameRun.GetComponent<ImageFade>().upgradeMaxMultiBallsCost = upgradeMaxMultiBallsCost;
 
         UpgradeBallVariables saveObject = new UpgradeBallVariables();

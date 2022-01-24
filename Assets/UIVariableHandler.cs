@@ -145,6 +145,19 @@ public class UIVariableHandler : MonoBehaviour
 
             }
         }
+        if (upgradeBallScriptObject && gameObject.name == "MaxMultiBallsCost")
+        {
+            currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeMaxMultiBallsCost.ToString();
+            if (gameRun.GetComponent<ImageFade>().score >= upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeMaxMultiBallsCost)
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorGreen;
+            }
+            else
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorWhite;
+
+            }
+        }
 
 
 

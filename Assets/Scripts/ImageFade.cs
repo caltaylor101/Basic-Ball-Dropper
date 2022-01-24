@@ -304,6 +304,7 @@ public class ImageFade : MonoBehaviour
             upgradeIdleBallCost = ballVariables.upgradeIdleBallCost;
             upgradeMaxBallsCost = ballVariables.upgradeMaxBallsCost;
             upgradeMaxIdleBallsCost = ballVariables.upgradeMaxIdleBallsCost;
+            upgradeMaxMultiBallsCost = ballVariables.upgradeMaxMultiBallsCost;
         }
 
         ObstacleVariables obstacleVariables = new ObstacleVariables();

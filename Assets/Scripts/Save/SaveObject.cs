@@ -97,7 +97,7 @@ public class UpgradeBallVariables
     public int upgradeIdleBallCost = 20;
     public int upgradeMaxIdleBallsCost = 15;
     public int upgradeMultiBallCost = 1000;
-    public int upgradeMaxMultiBallsCost = 1000;
+    public int upgradeMaxMultiBallsCost = 25;
     // not used yet public int upgradeMaxMultiBallsCost = 15;
 
 }

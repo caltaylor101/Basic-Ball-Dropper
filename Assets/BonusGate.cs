@@ -6,7 +6,7 @@ public class BonusGate : MonoBehaviour
 {
     public GameObject gameRun;
     public GameObject multiBall;
-    public int numberOfMultiBalls = 2;
+    public int numberOfMultiBalls = 1;
     // Start is called before the first frame update
     void Start()
     {
