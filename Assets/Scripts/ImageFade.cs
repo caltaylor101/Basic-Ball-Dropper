@@ -325,7 +325,7 @@ public class ImageFade : MonoBehaviour
 
         SaveUpgradeObstacle1 obstacle4 = new SaveUpgradeObstacle1();
         obstacle4 = SaveManager.LoadObstacle4();
-        if (obstacle4.positionY != 0)
+        if (obstacle4.positionX != 0)
         {
             GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle4");
             foreach (GameObject obstacle in obstacles)
