@@ -18,11 +18,18 @@ public class UpgradeBall : MonoBehaviour
     public GameObject unlockIdleButton;
     public GameObject autoBall;
     public int upgradeIdleBallCost = 10;
+    public int upgradeMultiBallCost = 1000;
 
     // max ball variables
     public int upgradeMaxBallsCost = 10;
     public int upgradeMaxIdleBallsCost = 10;
+    public int upgradeMaxMultiBallsCost = 25;
     public GameObject maxIdleBallsButton;
+
+    // MultiBall
+    public GameObject unlockMultiButton;
+    public GameObject multiBallSpawnSpot;
+    public GameObject upgradeMultiButton;
 
 
 
@@ -50,6 +57,8 @@ public class UpgradeBall : MonoBehaviour
         
     }
 
+    
+
     private void Start()
     {
         upgradeBallCost = gameRun.GetComponent<ImageFade>().upgradeBallCost;
@@ -57,6 +66,8 @@ public class UpgradeBall : MonoBehaviour
         upgradeMaxBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxBallsCost;
         upgradeMaxIdleBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost;
     }
+
+    
 
     public void UpgradeBallDamage()
     {
@@ -88,12 +99,29 @@ public class UpgradeBall : MonoBehaviour
             upgradeIdleButton.SetActive(true);
             idleBallSpawnSpot.SetActive(true);
             maxIdleBallsButton.SetActive(true);
+            unlockMultiButton.SetActive(true);
             gameRun.GetComponent<ImageFade>().autoBallSpawn = true;
-            gameObject.SetActive(false);
             Destroy(gameObject);
         }
 
     }
+        public void UnlockMultiBall()
+    {
+        if (gameRun.GetComponent<ImageFade>().score >= upgradeMultiBallCost)
+        {
+            gameRun.GetComponent<ImageFade>().scoreCalculator -= upgradeMultiBallCost;
+            upgradeMultiButton.SetActive(false);
+            upgradeMultiButton.SetActive(true);
+            multiBallSpawnSpot.SetActive(true);
+            //maxIdleBallsButton.SetActive(true);
+            //unlockMultiButton.SetActive(true);
+            gameRun.GetComponent<ImageFade>().multiBallSpawn = true;
+            Debug.Log(upgradeMultiButton.activeSelf);
+            Destroy(gameObject);
+        }
+
+    }
+
 
     public void UpgradeIdleBall()
     {

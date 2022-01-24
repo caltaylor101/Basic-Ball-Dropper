@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 17120486}
   - component: {fileID: 17120485}
   m_Layer: 5
-  m_Name: UnlockMultiplyButton
+  m_Name: UnlockMultiButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,9 +515,14 @@ MonoBehaviour:
   unlockIdleButton: {fileID: 17120483}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
+  upgradeMultiBallCost: 500
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 10
+  upgradeMaxMultiBallsCost: 25
   maxIdleBallsButton: {fileID: 686299453}
+  unlockMultiButton: {fileID: 0}
+  multiBallSpawnSpot: {fileID: 1931312073}
+  upgradeMultiButton: {fileID: 1068982353}
 --- !u!114 &17120486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,7 +569,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 17120485}
         m_TargetAssemblyTypeName: UpgradeBall, Assembly-CSharp
-        m_MethodName: UnlockIdleBall
+        m_MethodName: UnlockMultiBall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2878,9 +2883,14 @@ MonoBehaviour:
   autoBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
     type: 3}
   upgradeIdleBallCost: 10
+  upgradeMultiBallCost: 500
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 10
+  upgradeMaxMultiBallsCost: 25
   maxIdleBallsButton: {fileID: 0}
+  unlockMultiButton: {fileID: 0}
+  multiBallSpawnSpot: {fileID: 0}
+  upgradeMultiButton: {fileID: 0}
 --- !u!114 &346704961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3422,6 +3432,7 @@ RectTransform:
   - {fileID: 346704959}
   - {fileID: 1723020895}
   - {fileID: 17120484}
+  - {fileID: 1068982354}
   m_Father: {fileID: 2105481352}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6323,9 +6334,14 @@ MonoBehaviour:
   unlockIdleButton: {fileID: 0}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
+  upgradeMultiBallCost: 500
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 10
+  upgradeMaxMultiBallsCost: 25
   maxIdleBallsButton: {fileID: 0}
+  unlockMultiButton: {fileID: 0}
+  multiBallSpawnSpot: {fileID: 0}
+  upgradeMultiButton: {fileID: 0}
 --- !u!114 &686299456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9217,7 +9233,7 @@ MonoBehaviour:
   multiBallSpawnPoint: {fileID: 1931312073}
   multiBall: {fileID: 3602095141036410658, guid: 0874ab0ae0df3e242aeb669041f9b6c9,
     type: 3}
-  multiBallSpawn: 1
+  multiBallSpawn: 0
   multiSpawnPosition: {x: 0, y: 0, z: 0}
   multiSpawnTime: 10
   maxMultiBalls: 5
@@ -10918,6 +10934,170 @@ Transform:
   m_Father: {fileID: 463476758}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1068982353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068982354}
+  - component: {fileID: 1068982358}
+  - component: {fileID: 1068982357}
+  - component: {fileID: 1068982356}
+  - component: {fileID: 1068982355}
+  m_Layer: 5
+  m_Name: UpgradeMultiButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1068982354
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068982353}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1549041623}
+  - {fileID: 1512649324}
+  m_Father: {fileID: 391628364}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 44.2, y: 2.1982956}
+  m_SizeDelta: {x: 81.37, y: 41.852}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1068982355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068982353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f99816ba73aa3419084940a6c0af48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameRun: {fileID: 862655763}
+  upgradeBallCost: 10
+  clickBall: {fileID: 2365515152847962670, guid: 9c07bb453666c0b40a589aee6cb2891b,
+    type: 3}
+  idleBallSpawnSpot: {fileID: 1052605258}
+  upgradeIdleButton: {fileID: 346704958}
+  unlockIdleButton: {fileID: 1068982353}
+  autoBall: {fileID: 0}
+  upgradeIdleBallCost: 10
+  upgradeMultiBallCost: 500
+  upgradeMaxBallsCost: 10
+  upgradeMaxIdleBallsCost: 10
+  upgradeMaxMultiBallsCost: 25
+  maxIdleBallsButton: {fileID: 686299453}
+  unlockMultiButton: {fileID: 0}
+  multiBallSpawnSpot: {fileID: 1931312073}
+  upgradeMultiButton: {fileID: 0}
+--- !u!114 &1068982356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068982353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1068982357}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1068982355}
+        m_TargetAssemblyTypeName: UpgradeBall, Assembly-CSharp
+        m_MethodName: UnlockMultiBall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1068982357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068982353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1068982358
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068982353}
+  m_CullTransparentMesh: 1
 --- !u!1 &1081232776
 GameObject:
   m_ObjectHideFlags: 0
@@ -11329,7 +11509,7 @@ GameObject:
   - component: {fileID: 1146537878}
   - component: {fileID: 1146537877}
   m_Layer: 5
-  m_Name: UnlockIdleCost
+  m_Name: UnlockMultiCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16477,6 +16657,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504025290}
   m_CullTransparentMesh: 1
+--- !u!1 &1512649323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1512649324}
+  - component: {fileID: 1512649327}
+  - component: {fileID: 1512649326}
+  - component: {fileID: 1512649325}
+  m_Layer: 5
+  m_Name: UpgradeMultiCost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1512649324
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512649323}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1068982354}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.099990845, y: 13.002434}
+  m_SizeDelta: {x: 78.66, y: 14.48}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1512649325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512649323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d23adc0d27d484fb48f5a342db2177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickBall: {fileID: 0}
+  autoBall: {fileID: 0}
+  currentButton: {fileID: 1512649323}
+  upgradeBallScriptObject: {fileID: 1068982353}
+  upgradeObjectScriptObject: {fileID: 0}
+  bonusGate1: {fileID: 0}
+  gameRun: {fileID: 0}
+  colorGreen: {r: 0.75, g: 1, b: 0.7817, a: 1}
+  colorWhite: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1512649326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512649323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f9fc5159b9edb47e183292f13f53cbb5, type: 3}
+    m_FontSize: 8
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 8
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1512649327
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512649323}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1525837462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16557,6 +16838,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1525837462}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1549041622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1549041623}
+  - component: {fileID: 1549041625}
+  - component: {fileID: 1549041624}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1549041623
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549041622}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1068982354}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.00002670288, y: -0.000030517578}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1549041624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549041622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f9fc5159b9edb47e183292f13f53cbb5, type: 3}
+    m_FontSize: 8
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Unlock Multiply Ball
+--- !u!222 &1549041625
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549041622}
+  m_CullTransparentMesh: 1
 --- !u!1 &1550416228
 GameObject:
   m_ObjectHideFlags: 0
@@ -16619,9 +16979,14 @@ MonoBehaviour:
   unlockIdleButton: {fileID: 0}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
+  upgradeMultiBallCost: 500
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 10
+  upgradeMaxMultiBallsCost: 25
   maxIdleBallsButton: {fileID: 686299453}
+  unlockMultiButton: {fileID: 0}
+  multiBallSpawnSpot: {fileID: 0}
+  upgradeMultiButton: {fileID: 0}
 --- !u!114 &1550416231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18093,7 +18458,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723020894}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -18831,9 +19196,14 @@ MonoBehaviour:
   unlockIdleButton: {fileID: 1887406897}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
+  upgradeMultiBallCost: 500
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 10
+  upgradeMaxMultiBallsCost: 25
   maxIdleBallsButton: {fileID: 0}
+  unlockMultiButton: {fileID: 0}
+  multiBallSpawnSpot: {fileID: 0}
+  upgradeMultiButton: {fileID: 0}
 --- !u!114 &1825176741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19661,9 +20031,14 @@ MonoBehaviour:
   unlockIdleButton: {fileID: 1887406897}
   autoBall: {fileID: 0}
   upgradeIdleBallCost: 10
+  upgradeMultiBallCost: 500
   upgradeMaxBallsCost: 10
   upgradeMaxIdleBallsCost: 10
-  maxIdleBallsButton: {fileID: 686299453}
+  upgradeMaxMultiBallsCost: 25
+  maxIdleBallsButton: {fileID: 0}
+  unlockMultiButton: {fileID: 0}
+  multiBallSpawnSpot: {fileID: 0}
+  upgradeMultiButton: {fileID: 0}
 --- !u!114 &1887406900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19833,7 +20208,7 @@ PrefabInstance:
     - target: {fileID: 1023744265081249190, guid: 5e4411ca0aea33e4bad58ae6fcbed8a9,
         type: 3}
       propertyPath: m_TagString
-      value: Movable
+      value: MultiMovable1
       objectReference: {fileID: 0}
     - target: {fileID: 5591530633731838084, guid: 5e4411ca0aea33e4bad58ae6fcbed8a9,
         type: 3}
@@ -21584,7 +21959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2105481348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21592,7 +21967,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105481347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 

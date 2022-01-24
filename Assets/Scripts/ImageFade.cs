@@ -48,7 +48,7 @@ public class ImageFade : MonoBehaviour
     public bool multiBallSpawn = false;
     public Vector3 multiSpawnPosition;
     public float multiSpawnTime = 10f;
-    public int maxMultiBalls = 5;
+    public int maxMultiBalls = 10;
     public int multiBallCount = 0;
 
 

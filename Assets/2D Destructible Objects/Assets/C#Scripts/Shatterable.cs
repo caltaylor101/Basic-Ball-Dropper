@@ -66,7 +66,6 @@ public class Shatterable : MonoBehaviour, IHittable
         objectDamage.positionY = gameObject.GetComponent<Transform>().position.y;
         objectDamage.positionZ = gameObject.GetComponent<Transform>().position.z;
         SaveManager.SaveHittableDamage(objectDamage);
-        Debug.Log("Boxes Saved");
 
         if (damage >= maxDamage)
         {

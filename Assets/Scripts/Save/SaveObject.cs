@@ -95,6 +95,9 @@ public class UpgradeBallVariables
     public int upgradeMaxBallsCost = 10;
     public int upgradeIdleBallCost = 20;
     public int upgradeMaxIdleBallsCost = 15;
+    public int upgradeMultiBallCost = 50;
+    // not used yet public int upgradeMaxMultiBallsCost = 15;
+
 }
 
 [System.Serializable]
