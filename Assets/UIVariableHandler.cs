@@ -118,7 +118,35 @@ public class UIVariableHandler : MonoBehaviour
                 gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorWhite;
 
             }
+        }        
+        if (upgradeBallScriptObject && gameObject.name == "UnlockMultiCost")
+        {
+            currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeMultiBallCost.ToString();
+            if (gameRun.GetComponent<ImageFade>().score >= upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeMultiBallCost)
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorGreen;
+            }
+            else
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorWhite;
+
+            }
         }
+        if (upgradeBallScriptObject && gameObject.name == "UpgradeMultiCost")
+        {
+            currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeMultiBallCost.ToString();
+            if (gameRun.GetComponent<ImageFade>().score >= upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeMultiBallCost)
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorGreen;
+            }
+            else
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorWhite;
+
+            }
+        }
+
+
 
         //ObstaclCosts
         if (upgradeObjectScriptObject && gameObject.name == "Obstacle1Cost")

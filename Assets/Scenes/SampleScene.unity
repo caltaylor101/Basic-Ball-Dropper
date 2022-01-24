@@ -2825,9 +2825,9 @@ MonoBehaviour:
   upgradeMaxIdleBallsCost: 10
   upgradeMaxMultiBallsCost: 25
   maxIdleBallsButton: {fileID: 0}
-  unlockMultiButton: {fileID: 0}
+  unlockMultiButton: {fileID: 1481004715}
   multiBallSpawnSpot: {fileID: 0}
-  upgradeMultiButton: {fileID: 0}
+  upgradeMultiButton: {fileID: 1369905456}
   multiBall: {fileID: 0}
 --- !u!114 &346704961
 MonoBehaviour:
@@ -9187,6 +9187,7 @@ MonoBehaviour:
     previousTotalScore: 0
     prestigeBonus: 0
     autoBallSpawn: 0
+    multiBallSpawn: 0
     maxIdleBalls: 0
     idleBallCount: 0
   upgradeBallCost: 10
@@ -22042,7 +22043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2105481348
 MonoBehaviour:
   m_ObjectHideFlags: 0

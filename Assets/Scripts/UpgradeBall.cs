@@ -66,6 +66,11 @@ public class UpgradeBall : MonoBehaviour
                 upgradeMultiButton.SetActive(true);
                 upgradeMultiButton.SetActive(true);
             }
+            if (unlockMultiButton != null)
+            {
+                unlockMultiButton.SetActive(false);
+            }
+
         }
 
 
