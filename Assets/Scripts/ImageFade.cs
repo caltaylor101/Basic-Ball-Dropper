@@ -41,6 +41,15 @@ public class ImageFade : MonoBehaviour
     public int maxIdleBalls = 5;
     public int idleBallCount = 0;
     public bool pausing = false;
+    
+    // MultiBallSpawner
+    public GameObject multiBallSpawnPoint;
+    public GameObject multiBall;
+    public bool multiBallSpawn = false;
+    public Vector3 multiSpawnPosition;
+    public float multiSpawnTime = 10f;
+    public int maxMultiBalls = 5;
+    public int multiBallCount = 0;
 
 
     // save testing
@@ -81,9 +90,18 @@ public class ImageFade : MonoBehaviour
         {
             autoBallSpawnPoint.SetActive(true);
         }
-        spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
-        InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
+        if (multiBallSpawn)
+        {
+            multiBallSpawnPoint.SetActive(true);
+        }
 
+
+        spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
+        multiSpawnPosition = multiBallSpawnPoint.GetComponent<Transform>().position;
+
+
+        InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
+        InvokeRepeating("MultiBallSpawn", 0f, spawnTime);
         InvokeRepeating("SaveGame", 5f, 5f);
     }
     void Update()
@@ -422,6 +440,18 @@ public class ImageFade : MonoBehaviour
             StartCoroutine(FadeImage(true, theBall, theBallColor));
         }
     }
+        private void MultiBallSpawn()
+    {
+        if (maxMultiBalls > multiBallCount && multiBallSpawn == true)
+        {
+            multiBallCount++;
+            GameObject theBall = Instantiate(multiBall, new Vector3(multiSpawnPosition.x, multiSpawnPosition.y, 1), Quaternion.identity);
+            theBall.tag = "Movable2";
+            SpriteRenderer theBallColor = theBall.GetComponent<SpriteRenderer>();
+            theBallColor.color = Color.green;
+            StartCoroutine(FadeImage(true, theBall, theBallColor));
+        }
+    }
 
 
 
@@ -496,7 +526,7 @@ public class ImageFade : MonoBehaviour
                 {
 
                     // set color with i as alpha
-                    imageRenderer.color = new Color(.75f, 0, 0, i / spawnTime);
+                    imageRenderer.color = new Color(1, 0, 0, i / spawnTime);
                     yield return null;
                 }
                 theBall.AddComponent(typeof(Rigidbody2D));
@@ -505,6 +535,22 @@ public class ImageFade : MonoBehaviour
                 theBall.tag = "Damage";
 
             }
+            if (theBallRender.color == Color.green)
+            {
+                for (float i = 0; i <= spawnTime; i += Time.deltaTime)
+                {
+
+                    // set color with i as alpha
+                    imageRenderer.color = new Color(0, 1, 0, i / spawnTime);
+                    yield return null;
+                }
+                theBall.AddComponent(typeof(Rigidbody2D));
+
+
+                theBall.tag = "Damage";
+
+            }
+
         }
         // fade from opaque to transparent
         else if (fadeAway && !theBallRender)
