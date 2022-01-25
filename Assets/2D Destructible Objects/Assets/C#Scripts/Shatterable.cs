@@ -81,12 +81,10 @@ public class Shatterable : MonoBehaviour, IHittable
     public void Die()
     {
         render.enabled = false;
-
         foreach (Spawner spawn in spawnPoints)
         {
             spawn.Spawn();
         }
-
         gameRun.GetComponent<ImageFade>().scoreCalculator += (destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
         gameRun.GetComponent<ImageFade>().totalScore += (destructionScore * gameRun.GetComponent<ImageFade>().scoreMultiplier);
         HittableObject thisObject = new HittableObject();

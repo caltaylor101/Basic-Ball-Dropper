@@ -48,8 +48,11 @@ public class ImageFade : MonoBehaviour
     public bool multiBallSpawn = false;
     public Vector3 multiSpawnPosition;
     public float multiSpawnTime = 10f;
-    public int maxMultiBalls = 10;
+    public int maxMultiBalls = 5;
     public int multiBallCount = 0;
+    public int numberOfMultiBalls = 1;
+    public double upgradeMultiBallCost = 2500;
+
 
 
     // save testing
@@ -73,7 +76,9 @@ public class ImageFade : MonoBehaviour
 
     // bonus gate
     public bool level1Start;
+    public bool level2Start;
     public GameObject bonusGate1;
+    public GameObject bonusGate2;
 
 
     private void Awake()
@@ -103,7 +108,7 @@ public class ImageFade : MonoBehaviour
 
 
         InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
-        InvokeRepeating("MultiBallSpawn", 0f, spawnTime);
+        InvokeRepeating("MultiBallSpawn", 0f, multiSpawnTime);
         InvokeRepeating("SaveGame", 5f, 5f);
     }
     void Update()
@@ -147,10 +152,12 @@ public class ImageFade : MonoBehaviour
         }
 
         level1Start = Level1Check();
+        level2Start = Level2Check();
         if (level1Start)
         {
             StartGate();
         }
+
 
     }
 
@@ -200,7 +207,7 @@ public class ImageFade : MonoBehaviour
     }
 
 
-    private void SaveGame()
+    public void SaveGame()
     {
         Debug.Log("GameSaved");
         so.maxBalls = maxBalls;
@@ -215,6 +222,8 @@ public class ImageFade : MonoBehaviour
         so.autoBallSpawn = autoBallSpawn;
         so.multiBallSpawn = multiBallSpawn;
         so.maxIdleBalls = maxIdleBalls;
+        so.maxMultiBalls = maxMultiBalls;
+        so.numberOfMultiBalls = numberOfMultiBalls;
         so.idleBallCount = idleBallCount;
         SaveManager.Save(so);
 
@@ -228,6 +237,7 @@ public class ImageFade : MonoBehaviour
         ab.damagePower = autoBall.GetComponent<Damager>().damagePower;
         ab.damageMultiplier = autoBall.GetComponent<Damager>().damageMultiplier;
         ab.prestigeBonus = autoBall.GetComponent<Damager>().prestigeBonus;
+
         SaveManager.SaveAutoBall(ab);
 
     }
@@ -249,6 +259,8 @@ public class ImageFade : MonoBehaviour
         autoBallSpawn = so.autoBallSpawn;
         multiBallSpawn = so.multiBallSpawn;
         maxIdleBalls = so.maxIdleBalls;
+        maxMultiBalls = so.maxMultiBalls;
+        numberOfMultiBalls = so.numberOfMultiBalls;
         idleBallCount = so.idleBallCount;
 
         SaveClickBall cb = new SaveClickBall();
@@ -269,14 +281,18 @@ public class ImageFade : MonoBehaviour
         ab = SaveManager.LoadAutoball();
         autoBall.GetComponent<Damager>().damagePower = ab.damagePower;
         autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier, 2);
+        // add multiball
+        multiBall.GetComponent<Damager>().damagePower = ab.damagePower;
+        multiBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier, 2);
         if (autoBall.GetComponent<Damager>().damageMultiplier > 1 + cb.prestigeBonus)
         {
             autoBall.GetComponent<Damager>().damageMultiplier = ab.damageMultiplier;
-
+            multiBall.GetComponent<Damager>().damageMultiplier = ab.damageMultiplier;
         }
         else
         {
             autoBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier, 2);
+            multiBall.GetComponent<Damager>().damageMultiplier = System.Math.Round(ab.damageMultiplier, 2);
         }
         autoBall.GetComponent<Damager>().prestigeBonus = ab.prestigeBonus;
 
@@ -307,6 +323,8 @@ public class ImageFade : MonoBehaviour
             upgradeMaxBallsCost = ballVariables.upgradeMaxBallsCost;
             upgradeMaxIdleBallsCost = ballVariables.upgradeMaxIdleBallsCost;
             upgradeMaxMultiBallsCost = ballVariables.upgradeMaxMultiBallsCost;
+            bonusGate1.GetComponent<BonusGate>().numberOfMultiBalls = ballVariables.numberOfMultiBalls;
+            bonusGate2.GetComponent<BonusGate>().numberOfMultiBalls = ballVariables.numberOfMultiBalls;
         }
 
         ObstacleVariables obstacleVariables = new ObstacleVariables();
@@ -423,7 +441,21 @@ public class ImageFade : MonoBehaviour
         GameObject box3 = GameObject.Find("Box (2)");
         GameObject box4 = GameObject.Find("Box (3)");
 
-        if (box1 == null && box2 == null && box3 == null & box4 == null)
+        if (box1 == null && box2 == null && box3 == null && box4 == null)
+        {
+            return true;
+        }
+        else return false;
+    }
+    private bool Level2Check()
+    {
+        GameObject box1 = GameObject.Find("Level2Box");
+        GameObject box2 = GameObject.Find("Level2Box1");
+        GameObject box3 = GameObject.Find("Level2Box2");
+        GameObject box4 = GameObject.Find("Level2Box3");
+        GameObject box5 = GameObject.Find("Level2Box4");
+
+        if (box1 == null && box2 == null && box3 == null && box4 == null && box5 == null)
         {
             return true;
         }
@@ -433,6 +465,10 @@ public class ImageFade : MonoBehaviour
     private void StartGate()
     {
         bonusGate1.SetActive(true);
+        if (level2Start)
+        {
+            bonusGate2.SetActive(true);
+        }
     }
 
     private void AutoBallSpawn()

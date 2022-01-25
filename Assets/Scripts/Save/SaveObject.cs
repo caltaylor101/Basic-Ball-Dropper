@@ -22,6 +22,11 @@ public class SaveObject
     public bool multiBallSpawn = false;
     public int maxIdleBalls = 5;
     public int idleBallCount = 0;
+    public int maxMultiBalls = 5;
+    public int numberOfMultiBalls = 1;
+
+    public double upgradeMultiBallCost = 1000;
+
 }
 
 [System.Serializable]
@@ -96,9 +101,9 @@ public class UpgradeBallVariables
     public int upgradeMaxBallsCost = 10;
     public int upgradeIdleBallCost = 20;
     public int upgradeMaxIdleBallsCost = 15;
-    public int upgradeMultiBallCost = 1000;
-    public int upgradeMaxMultiBallsCost = 25;
-    // not used yet public int upgradeMaxMultiBallsCost = 15;
+    public double upgradeMultiBallCost = 1000;
+    public int upgradeMaxMultiBallsCost = 500;
+    public int numberOfMultiBalls = 1;
 
 }
 
