@@ -20,6 +20,7 @@ public static class SaveManager
     public static string fileName10 = "MyData10.txt";
     public static string fileName11 = "MyData11.txt";
     public static string fileName12 = "MyData12.txt";
+    public static string fileName13 = "MyData13.txt";
 
     public static void Save(SaveObject so)
     {
