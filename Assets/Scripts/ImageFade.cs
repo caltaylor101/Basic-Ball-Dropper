@@ -79,9 +79,11 @@ public class ImageFade : MonoBehaviour
     public bool level1Start;
     public bool level2Start;
     public bool level3Start;
+    public bool level4Start;
     public GameObject bonusGate1;
     public GameObject bonusGate2;
     public GameObject bonusGate3;
+    public GameObject bonusGate4;
 
 
     private void Awake()
@@ -157,6 +159,7 @@ public class ImageFade : MonoBehaviour
         level1Start = Level1Check();
         level2Start = Level2Check();
         level3Start = Level3Check();
+        level4Start = Level4Check();
         if (level1Start)
         {
             StartGate();
@@ -483,6 +486,16 @@ public class ImageFade : MonoBehaviour
     private bool Level3Check()
     {
         GameObject box1 = GameObject.Find("chest");
+        if (box1 == null)
+        {
+            return true;
+        }
+        else return false;
+        
+    }
+    private bool Level4Check()
+    {
+        GameObject box1 = GameObject.Find("chest2");
 
         if (box1 == null)
         {
@@ -500,7 +513,13 @@ public class ImageFade : MonoBehaviour
         }
         if (level3Start)
         {
-            bonusGate2.SetActive(true);
+            bonusGate3.SetActive(true);
+            bonusGate3.SetActive(true);
+        }
+        if (level4Start)
+        {
+            bonusGate4.SetActive(true);
+            bonusGate4.SetActive(true);
         }
 
     }
