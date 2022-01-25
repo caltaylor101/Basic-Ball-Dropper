@@ -77,8 +77,10 @@ public class ImageFade : MonoBehaviour
     // bonus gate
     public bool level1Start;
     public bool level2Start;
+    public bool level3Start;
     public GameObject bonusGate1;
     public GameObject bonusGate2;
+    public GameObject bonusGate3;
 
 
     private void Awake()
@@ -153,6 +155,7 @@ public class ImageFade : MonoBehaviour
 
         level1Start = Level1Check();
         level2Start = Level2Check();
+        level3Start = Level3Check();
         if (level1Start)
         {
             StartGate();
@@ -461,6 +464,16 @@ public class ImageFade : MonoBehaviour
         }
         else return false;
     }
+    private bool Level3Check()
+    {
+        GameObject box1 = GameObject.Find("chest");
+
+        if (box1 == null)
+        {
+            return true;
+        }
+        else return false;
+    }
 
     private void StartGate()
     {
@@ -469,6 +482,11 @@ public class ImageFade : MonoBehaviour
         {
             bonusGate2.SetActive(true);
         }
+        if (level3Start)
+        {
+            bonusGate2.SetActive(true);
+        }
+
     }
 
     private void AutoBallSpawn()
