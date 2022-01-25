@@ -14,6 +14,7 @@ public class UpgradeObstacles : MonoBehaviour
     public GameObject hourglassCollider;
     public int upgradeObstacleCost3 = 200;
     public int upgradeObstacleCost4 = 500;
+    public int upgradeObstacleCost5 = 1000;
 
     // To save scale
     public float positionX;
@@ -26,6 +27,8 @@ public class UpgradeObstacles : MonoBehaviour
         upgradeObstacleCost = gameRun.GetComponent<ImageFade>().upgradeObstacleCost;
         upgradeObstacleCost2 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost2;
         upgradeObstacleCost3 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost3;
+        upgradeObstacleCost4 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost4;
+        upgradeObstacleCost5 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost5;
     }
 
     public void UpgradeObstacle1()
@@ -64,6 +67,7 @@ public class UpgradeObstacles : MonoBehaviour
         saveObject.upgradeObstacleCost2 = upgradeObstacleCost2;
         saveObject.upgradeObstacleCost3 = upgradeObstacleCost3;
         saveObject.upgradeObstacleCost4 = upgradeObstacleCost4;
+        saveObject.upgradeObstacleCost5 = upgradeObstacleCost5;
         SaveManager.SaveUpgradeObstacleVariables(saveObject);
     }
 
@@ -142,6 +146,40 @@ public class UpgradeObstacles : MonoBehaviour
             SaveManager.SaveUpgradeObstacle4Scale(saveObject);
         }
         SaveUpgradeObstacleVariables();
+        Debug.Log(upgradeObstacleCost4);
 
     }
+    public void UpgradeObstacle5()
+    {
+        obstacles = GameObject.FindGameObjectsWithTag("Obstacle5");
+        
+        float sizeDifference = 0.05f;
+
+        if (gameRun.GetComponent<ImageFade>().score >= upgradeObstacleCost5)
+        {
+            gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeObstacleCost5;
+            upgradeObstacleCost5 = (int)System.Math.Ceiling((float)upgradeObstacleCost5 * 1.33f);
+            foreach (GameObject obstacle in obstacles)
+            {
+                obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(sizeDifference, sizeDifference, 0.1f);
+            }
+
+
+            SaveUpgradeObstacle5 newObstacle = new SaveUpgradeObstacle5();
+            newObstacle = SaveManager.LoadObstacle5();
+            if (newObstacle.sizeDifference != 0)
+            {
+                sizeDifference = newObstacle.sizeDifference;                         
+            }
+
+            sizeDifference += .05f;
+
+            SaveUpgradeObstacle5 saveObject = new SaveUpgradeObstacle5();
+            saveObject.sizeDifference = sizeDifference;
+            SaveManager.SaveUpgradeObstacle5Scale(saveObject);
+        }
+        SaveUpgradeObstacleVariables();
+
+    }
+
 }

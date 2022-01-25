@@ -214,6 +214,20 @@ public class UIVariableHandler : MonoBehaviour
 
             }
         }
+        
+        if (upgradeObjectScriptObject && gameObject.name == "Obstacle5Cost")
+        {
+            currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeObjectScriptObject.GetComponent<UpgradeObstacles>().upgradeObstacleCost5.ToString();
+            if (gameRun.GetComponent<ImageFade>().score >= upgradeObjectScriptObject.GetComponent<UpgradeObstacles>().upgradeObstacleCost5)
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorGreen;
+            }
+            else
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorWhite;
+
+            }
+        }
 
     }
 }

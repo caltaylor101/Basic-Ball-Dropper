@@ -114,6 +114,7 @@ public class ObstacleVariables
     public int upgradeObstacleCost2 = 50;
     public int upgradeObstacleCost3 = 200;
     public int upgradeObstacleCost4 = 500;
+    public int upgradeObstacleCost5 = 1000;
 }
 
 [System.Serializable]
@@ -122,5 +123,11 @@ public class SaveUpgradeObstacle1
     public float positionX;
     public float positionY;
     public float positionZ;
+}
+
+[System.Serializable]
+public class SaveUpgradeObstacle5
+{
+    public float sizeDifference = 0;
 }
 

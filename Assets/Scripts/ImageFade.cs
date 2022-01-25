@@ -71,6 +71,7 @@ public class ImageFade : MonoBehaviour
     public int upgradeObstacleCost2 = 50;
     public int upgradeObstacleCost3 = 200;
     public int upgradeObstacleCost4 = 500;
+    public int upgradeObstacleCost5 = 1000;
     public GameObject obstacle1Box;
     public GameObject obstacle2Box;
 
@@ -111,7 +112,7 @@ public class ImageFade : MonoBehaviour
 
         InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
         InvokeRepeating("MultiBallSpawn", 0f, multiSpawnTime);
-        InvokeRepeating("SaveGame", 5f, 5f);
+        InvokeRepeating("SaveGame", 1f, 1f);
     }
     void Update()
     {
@@ -338,6 +339,7 @@ public class ImageFade : MonoBehaviour
             upgradeObstacleCost2 = obstacleVariables.upgradeObstacleCost2;
             upgradeObstacleCost3 = obstacleVariables.upgradeObstacleCost3;
             upgradeObstacleCost4 = obstacleVariables.upgradeObstacleCost4;
+            upgradeObstacleCost5 = obstacleVariables.upgradeObstacleCost5;
         }
 
         SaveUpgradeObstacle1 obstacle1 = new SaveUpgradeObstacle1();
@@ -377,6 +379,20 @@ public class ImageFade : MonoBehaviour
             foreach (GameObject obstacle in obstacles)
             {
                 obstacle.GetComponent<Transform>().localScale = new Vector3(obstacle4.positionX, obstacle4.positionY, obstacle4.positionZ);
+            }
+        }
+        
+        SaveUpgradeObstacle5 obstacle5 = new SaveUpgradeObstacle5();
+        obstacle5 = SaveManager.LoadObstacle5();
+        if (obstacle5.sizeDifference != 0)
+        {
+            GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle5");
+            foreach (GameObject obstacle in obstacles)
+            {
+                Debug.Log(obstacle.GetComponent<Transform>().localScale);
+                obstacle.GetComponent<Transform>().localScale = new Vector3(obstacle.GetComponent<Transform>().localScale.x - obstacle5.sizeDifference, obstacle.GetComponent<Transform>().localScale.y - obstacle5.sizeDifference, 0);
+                Debug.Log(obstacle.GetComponent<Transform>().localScale);
+
             }
         }
 

@@ -180,6 +180,16 @@ public static class SaveManager
         string json = JsonUtility.ToJson(so);
         File.WriteAllText(dir + fileName12, json);
     }
+    public static void SaveUpgradeObstacle5Scale(SaveUpgradeObstacle5 so)
+    {
+        string dir = Application.persistentDataPath + directory;
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+        string json = JsonUtility.ToJson(so);
+        File.WriteAllText(dir + fileName13, json);
+    }
 
     // This is to save the damage on hittable objects
     public static void SaveHittableDamage(HittableObjectDamage so)
@@ -448,6 +458,23 @@ public static class SaveManager
         return returnObject;
 
     }
+
+    public static SaveUpgradeObstacle5 LoadObstacle5()
+    {
+        string fullPath13 = Application.persistentDataPath + directory + fileName13;
+        SaveUpgradeObstacle5 ab = new SaveUpgradeObstacle5();
+        if (File.Exists(fullPath13))
+        {
+            string json = File.ReadAllText(fullPath13);
+            ab = JsonUtility.FromJson<SaveUpgradeObstacle5>(json);
+        }
+        else
+        {
+            Debug.Log("Save file for Obstacle4 doesn't exist");
+        }
+        return ab;
+    }
+
 
 
 
