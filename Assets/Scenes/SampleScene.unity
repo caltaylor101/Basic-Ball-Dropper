@@ -3045,7 +3045,7 @@ MonoBehaviour:
   bonusGate2: {fileID: 0}
   bonusGate3: {fileID: 0}
   bonusGate4: {fileID: 0}
-  unlockDestructionButton: {fileID: 0}
+  unlockDestructionButton: {fileID: 1232712668}
   destructionBallSpawnSpot: {fileID: 0}
   upgradeDestructionButton: {fileID: 0}
   destructionBall: {fileID: 0}
@@ -18226,7 +18226,7 @@ MonoBehaviour:
   bonusGate4: {fileID: 0}
   unlockDestructionButton: {fileID: 0}
   destructionBallSpawnSpot: {fileID: 0}
-  upgradeDestructionButton: {fileID: 0}
+  upgradeDestructionButton: {fileID: 1232712668}
   destructionBall: {fileID: 0}
   plusDestructionBallButton: {fileID: 0}
 --- !u!114 &1481004718
