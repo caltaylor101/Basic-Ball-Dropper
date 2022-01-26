@@ -20,10 +20,12 @@ public class SaveObject
 
     public bool autoBallSpawn = false;
     public bool multiBallSpawn = false;
+    public bool destructionBallSpawn = false;
     public int maxIdleBalls = 5;
     public int idleBallCount = 0;
     public int maxMultiBalls = 5;
     public int numberOfMultiBalls = 1;
+    public int maxDestructionBalls = 1;
 
     public double upgradeMultiBallCost = 1000;
 
@@ -104,6 +106,8 @@ public class UpgradeBallVariables
     public double upgradeMultiBallCost = 1000;
     public int upgradeMaxMultiBallsCost = 500;
     public int numberOfMultiBalls = 1;
+    public int upgradeMaxDestructionBallsCost = 20000;
+    public int upgradeDestructionBallCost = 20000;
 
 }
 
@@ -129,5 +133,10 @@ public class SaveUpgradeObstacle1
 public class SaveUpgradeObstacle5
 {
     public float sizeDifference = 0;
+}
+[System.Serializable]
+public class SaveDestructionBall
+{
+    public int maxDestructionBounce = 1;
 }
 

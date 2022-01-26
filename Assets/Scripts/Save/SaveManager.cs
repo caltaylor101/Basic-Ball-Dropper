@@ -21,6 +21,7 @@ public static class SaveManager
     public static string fileName11 = "MyData11.txt";
     public static string fileName12 = "MyData12.txt";
     public static string fileName13 = "MyData13.txt";
+    public static string fileName14 = "MyData14.txt";
 
     public static void Save(SaveObject so)
     {
@@ -189,6 +190,16 @@ public static class SaveManager
         }
         string json = JsonUtility.ToJson(so);
         File.WriteAllText(dir + fileName13, json);
+    }
+    public static void SaveDestructionBall(SaveDestructionBall so)
+    {
+        string dir = Application.persistentDataPath + directory;
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+        string json = JsonUtility.ToJson(so);
+        File.WriteAllText(dir + fileName14, json);
     }
 
     // This is to save the damage on hittable objects
@@ -430,6 +441,21 @@ public static class SaveManager
         {
             string json = File.ReadAllText(fullPath12);
             ab = JsonUtility.FromJson<SaveUpgradeObstacle1>(json);
+        }
+        else
+        {
+            Debug.Log("Save file for Obstacle4 doesn't exist");
+        }
+        return ab;
+    }
+     public static SaveDestructionBall LoadDestructionBall()
+    {
+        string fullPath14 = Application.persistentDataPath + directory + fileName14;
+        SaveDestructionBall ab = new SaveDestructionBall();
+        if (File.Exists(fullPath14))
+        {
+            string json = File.ReadAllText(fullPath14);
+            ab = JsonUtility.FromJson<SaveDestructionBall>(json);
         }
         else
         {

@@ -64,6 +64,7 @@ public class ImageFade : MonoBehaviour
     public int upgradeMaxBallsCost = 10;
     public int upgradeMaxIdleBallsCost = 10;
     public int upgradeMaxMultiBallsCost = 30;
+    public int upgradeMaxDestructionBallsCost = 10000;
 
 
     // upgrade Obstacle Variables
@@ -84,6 +85,19 @@ public class ImageFade : MonoBehaviour
     public GameObject bonusGate2;
     public GameObject bonusGate3;
     public GameObject bonusGate4;
+
+    // DestructionBall
+    public GameObject destructionBallSpawnPoint;
+    public GameObject destructionBall;
+    public bool destructionBallSpawn = false;
+    public Vector3 destructionSpawnPosition;
+    public float destructionSpawnTime = 30f;
+    public int maxDestructionBalls = 1;
+    public int destructionBallCount = 0;
+    public int upgradeDestructionBallCost = 20000;
+    public int destructionBounce = 0;
+    public int maxDestructionBounce = 1;
+
 
 
     private void Awake()
@@ -110,10 +124,12 @@ public class ImageFade : MonoBehaviour
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
         multiSpawnPosition = multiBallSpawnPoint.GetComponent<Transform>().position;
+        destructionSpawnPosition = destructionBallSpawnPoint.GetComponent<Transform>().position;
 
 
         InvokeRepeating("AutoBallSpawn", 0f, spawnTime);
         InvokeRepeating("MultiBallSpawn", 0f, multiSpawnTime);
+        InvokeRepeating("DestructionBallSpawn", 0f, destructionSpawnTime);
         InvokeRepeating("SaveGame", 1f, 1f);
     }
     void Update()
@@ -133,7 +149,7 @@ public class ImageFade : MonoBehaviour
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
         multiSpawnPosition = multiBallSpawnPoint.GetComponent<Transform>().position;
-
+        destructionSpawnPosition = destructionBallSpawnPoint.GetComponent<Transform>().position;
 
         if (pausing)
         {
@@ -174,14 +190,22 @@ public class ImageFade : MonoBehaviour
         List<SavePrefab> savePrefabList = new List<SavePrefab>();
         foreach (GameObject prefab in prefabList)
         {
-            SavePrefab sf = new SavePrefab();
-            sf.positionX = prefab.GetComponent<Transform>().position.x;
-            sf.positionY = prefab.GetComponent<Transform>().position.y;
-            sf.positionZ = prefab.GetComponent<Transform>().position.z;
-            sf.damagePower = prefab.GetComponent<Damager>().damagePower;
-            sf.damageMultiplier = prefab.GetComponent<Damager>().damageMultiplier;
+            if (prefab.name != "Destruction(Clone)")
+            {
 
-            savePrefabList.Add(sf);
+            }
+            else
+            {
+                SavePrefab sf = new SavePrefab();
+                sf.positionX = prefab.GetComponent<Transform>().position.x;
+                sf.positionY = prefab.GetComponent<Transform>().position.y;
+                sf.positionZ = prefab.GetComponent<Transform>().position.z;
+                sf.damagePower = prefab.GetComponent<Damager>().damagePower;
+                sf.damageMultiplier = prefab.GetComponent<Damager>().damageMultiplier;
+
+                savePrefabList.Add(sf);
+            }
+            
         }
         SavePrefabs savePrefabs = new SavePrefabs();
         savePrefabs.prefabList = savePrefabList;
@@ -228,8 +252,10 @@ public class ImageFade : MonoBehaviour
         so.prestigeBonus = prestigeBonus;
         so.autoBallSpawn = autoBallSpawn;
         so.multiBallSpawn = multiBallSpawn;
+        so.destructionBallSpawn = destructionBallSpawn;
         so.maxIdleBalls = maxIdleBalls;
         so.maxMultiBalls = maxMultiBalls;
+        so.maxDestructionBalls = maxDestructionBalls;
         so.numberOfMultiBalls = numberOfMultiBalls;
         so.idleBallCount = idleBallCount;
         SaveManager.Save(so);
@@ -269,6 +295,9 @@ public class ImageFade : MonoBehaviour
         maxMultiBalls = so.maxMultiBalls;
         numberOfMultiBalls = so.numberOfMultiBalls;
         idleBallCount = so.idleBallCount;
+        destructionBallSpawn = so.destructionBallSpawn;
+        maxDestructionBalls = so.maxDestructionBalls;
+
 
         SaveClickBall cb = new SaveClickBall();
         cb = SaveManager.LoadClickBall();
@@ -330,6 +359,8 @@ public class ImageFade : MonoBehaviour
             upgradeMaxBallsCost = ballVariables.upgradeMaxBallsCost;
             upgradeMaxIdleBallsCost = ballVariables.upgradeMaxIdleBallsCost;
             upgradeMaxMultiBallsCost = ballVariables.upgradeMaxMultiBallsCost;
+            upgradeMaxDestructionBallsCost = ballVariables.upgradeMaxDestructionBallsCost;
+            upgradeDestructionBallCost = ballVariables.upgradeDestructionBallCost;
             bonusGate1.GetComponent<BonusGate>().numberOfMultiBalls = ballVariables.numberOfMultiBalls;
             bonusGate2.GetComponent<BonusGate>().numberOfMultiBalls = ballVariables.numberOfMultiBalls;
         }
@@ -450,8 +481,12 @@ public class ImageFade : MonoBehaviour
             }
         }
 
-
-
+        SaveDestructionBall destructionObject = new SaveDestructionBall();
+        destructionObject = SaveManager.LoadDestructionBall();
+        if (destructionObject != null)
+        {
+            maxDestructionBounce = destructionObject.maxDestructionBounce;
+        }
 
     }
 
@@ -548,6 +583,19 @@ public class ImageFade : MonoBehaviour
             StartCoroutine(FadeImage(true, theBall, theBallColor));
         }
     }
+            private void DestructionBallSpawn()
+    {
+        if (maxDestructionBalls > destructionBallCount && destructionBallSpawn == true)
+        {
+            destructionBallCount++;
+            GameObject theBall = Instantiate(destructionBall, new Vector3(destructionSpawnPosition.x, destructionSpawnPosition.y, 1), Quaternion.identity);
+            theBall.tag = "DestructionMovable2";
+            SpriteRenderer theBallColor = theBall.GetComponent<SpriteRenderer>();
+            theBallColor.color = Color.magenta;
+            theBall.GetComponent<Destruction>().destructionBounce = 0;
+            StartCoroutine(FadeImage(true, theBall, theBallColor));
+        }
+    }
 
 
 
@@ -638,6 +686,21 @@ public class ImageFade : MonoBehaviour
 
                     // set color with i as alpha
                     imageRenderer.color = new Color(0, 1, 0, i / spawnTime);
+                    yield return null;
+                }
+                theBall.AddComponent(typeof(Rigidbody2D));
+
+
+                theBall.tag = "Damage";
+
+            }
+            if (theBallRender.color == Color.magenta)
+            {
+                for (float i = 0; i <= spawnTime; i += Time.deltaTime)
+                {
+
+                    // set color with i as alpha
+                    imageRenderer.color = new Color(.836f, 0, 1, i / spawnTime);
                     yield return null;
                 }
                 theBall.AddComponent(typeof(Rigidbody2D));

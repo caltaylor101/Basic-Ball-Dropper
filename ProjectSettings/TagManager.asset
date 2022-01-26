@@ -17,6 +17,10 @@ TagManager:
   - MultiMovable1
   - MultiMovable2
   - Obstacle5
+  - DestructionMovable2
+  - DestructionMovable1
+  - Wall
+  - Hourglass
   layers:
   - Default
   - TransparentFX

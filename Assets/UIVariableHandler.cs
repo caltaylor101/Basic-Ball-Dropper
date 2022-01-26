@@ -158,6 +158,19 @@ public class UIVariableHandler : MonoBehaviour
 
             }
         }
+        if (upgradeBallScriptObject && gameObject.name == "UnlockDestructionCost")
+        {
+            currentButton.GetComponent<UnityEngine.UI.Text>().text = "Cost: " + upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeDestructionBallCost.ToString();
+            if (gameRun.GetComponent<ImageFade>().score >= upgradeBallScriptObject.GetComponent<UpgradeBall>().upgradeDestructionBallCost)
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorGreen;
+            }
+            else
+            {
+                gameObject.GetComponentInParent<UnityEngine.UI.Image>().color = colorWhite;
+
+            }
+        }
 
 
 
