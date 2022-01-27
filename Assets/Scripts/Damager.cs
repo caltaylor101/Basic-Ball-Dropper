@@ -79,12 +79,14 @@ public class Damager : MonoBehaviour
             if (gameObject.name == "ClickBall(Clone)")
             {
                 otherScript.ballCount--;
-
             }
             if (gameObject.name == "AutoBall(Clone)")
             {
                 otherScript.idleBallCount--;
-
+            }
+            if (gameObject.name == "MultiBall(Clone)")
+            {
+                otherScript.multiBallCount--;
             }
             otherScript.scoreCalculator = otherScript.scoreCalculator + (otherScript.scoreMultiplier * otherScript.scoreValue);
             otherScript.totalScore = otherScript.totalScore + (int)Math.Ceiling(otherScript.scoreMultiplier * otherScript.scoreValue);
