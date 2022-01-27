@@ -517,7 +517,13 @@ public static class SaveManager
     public static void DeleteObjectDamageListData()
     {
         string fullPath4 = Application.persistentDataPath + directory + fileName11;
+        string fullPath5 = Application.persistentDataPath + directory + fileName8;
+        string fullPath6 = Application.persistentDataPath + directory + fileName9;
+        string fullPath7 = Application.persistentDataPath + directory + fileName10;
         File.Delete(fullPath4);
+        File.Delete(fullPath5);
+        File.Delete(fullPath6);
+        File.Delete(fullPath7);
     }
 
 
