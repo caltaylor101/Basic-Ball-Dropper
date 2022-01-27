@@ -91,7 +91,7 @@ public class ImageFade : MonoBehaviour
     public GameObject destructionBall;
     public bool destructionBallSpawn = false;
     public Vector3 destructionSpawnPosition;
-    public float destructionSpawnTime = 30f;
+    public float destructionSpawnTime = 120f;
     public int maxDestructionBalls = 1;
     public int destructionBallCount = 0;
     public int upgradeDestructionBallCost = 20000;
