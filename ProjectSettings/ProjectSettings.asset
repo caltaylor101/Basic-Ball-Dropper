@@ -782,10 +782,16 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Analytics: 0
     Build: 0
+    Collab: 0
     ErrorHub: 0
+    Game Performance: 0
     Hub: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -799,11 +805,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 217dfb1a-4197-4ff3-b95f-cbca017ce331
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Basic Ball Dropper
+  organizationId: caltaylor101
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   virtualTexturingSupportEnabled: 0

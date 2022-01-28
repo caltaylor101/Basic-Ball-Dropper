@@ -99,6 +99,12 @@ public class ImageFade : MonoBehaviour
     public int maxDestructionBounce = 1;
 
 
+    //Rewards
+    //2X score reward 
+    public bool watchedVideo;
+
+
+
 
     private void Awake()
     {
@@ -190,9 +196,9 @@ public class ImageFade : MonoBehaviour
         List<SavePrefab> savePrefabList = new List<SavePrefab>();
         foreach (GameObject prefab in prefabList)
         {
-            if (prefab.name != "Destruction(Clone)")
+            if (prefab.name == "Destruction(Clone)")
             {
-
+                
             }
             else
             {
@@ -240,7 +246,6 @@ public class ImageFade : MonoBehaviour
 
     public void SaveGame()
     {
-        Debug.Log("GameSaved");
         so.maxBalls = maxBalls;
         so.ballCount = ballCount;
         so.score = score;
