@@ -22,8 +22,8 @@ public class BonusGate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameRun.GetComponent<ImageFade>().scoreCalculator += gameRun.GetComponent<ImageFade>().scoreMultiplier;
-        gameRun.GetComponent<ImageFade>().totalScore += (gameRun.GetComponent<ImageFade>().scoreMultiplier/10);
+        gameRun.GetComponent<ImageFade>().scoreCalculator += gameRun.GetComponent<ImageFade>().scoreValue * gameRun.GetComponent<ImageFade>().scoreMultiplier;
+        gameRun.GetComponent<ImageFade>().totalScore += ((gameRun.GetComponent<ImageFade>().scoreValue * gameRun.GetComponent<ImageFade>().scoreMultiplier)/10);
         if (collision.gameObject.name == "MultiBall(Clone)")
         {
             Vector3 prefabPosition = collision.gameObject.GetComponent<Transform>().position;

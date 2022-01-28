@@ -23,6 +23,7 @@ public class Advertising : MonoBehaviour
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
+                Debug.Log(timeRemaining);
             }
             else
             {
@@ -48,11 +49,14 @@ public class Advertising : MonoBehaviour
         multiBall.GetComponent<Damager>().damagePower /= 2;
         gameObject.GetComponent<ImageFade>().scoreValue /= 2;
         timerIsRunning = false;
+        twoXRewardButton.SetActive(true);
+
     }
 
     private void StartTwoXTimer()
     {
         timeRemaining = 120;
         timerIsRunning = true;
+        twoXRewardButton.SetActive(false);
     }
 }

@@ -34,7 +34,7 @@ public class UIVariableHandler : MonoBehaviour
     {
         if (bonusGate1)
         {
-            bonusGate1.GetComponent<TextMeshProUGUI>().text = "X " + Math.Round(gameRun.GetComponent<ImageFade>().scoreMultiplier, 2).ToString();
+            bonusGate1.GetComponent<TextMeshProUGUI>().text = "X " + Math.Round(gameRun.GetComponent<ImageFade>().scoreValue * gameRun.GetComponent<ImageFade>().scoreMultiplier, 2).ToString();
 
         }
     }

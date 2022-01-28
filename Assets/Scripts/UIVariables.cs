@@ -43,7 +43,7 @@ public class UIVariables : MonoBehaviour
         }
         else if (gameObject.name =="CurrentBonus")
         {
-            gameObject.GetComponent<TextMeshProUGUI>().text = gameRun.GetComponent<ImageFade>().scoreMultiplier.ToString();
+            gameObject.GetComponent<TextMeshProUGUI>().text = (gameRun.GetComponent<ImageFade>().scoreValue * gameRun.GetComponent<ImageFade>().scoreMultiplier).ToString();
         }
 
     }

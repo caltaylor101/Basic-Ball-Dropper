@@ -25,8 +25,8 @@ public class GameplayButtons : MonoBehaviour
         {
             if (ball)
             {
-                gameRun.GetComponent<ImageFade>().scoreCalculator += (gameRun.GetComponent<ImageFade>().scoreMultiplier / 50);
-                gameRun.GetComponent<ImageFade>().totalScore += (gameRun.GetComponent<ImageFade>().scoreMultiplier / 50);
+                gameRun.GetComponent<ImageFade>().scoreCalculator += ((gameRun.GetComponent<ImageFade>().scoreValue * gameRun.GetComponent<ImageFade>().scoreMultiplier) / 50);
+                gameRun.GetComponent<ImageFade>().totalScore += ((gameRun.GetComponent<ImageFade>().scoreValue * gameRun.GetComponent<ImageFade>().scoreMultiplier) / 50);
                 Destroy(ball);
             }
         }
