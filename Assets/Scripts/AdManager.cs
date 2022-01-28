@@ -11,7 +11,7 @@ public class AdManager : MonoBehaviour
     [SerializeField] private GameObject gameRun;
    
     // Start is called before the first frame update
-    private string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+    private string adUnitId = "ca-app-pub-3940256099942544/5354046379";
     private RewardedAd twoXRewardedAd;
 
     void Start()
