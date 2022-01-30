@@ -12,6 +12,7 @@ public class Advertising : MonoBehaviour
     [SerializeField] private GameObject rewardMoneyButton;
     public float timeRemaining;
     public float timerLength = 3600;
+    [SerializeField] private const float setTimer = 3600;
     public bool timerIsRunning = false;
     
     // Start is called before the first frame update
@@ -100,11 +101,12 @@ public class Advertising : MonoBehaviour
 
     }
 
-    private void StartTwoXTimer(float timerLength)
+    private void StartTwoXTimer(float timerLengthVar)
     {
-        timeRemaining = timerLength;
+        timeRemaining = timerLengthVar;
         timerIsRunning = true;
         twoXRewardButton.SetActive(false);
+        timerLength = setTimer;
     }
 
     public void SaveRewards()
