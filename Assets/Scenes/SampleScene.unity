@@ -5133,6 +5133,7 @@ GameObject:
   - component: {fileID: 448734634}
   - component: {fileID: 448734633}
   - component: {fileID: 448734632}
+  - component: {fileID: 448734635}
   m_Layer: 5
   m_Name: WatchRewardVideo
   m_TagString: Untagged
@@ -5203,7 +5204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 448734633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 448734635}
+        m_TargetAssemblyTypeName: ExtraAdTracking, Assembly-CSharp
+        m_MethodName: IncreaseTimerVideo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &448734633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5242,6 +5255,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448734630}
   m_CullTransparentMesh: 1
+--- !u!114 &448734635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448734630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e49f0d1e36d5b4faaa81b25a10f4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  advertising: {fileID: 0}
+  twoTimesRewardTimer: {fileID: 0}
+  increaseRewardTimerPanel: {fileID: 735380652}
+  adManager: {fileID: 1077033988}
 --- !u!1 &463476757
 GameObject:
   m_ObjectHideFlags: 0
@@ -9684,7 +9713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &735380653
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11247,6 +11276,7 @@ GameObject:
   - component: {fileID: 804329118}
   - component: {fileID: 804329117}
   - component: {fileID: 804329116}
+  - component: {fileID: 804329119}
   m_Layer: 5
   m_Name: NoThanks
   m_TagString: Untagged
@@ -11317,7 +11347,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 804329117}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 804329119}
+        m_TargetAssemblyTypeName: ExtraAdTracking, Assembly-CSharp
+        m_MethodName: NoThanks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &804329117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11356,6 +11398,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804329114}
   m_CullTransparentMesh: 1
+--- !u!114 &804329119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804329114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e49f0d1e36d5b4faaa81b25a10f4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  advertising: {fileID: 0}
+  twoTimesRewardTimer: {fileID: 0}
+  increaseRewardTimerPanel: {fileID: 735380652}
+  adManager: {fileID: 1077033988}
 --- !u!1 &817214669
 GameObject:
   m_ObjectHideFlags: 0
@@ -12248,7 +12306,7 @@ MonoBehaviour:
   twoXRewardPanel: {fileID: 1937656074}
   rewardMoneyButton: {fileID: 253077393}
   timeRemaining: 0
-  timerLength: 120
+  timerLength: 3600
   timerIsRunning: 0
 --- !u!114 &862655767
 MonoBehaviour:
@@ -13213,6 +13271,7 @@ MonoBehaviour:
   advertising: {fileID: 862655763}
   twoTimesRewardTimer: {fileID: 944896279}
   increaseRewardTimerPanel: {fileID: 0}
+  adManager: {fileID: 0}
 --- !u!114 &944896282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13732,9 +13791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e49f0d1e36d5b4faaa81b25a10f4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advertising: {fileID: 1077033988}
+  advertising: {fileID: 862655763}
   twoTimesRewardTimer: {fileID: 944896279}
   increaseRewardTimerPanel: {fileID: 735380652}
+  adManager: {fileID: 0}
 --- !u!1 &1001914577
 GameObject:
   m_ObjectHideFlags: 0
@@ -28613,7 +28673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2088097453
 MonoBehaviour:
   m_ObjectHideFlags: 0
