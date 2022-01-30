@@ -8,20 +8,20 @@ using UnityEngine;
 public static class SaveManager
 {
     public static string directory = "/SaveData/";
-    public static string fileName = "MyData.txt";
-    public static string fileName2 = "MyData2.txt";
-    public static string fileName3 = "MyData3.txt";
-    public static string fileName4 = "MyData4.txt";
-    public static string fileName5 = "MyData5.txt";
-    public static string fileName6 = "MyData6.txt";
-    public static string fileName7 = "MyData7.txt";
-    public static string fileName8 = "MyData8.txt";
-    public static string fileName9 = "MyData9.txt";
-    public static string fileName10 = "MyData10.txt";
-    public static string fileName11 = "MyData11.txt";
-    public static string fileName12 = "MyData12.txt";
-    public static string fileName13 = "MyData13.txt";
-    public static string fileName14 = "MyData14.txt";
+    public static string fileName = "MyData.obb";
+    public static string fileName2 = "MyData2.obb";
+    public static string fileName3 = "MyData3.obb";
+    public static string fileName4 = "MyData4.obb";
+    public static string fileName5 = "MyData5.obb";
+    public static string fileName6 = "MyData6.obb";
+    public static string fileName7 = "MyData7.obb";
+    public static string fileName8 = "MyData8.obb";
+    public static string fileName9 = "MyData9.obb";
+    public static string fileName10 = "MyData10.obb";
+    public static string fileName11 = "MyData11.obb";
+    public static string fileName12 = "MyData12.obb";
+    public static string fileName13 = "MyData13.obb";
+    public static string fileName14 = "MyData14.obb";
 
     public static void Save(SaveObject so)
     {

@@ -73,4 +73,10 @@ public static class AdSaveManager
 
         return so;
     }
+
+    public static void DeleteIdleRewardData()
+    {
+        string fullPath4 = Application.persistentDataPath + directory + fileName2;
+        File.Delete(fullPath4);
+    }
 }

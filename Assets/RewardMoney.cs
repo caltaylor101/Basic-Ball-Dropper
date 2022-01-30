@@ -33,6 +33,9 @@ public class RewardMoney : MonoBehaviour
     public void GetMoneyReward()
     {
         adObject.GetComponent<AdManager>().UserChoseToGetMoneyReward();
+        rewardMoneyPanel.SetActive(false);
+        rewardMoneyPanel.SetActive(false);
+
     }
 
     public void NoThanks()

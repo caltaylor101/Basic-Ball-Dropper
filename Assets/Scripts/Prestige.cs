@@ -82,7 +82,7 @@ public class Prestige : MonoBehaviour
         SaveManager.DeleteObjectListData();
         SaveManager.DeleteBallListData();
         SaveManager.DeleteObjectDamageListData();
-
+        AdSaveManager.DeleteIdleRewardData();
     }
 
     void Start()
