@@ -16,6 +16,7 @@ public class AdManager : MonoBehaviour
     private bool twoXRewardedShowing = false;
     private bool idleRewardedShowing = false;
     private bool moneyRewardedShowing = false;
+    private bool increaseTimerRewardedShowing = false;
 
     void Start()
     {
@@ -59,6 +60,12 @@ public class AdManager : MonoBehaviour
             gameRun.GetComponent<Advertising>().MoneyRewardPlayer();
             moneyRewardedShowing = false;
         }
+        if (increaseTimerRewardedShowing)
+        {
+            gameRun.GetComponent<Advertising>().IncreaseTimerRewardPlayer();
+            increaseTimerRewardedShowing = false;
+        }
+
         MonoBehaviour.print(
             "HandleRewardedAdRewarded event received for "
                         + amount.ToString() + " " + type);
@@ -107,6 +114,21 @@ public class AdManager : MonoBehaviour
             CreateAndLoadRewardedAd();
             this.twoXRewardedAd.Show();
             moneyRewardedShowing = true;
+        }
+
+    }
+    public void UserChoseToIncreaseTimerReward()
+    {
+        if (this.twoXRewardedAd.IsLoaded())
+        {
+            this.twoXRewardedAd.Show();
+            increaseTimerRewardedShowing = true;
+        }
+        else
+        {
+            CreateAndLoadRewardedAd();
+            this.twoXRewardedAd.Show();
+            increaseTimerRewardedShowing = true;
         }
 
     }

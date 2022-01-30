@@ -11,7 +11,7 @@ public class Advertising : MonoBehaviour
     [SerializeField] private GameObject twoXRewardPanel;
     [SerializeField] private GameObject rewardMoneyButton;
     public float timeRemaining;
-    public float timerLength = 120;
+    public float timerLength = 3600;
     public bool timerIsRunning = false;
     
     // Start is called before the first frame update
@@ -75,6 +75,17 @@ public class Advertising : MonoBehaviour
     {
         gameObject.GetComponent<ImageFade>().scoreCalculator += (gameObject.GetComponent<ImageFade>().totalScore / 10) * gameObject.GetComponent<ImageFade>().scoreMultiplier;
         gameObject.GetComponent<ImageFade>().totalScore += (gameObject.GetComponent<ImageFade>().totalScore / 10) * gameObject.GetComponent<ImageFade>().scoreMultiplier;
+    }
+         public void IncreaseTimerRewardPlayer()
+    {
+        if (!timerIsRunning)
+        {
+            TwoXRewardPlayer();
+        }
+        else
+        {
+            timeRemaining += 3600;
+        }
     }
 
     public void TwoXTimerEnd()

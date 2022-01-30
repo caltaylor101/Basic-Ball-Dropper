@@ -25,11 +25,11 @@ public class IdlePopupUI : MonoBehaviour
         idleReward = gameRun.GetComponent<IdleReward>().idleReward;
         if (minutesAway >= 120)
         {
-            rewardText.GetComponent<UnityEngine.UI.Text>().text = "Welcome Back! You were gone for over " + Math.Floor(minutesAway).ToString() + " minutes! You earned a total of " + Math.Floor(idleReward);
+            rewardText.GetComponent<UnityEngine.UI.Text>().text = "Welcome Back! You were gone for over " + Math.Floor(minutesAway).ToString() + " minutes! You earned a total of " + Math.Floor(idleReward) + " extra points!";
         }
         else
         {
-            rewardText.GetComponent<UnityEngine.UI.Text>().text = "Welcome Back! You were gone for " + Math.Floor(minutesAway).ToString() + " minutes! You earned a total of " + Math.Floor(idleReward);
+            rewardText.GetComponent<UnityEngine.UI.Text>().text = "Welcome Back! You were gone for " + Math.Floor(minutesAway).ToString() + " minutes! You earned a total of " + Math.Floor(idleReward) + " extra points!";
         }
         watchVideoButtonText.GetComponent<UnityEngine.UI.Text>().text = "Watch a video for: " + Math.Floor((idleReward * 2)).ToString();
     }

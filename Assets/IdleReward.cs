@@ -40,8 +40,6 @@ public class IdleReward : MonoBehaviour
             minutesAway = 120;
         }
         idleReward = minutesAway * gameObject.GetComponent<ImageFade>().scoreMultiplier * (clickBall.GetComponent<Damager>().damageMultiplier + autoBall.GetComponent<Damager>().damageMultiplier + multiBall.GetComponent<Damager>().damageMultiplier);
-        Debug.Log(minutesAway);
-        Debug.Log(idleReward);
         if (idleRewardPopupPanel)
         {
             idleRewardPopupPanel.SetActive(true);
