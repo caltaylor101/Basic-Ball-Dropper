@@ -13,11 +13,15 @@ public class AdManager : MonoBehaviour
     // Start is called before the first frame update
     private string adUnitId = "ca-app-pub-3940256099942544/5354046379";
     private RewardedAd twoXRewardedAd;
+    private bool twoXRewardedShowing = false;
+    private bool idleRewardedShowing = false;
 
     void Start()
     {
         this.twoXRewardedAd = new RewardedAd(adUnitId);
+        this.twoXRewardedAd.OnAdLoaded += HandleRewardedAdLoaded;
         this.twoXRewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
+        this.twoXRewardedAd.OnAdClosed += HandleRewardedAdClosed;
 
 
         LoadRewardedAd();
@@ -39,7 +43,16 @@ public class AdManager : MonoBehaviour
     {
         string type = args.Type;
         double amount = args.Amount;
-        gameRun.GetComponent<Advertising>().TwoXRewardPlayer();
+        if (twoXRewardedShowing)
+        {
+            gameRun.GetComponent<Advertising>().TwoXRewardPlayer();
+            twoXRewardedShowing = false;
+        }
+        if (idleRewardedShowing)
+        {
+            gameRun.GetComponent<Advertising>().IdleRewardPlayer();
+
+        }
         MonoBehaviour.print(
             "HandleRewardedAdRewarded event received for "
                         + amount.ToString() + " " + type);
@@ -52,12 +65,29 @@ public class AdManager : MonoBehaviour
         if (this.twoXRewardedAd.IsLoaded())
         {
             this.twoXRewardedAd.Show();
+            twoXRewardedShowing = true;
         }
         else
         {
             CreateAndLoadRewardedAd();
             this.twoXRewardedAd.Show();
+            twoXRewardedShowing = true;
         }
+    }
+    public void UserChoseToDoubleIdleReward()
+    {
+        if (this.twoXRewardedAd.IsLoaded())
+        {
+            this.twoXRewardedAd.Show();
+            idleRewardedShowing = true;
+        }
+        else
+        {
+            CreateAndLoadRewardedAd();
+            this.twoXRewardedAd.Show();
+            idleRewardedShowing = true;
+        }
+
     }
 
     public void HandleRewardedAdClosed(object sender, EventArgs args)
@@ -81,6 +111,6 @@ public class AdManager : MonoBehaviour
 
     public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdLoaded event received");
+        Debug.Log("HandleRewardedAdLoaded event received");
     }
 }

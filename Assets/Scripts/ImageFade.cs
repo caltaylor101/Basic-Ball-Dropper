@@ -606,7 +606,7 @@ public class ImageFade : MonoBehaviour
 
     IEnumerator HourglassAnim(Vector3 startHourglass)
     {
-        for (float alpha = 0f; alpha <= 1f; alpha += Time.deltaTime / 2)
+        for (float alpha = 0f; alpha <= 1f; alpha += Time.unscaledDeltaTime / 2)
         {
             if (alpha > 0.95f)
             {

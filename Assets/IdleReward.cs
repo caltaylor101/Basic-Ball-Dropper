@@ -11,6 +11,9 @@ public class IdleReward : MonoBehaviour
     private double maxMinutesAway = 120;
     public double idleReward;
     [SerializeField] private GameObject idleRewardPopupPanel;
+    [SerializeField] private GameObject clickBall;
+    [SerializeField] private GameObject autoBall;
+    [SerializeField] private GameObject multiBall;
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,15 +31,22 @@ public class IdleReward : MonoBehaviour
 
     private void IdleRewardPopup()
     {
-        minutesAway = timeDifference.TotalMinutes;
+        if (minutesAway == 0)
+        {
+            minutesAway = timeDifference.TotalMinutes;
+        }
         if (minutesAway > 120)
         {
             minutesAway = 120;
         }
-        idleReward = (minutesAway / maxMinutesAway) * (gameObject.GetComponent<ImageFade>().totalScore / 4);
+        idleReward = minutesAway * gameObject.GetComponent<ImageFade>().scoreMultiplier * (clickBall.GetComponent<Damager>().damageMultiplier + autoBall.GetComponent<Damager>().damageMultiplier + multiBall.GetComponent<Damager>().damageMultiplier);
         Debug.Log(minutesAway);
         Debug.Log(idleReward);
-        idleRewardPopupPanel.SetActive(true);
+        if (idleRewardPopupPanel)
+        {
+            idleRewardPopupPanel.SetActive(true);
+
+        }
     }
 
     // Update is called once per frame

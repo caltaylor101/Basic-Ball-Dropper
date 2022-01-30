@@ -8,6 +8,7 @@ public class Advertising : MonoBehaviour
     [SerializeField] private GameObject autoBall;
     [SerializeField] private GameObject multiBall;
     [SerializeField] private GameObject twoXRewardButton;
+    [SerializeField] private GameObject twoXRewardPanel;
     public float timeRemaining;
     public float timerLength = 120;
     public bool timerIsRunning = false;
@@ -36,7 +37,6 @@ public class Advertising : MonoBehaviour
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                Debug.Log(timeRemaining);
             }
             else
             {
@@ -47,11 +47,22 @@ public class Advertising : MonoBehaviour
 
     public void TwoXRewardPlayer()
     {
+        twoXRewardPanel.SetActive(false);
         clickBall.GetComponent<Damager>().damagePower = 2;
         autoBall.GetComponent<Damager>().damagePower = 2;
         multiBall.GetComponent<Damager>().damagePower = 2;
         gameObject.GetComponent<ImageFade>().scoreValue = 2;
         StartTwoXTimer(timerLength);
+    }
+     public void IdleRewardPlayer()
+    {
+        gameObject.GetComponent<ImageFade>().scoreCalculator += (gameObject.GetComponent<IdleReward>().idleReward * 2);
+        gameObject.GetComponent<ImageFade>().totalScore += (gameObject.GetComponent<IdleReward>().idleReward * 2);
+    }
+      public void RegularIdleRewardPlayer()
+    {
+        gameObject.GetComponent<ImageFade>().scoreCalculator += (gameObject.GetComponent<IdleReward>().idleReward);
+        gameObject.GetComponent<ImageFade>().totalScore += (gameObject.GetComponent<IdleReward>().idleReward);
     }
 
     public void TwoXTimerEnd()
