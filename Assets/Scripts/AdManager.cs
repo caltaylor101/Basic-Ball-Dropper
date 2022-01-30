@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public class AdManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameRun;
-   
+
     // Start is called before the first frame update
     // test id for editor
     //private string adUnitId = "ca-app-pub-3940256099942544/5354046379";
@@ -39,7 +39,7 @@ public class AdManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void LoadRewardedAd()
@@ -52,6 +52,15 @@ public class AdManager : MonoBehaviour
     {
         string type = args.Type;
         double amount = args.Amount;
+        AdWorkAround();
+
+        MonoBehaviour.print(
+            "HandleRewardedAdRewarded event received for "
+                        + amount.ToString() + " " + type);
+    }
+
+    private void AdWorkAround()
+    {
         if (twoXRewardedShowing)
         {
             gameRun.GetComponent<Advertising>().TwoXRewardPlayer();
@@ -72,73 +81,38 @@ public class AdManager : MonoBehaviour
             gameRun.GetComponent<Advertising>().IncreaseTimerRewardPlayer();
             increaseTimerRewardedShowing = false;
         }
-
-        MonoBehaviour.print(
-            "HandleRewardedAdRewarded event received for "
-                        + amount.ToString() + " " + type);
     }
 
-  
 
     public void UserChoseToWatchAd()
     {
-        Debug.Log("test area");
-        Debug.Log(this.twoXRewardedAd);
-        if (this.twoXRewardedAd.IsLoaded())
-        {
-            this.twoXRewardedAd.Show();
-            twoXRewardedShowing = true;
-        }
-        else
-        {
-            CreateAndLoadRewardedAd();
-            this.twoXRewardedAd.Show();
-            twoXRewardedShowing = true;
-        }
+        twoXRewardedShowing = true;
+        AdWorkAround();
+
     }
     public void UserChoseToDoubleIdleReward()
     {
-        if (this.twoXRewardedAd.IsLoaded())
-        {
-            this.twoXRewardedAd.Show();
-            idleRewardedShowing = true;
-        }
-        else
-        {
-            CreateAndLoadRewardedAd();
-            this.twoXRewardedAd.Show();
-            idleRewardedShowing = true;
-        }
+
+        idleRewardedShowing = true;
+        AdWorkAround();
+
 
     }
     public void UserChoseToGetMoneyReward()
     {
-        if (this.twoXRewardedAd.IsLoaded())
-        {
-            this.twoXRewardedAd.Show();
-            moneyRewardedShowing = true;
-        }
-        else
-        {
-            CreateAndLoadRewardedAd();
-            this.twoXRewardedAd.Show();
-            moneyRewardedShowing = true;
-        }
+
+
+        moneyRewardedShowing = true;
+        AdWorkAround();
+
 
     }
     public void UserChoseToIncreaseTimerReward()
     {
-        if (this.twoXRewardedAd.IsLoaded())
-        {
-            this.twoXRewardedAd.Show();
-            increaseTimerRewardedShowing = true;
-        }
-        else
-        {
-            CreateAndLoadRewardedAd();
-            this.twoXRewardedAd.Show();
-            increaseTimerRewardedShowing = true;
-        }
+
+        increaseTimerRewardedShowing = true;
+        AdWorkAround();
+
 
     }
 
