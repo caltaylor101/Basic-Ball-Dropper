@@ -11,7 +11,13 @@ public class AdManager : MonoBehaviour
     [SerializeField] private GameObject gameRun;
    
     // Start is called before the first frame update
-    private string adUnitId = "ca-app-pub-3940256099942544/5354046379";
+    // test id for editor
+    //private string adUnitId = "ca-app-pub-3940256099942544/5354046379";
+
+    // actual ad id
+    private string adUnitId = "ca-app-pub-8732055832105699/7621483920";
+
+
     private RewardedAd twoXRewardedAd;
     private bool twoXRewardedShowing = false;
     private bool idleRewardedShowing = false;
@@ -27,6 +33,7 @@ public class AdManager : MonoBehaviour
 
 
         LoadRewardedAd();
+        Debug.Log("the ad" + this.twoXRewardedAd);
     }
 
     // Update is called once per frame
@@ -75,6 +82,8 @@ public class AdManager : MonoBehaviour
 
     public void UserChoseToWatchAd()
     {
+        Debug.Log("test area");
+        Debug.Log(this.twoXRewardedAd);
         if (this.twoXRewardedAd.IsLoaded())
         {
             this.twoXRewardedAd.Show();
