@@ -9,13 +9,16 @@ public class Advertising : MonoBehaviour
     [SerializeField] private GameObject multiBall;
     [SerializeField] private GameObject twoXRewardButton;
     [SerializeField] private GameObject twoXRewardPanel;
+    [SerializeField] private GameObject rewardMoneyButton;
     public float timeRemaining;
     public float timerLength = 120;
     public bool timerIsRunning = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SaveRewards", 1f, 1f);
+        InvokeRepeating("RewardMoneyBonus", 60f, 600f);
         timeRemaining = LoadRewards();
         if (timeRemaining > 0)
         {
@@ -45,6 +48,10 @@ public class Advertising : MonoBehaviour
         }
     }
 
+    private void RewardMoneyBonus()
+    {
+        rewardMoneyButton.SetActive(true);
+    }
     public void TwoXRewardPlayer()
     {
         twoXRewardPanel.SetActive(false);
@@ -63,6 +70,11 @@ public class Advertising : MonoBehaviour
     {
         gameObject.GetComponent<ImageFade>().scoreCalculator += (gameObject.GetComponent<IdleReward>().idleReward);
         gameObject.GetComponent<ImageFade>().totalScore += (gameObject.GetComponent<IdleReward>().idleReward);
+    }
+        public void MoneyRewardPlayer()
+    {
+        gameObject.GetComponent<ImageFade>().scoreCalculator += (gameObject.GetComponent<ImageFade>().totalScore / 10) * gameObject.GetComponent<ImageFade>().scoreMultiplier;
+        gameObject.GetComponent<ImageFade>().totalScore += (gameObject.GetComponent<ImageFade>().totalScore / 10) * gameObject.GetComponent<ImageFade>().scoreMultiplier;
     }
 
     public void TwoXTimerEnd()
