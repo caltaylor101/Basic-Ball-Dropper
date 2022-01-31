@@ -126,6 +126,10 @@ public class ImageFade : MonoBehaviour
         {
             multiBallSpawnPoint.SetActive(true);
         }
+        if (destructionBallSpawn)
+        {
+            destructionBallSpawnPoint.SetActive(true);
+        }
 
 
         spawnPosition = autoBallSpawnPoint.GetComponent<Transform>().position;
