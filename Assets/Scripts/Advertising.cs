@@ -11,15 +11,15 @@ public class Advertising : MonoBehaviour
     [SerializeField] private GameObject twoXRewardPanel;
     [SerializeField] private GameObject rewardMoneyButton;
     public float timeRemaining;
-    public float timerLength = 3600;
-    [SerializeField] private const float setTimer = 3600;
+    public float timerLength = 1200;
+    [SerializeField] private const float setTimer = 1200;
     public bool timerIsRunning = false;
     
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SaveRewards", 1f, 1f);
-        InvokeRepeating("RewardMoneyBonus", 60f, 600f);
+        InvokeRepeating("RewardMoneyBonus", 60f, 210f);
         timeRemaining = LoadRewards();
         if (timeRemaining > 0)
         {

@@ -4641,7 +4641,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Watch a video to increase the timer on your 2X reward by another 60 minutes.
+  m_Text: Watch a video to increase the timer on your 2X reward by another 20 minutes.
 --- !u!222 &404973546
 CanvasRenderer:
   m_ObjectHideFlags: 0
