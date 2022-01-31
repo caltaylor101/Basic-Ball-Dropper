@@ -14662,7 +14662,7 @@ MonoBehaviour:
   rewardMoneyPanel: {fileID: 728282139}
   gameRun: {fileID: 862655763}
   adObject: {fileID: 1077033988}
-  rewardMoneyButton: {fileID: 0}
+  rewardMoneyButton: {fileID: 253077393}
 --- !u!1001 &1094602370
 PrefabInstance:
   m_ObjectHideFlags: 0
