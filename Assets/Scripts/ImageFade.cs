@@ -433,9 +433,7 @@ public class ImageFade : MonoBehaviour
             GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle5");
             foreach (GameObject obstacle in obstacles)
             {
-                Debug.Log(obstacle.GetComponent<Transform>().localScale);
                 obstacle.GetComponent<Transform>().localScale = new Vector3(obstacle.GetComponent<Transform>().localScale.x - obstacle5.sizeDifference, obstacle.GetComponent<Transform>().localScale.y - obstacle5.sizeDifference, 0);
-                Debug.Log(obstacle.GetComponent<Transform>().localScale);
 
             }
         }

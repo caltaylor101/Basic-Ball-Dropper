@@ -24,11 +24,25 @@ public class UpgradeObstacles : MonoBehaviour
 
     void Start()
     {
+        UpdateObstacles();
+    }
+
+    private void UpdateObstacles()
+    {
         upgradeObstacleCost = gameRun.GetComponent<ImageFade>().upgradeObstacleCost;
         upgradeObstacleCost2 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost2;
         upgradeObstacleCost3 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost3;
         upgradeObstacleCost4 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost4;
         upgradeObstacleCost5 = gameRun.GetComponent<ImageFade>().upgradeObstacleCost5;
+    }
+
+    public void LoggingTest()
+    {
+        Debug.Log("obstacle 1 " + upgradeObstacleCost);
+        Debug.Log("obstacle 2 " + upgradeObstacleCost2);
+        Debug.Log("obstacle 3 " + upgradeObstacleCost3);
+        Debug.Log("obstacle 4 " + upgradeObstacleCost4);
+        Debug.Log("obstacle 5 " + upgradeObstacleCost5);
     }
 
     public void UpgradeObstacle1()
@@ -38,7 +52,7 @@ public class UpgradeObstacles : MonoBehaviour
         if (gameRun.GetComponent<ImageFade>().score >= upgradeObstacleCost)
         {
             gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeObstacleCost;
-            upgradeObstacleCost = (int)System.Math.Ceiling((float)upgradeObstacleCost * 1.33f);
+            gameRun.GetComponent<ImageFade>().upgradeObstacleCost = (int)System.Math.Ceiling((float)upgradeObstacleCost * 1.33f);
             foreach (GameObject obstacle in obstacles)
             {
                 obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(0.04f, 0.04f, 0.04f);
@@ -47,6 +61,7 @@ public class UpgradeObstacles : MonoBehaviour
                 positionZ = obstacle.GetComponent<Transform>().localScale.z;
             }
 
+            UpdateObstacles();
             SaveUpgradeObstacleVariables();
 
             SaveUpgradeObstacle1 saveObject = new SaveUpgradeObstacle1();
@@ -56,7 +71,6 @@ public class UpgradeObstacles : MonoBehaviour
             SaveManager.SaveUpgradeObstacle1Scale(saveObject);
 
         }
-
 
     }
 
@@ -78,7 +92,7 @@ public class UpgradeObstacles : MonoBehaviour
         if (gameRun.GetComponent<ImageFade>().score >= upgradeObstacleCost2)
         {
             gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeObstacleCost2;
-            upgradeObstacleCost2 = (int)System.Math.Ceiling((float)upgradeObstacleCost2 * 1.25f);
+            gameRun.GetComponent<ImageFade>().upgradeObstacleCost2 = (int)System.Math.Ceiling((float)upgradeObstacleCost2 * 1.25f);
             foreach (GameObject obstacle in obstacles)
             {
                 obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(0.1f, 0f, 0.1f);
@@ -92,13 +106,11 @@ public class UpgradeObstacles : MonoBehaviour
             saveObject.positionY = positionY;
             saveObject.positionZ = positionZ;
             SaveManager.SaveUpgradeObstacle2Scale(saveObject);
+
+            UpdateObstacles();
+            SaveUpgradeObstacleVariables();
+
         }
-        SaveUpgradeObstacleVariables();
-
-
-
-
-
     }
 
     public void UpgradeObstacle3()
@@ -106,7 +118,7 @@ public class UpgradeObstacles : MonoBehaviour
         if (gameRun.GetComponent<ImageFade>().score >= upgradeObstacleCost3)
         {
             gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeObstacleCost3;
-            upgradeObstacleCost3 = (int)System.Math.Ceiling((float)upgradeObstacleCost3 * 1.15f);
+            gameRun.GetComponent<ImageFade>().upgradeObstacleCost3 = (int)System.Math.Ceiling((float)upgradeObstacleCost3 * 1.15f);
             hourglassImage.GetComponent<Transform>().localScale += new Vector3(.02f, .0f, .0f);
             hourglassCollider.GetComponent<Transform>().localScale += new Vector3(.02f, .0f, .0f);
             positionX = hourglassCollider.GetComponent<Transform>().localScale.x;
@@ -117,10 +129,9 @@ public class UpgradeObstacles : MonoBehaviour
             saveObject.positionY = positionY;
             saveObject.positionZ = positionZ;
             SaveManager.SaveUpgradeObstacle3Scale(saveObject);
-
+            UpdateObstacles();
+            SaveUpgradeObstacleVariables();
         }
-        SaveUpgradeObstacleVariables();
-
     }
 
     public void UpgradeObstacle4()
@@ -130,7 +141,7 @@ public class UpgradeObstacles : MonoBehaviour
         if (gameRun.GetComponent<ImageFade>().score >= upgradeObstacleCost4)
         {
             gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeObstacleCost4;
-            upgradeObstacleCost4 = (int)System.Math.Ceiling((float)upgradeObstacleCost4 * 1.33f);
+            gameRun.GetComponent<ImageFade>().upgradeObstacleCost4 = (int)System.Math.Ceiling((float)upgradeObstacleCost4 * 1.33f);
             foreach (GameObject obstacle in obstacles)
             {
                 obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(0.6f, .0f, 0.1f);
@@ -144,10 +155,9 @@ public class UpgradeObstacles : MonoBehaviour
             saveObject.positionY = positionY;
             saveObject.positionZ = positionZ;
             SaveManager.SaveUpgradeObstacle4Scale(saveObject);
+            UpdateObstacles();
+            SaveUpgradeObstacleVariables();
         }
-        SaveUpgradeObstacleVariables();
-        Debug.Log(upgradeObstacleCost4);
-
     }
     public void UpgradeObstacle5()
     {
@@ -158,7 +168,7 @@ public class UpgradeObstacles : MonoBehaviour
         if (gameRun.GetComponent<ImageFade>().score >= upgradeObstacleCost5)
         {
             gameRun.GetComponent<ImageFade>().scoreCalculator = gameRun.GetComponent<ImageFade>().scoreCalculator - upgradeObstacleCost5;
-            upgradeObstacleCost5 = (int)System.Math.Ceiling((float)upgradeObstacleCost5 * 1.33f);
+            gameRun.GetComponent<ImageFade>().upgradeObstacleCost5 = (int)System.Math.Ceiling((float)upgradeObstacleCost5 * 1.33f);
             foreach (GameObject obstacle in obstacles)
             {
                 obstacle.GetComponent<Transform>().localScale = obstacle.GetComponent<Transform>().localScale - new Vector3(sizeDifference, sizeDifference, 0.1f);
@@ -177,9 +187,8 @@ public class UpgradeObstacles : MonoBehaviour
             SaveUpgradeObstacle5 saveObject = new SaveUpgradeObstacle5();
             saveObject.sizeDifference = sizeDifference;
             SaveManager.SaveUpgradeObstacle5Scale(saveObject);
+            UpdateObstacles();
+            SaveUpgradeObstacleVariables();
         }
-        SaveUpgradeObstacleVariables();
-
     }
-
 }
