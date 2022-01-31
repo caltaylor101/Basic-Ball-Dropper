@@ -10898,7 +10898,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Unlock Idle Ball
+  m_Text: Unlock Multi Ball
 --- !u!222 &773655289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20933,7 +20933,7 @@ MonoBehaviour:
   multiBallSpawnSpot: {fileID: 1931312073}
   upgradeMultiButton: {fileID: 1369905456}
   multiBall: {fileID: 0}
-  plusMultiBallButton: {fileID: 0}
+  plusMultiBallButton: {fileID: 1514163648}
   bonusGate: {fileID: 0}
   bonusGate2: {fileID: 0}
   bonusGate3: {fileID: 0}

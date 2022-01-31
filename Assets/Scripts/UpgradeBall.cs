@@ -183,6 +183,8 @@ public class UpgradeBall : MonoBehaviour
             upgradeMultiButton.SetActive(true);
             upgradeDestructionButton.SetActive(true);
             upgradeDestructionButton.SetActive(true);
+            plusMultiBallButton.SetActive(true);
+            plusMultiBallButton.SetActive(true);
             Destroy(gameObject);
             SaveBallVariables();
         }
@@ -243,7 +245,7 @@ public class UpgradeBall : MonoBehaviour
         saveObject.upgradeMaxIdleBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxIdleBallsCost;
         saveObject.upgradeMultiBallCost = gameRun.GetComponent<ImageFade>().upgradeMultiBallCost;
         saveObject.upgradeMaxMultiBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxMultiBallsCost;
-        saveObject.numberOfMultiBalls = gameRun.GetComponent<ImageFade>().numberOfMultiBalls;
+        saveObject.numberOfMultiBalls = bonusGate.GetComponent<BonusGate>().numberOfMultiBalls;
         saveObject.upgradeDestructionBallCost = gameRun.GetComponent<ImageFade>().upgradeDestructionBallCost;
         saveObject.upgradeMaxDestructionBallsCost = gameRun.GetComponent<ImageFade>().upgradeMaxDestructionBallsCost;
 

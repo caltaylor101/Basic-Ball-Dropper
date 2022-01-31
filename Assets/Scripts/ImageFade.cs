@@ -263,6 +263,8 @@ public class ImageFade : MonoBehaviour
         so.maxDestructionBalls = maxDestructionBalls;
         so.numberOfMultiBalls = numberOfMultiBalls;
         so.idleBallCount = idleBallCount;
+
+        so.upgradeMultiBallCost = upgradeMultiBallCost;
         SaveManager.Save(so);
 
         SaveClickBall cb = new SaveClickBall();
@@ -302,6 +304,7 @@ public class ImageFade : MonoBehaviour
         idleBallCount = so.idleBallCount;
         destructionBallSpawn = so.destructionBallSpawn;
         maxDestructionBalls = so.maxDestructionBalls;
+        upgradeMultiBallCost = so.upgradeMultiBallCost;
 
 
         SaveClickBall cb = new SaveClickBall();
@@ -368,6 +371,8 @@ public class ImageFade : MonoBehaviour
             upgradeDestructionBallCost = ballVariables.upgradeDestructionBallCost;
             bonusGate1.GetComponent<BonusGate>().numberOfMultiBalls = ballVariables.numberOfMultiBalls;
             bonusGate2.GetComponent<BonusGate>().numberOfMultiBalls = ballVariables.numberOfMultiBalls;
+            bonusGate3.GetComponent<BonusGate>().numberOfMultiBalls = ballVariables.numberOfMultiBalls;
+            bonusGate4.GetComponent<BonusGate>().numberOfMultiBalls = ballVariables.numberOfMultiBalls;
         }
 
         ObstacleVariables obstacleVariables = new ObstacleVariables();

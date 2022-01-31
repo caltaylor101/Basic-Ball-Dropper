@@ -26,8 +26,7 @@ public class SaveObject
     public int maxMultiBalls = 5;
     public int numberOfMultiBalls = 1;
     public int maxDestructionBalls = 1;
-
-    public double upgradeMultiBallCost = 1000;
+    public double upgradeMultiBallCost = 2500;
 
 }
 
