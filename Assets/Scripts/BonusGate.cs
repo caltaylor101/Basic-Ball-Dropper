@@ -6,6 +6,7 @@ public class BonusGate : MonoBehaviour
 {
     public GameObject gameRun;
     public GameObject multiBall;
+    public GameObject clickBall;
     public int numberOfMultiBalls = 1;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,15 @@ public class BonusGate : MonoBehaviour
                     loadedBall.name = "MultiBall(Repetition)";
                     loadedBall.AddComponent<Rigidbody2D>();
                 }
+            }
+        }
+
+        if (collision.gameObject.name == "Destruction(Clone)" && gameObject.name == "BonusGate2")
+        {
+            for (int i = 0; i <= 4; i++)
+            {
+                GameObject newBall = Instantiate(clickBall, new Vector3(gameObject.GetComponent<Transform>().position.x - i, gameObject.GetComponent<Transform>().position.y - i, 1), Quaternion.identity);
+                newBall.AddComponent<Rigidbody2D>();
             }
         }
     }

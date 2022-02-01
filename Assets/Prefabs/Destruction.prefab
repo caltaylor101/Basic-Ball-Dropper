@@ -133,3 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b010c7802c39f648b585f48fbf90937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destructionBounce: 0
+  maxDestructionBounce: 10

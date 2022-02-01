@@ -62,8 +62,11 @@ public class Destruction : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.collider.tag != "Damage" && collision.collider.tag != "Wall" && collision.collider.tag != "DestructionMovable1")
+        if (collision.gameObject.name == "LeftDropper" || collision.gameObject.name == "RightDropper")
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.collider.tag != "Damage" && collision.collider.tag != "Wall" && collision.collider.tag != "DestructionMovable1")
         {
 
             ImageFade otherScript = GameObject.Find("GameRun").GetComponent<ImageFade>();
@@ -85,6 +88,8 @@ public class Destruction : MonoBehaviour
             }
 
         }
+
+        
     }
 
     private void DestroyBall()

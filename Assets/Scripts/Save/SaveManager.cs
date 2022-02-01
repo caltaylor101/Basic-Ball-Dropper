@@ -520,10 +520,14 @@ public static class SaveManager
         string fullPath5 = Application.persistentDataPath + directory + fileName8;
         string fullPath6 = Application.persistentDataPath + directory + fileName9;
         string fullPath7 = Application.persistentDataPath + directory + fileName10;
+        string fullPath8 = Application.persistentDataPath + directory + fileName12;
+        string fullPath9 = Application.persistentDataPath + directory + fileName13;
         File.Delete(fullPath4);
         File.Delete(fullPath5);
         File.Delete(fullPath6);
         File.Delete(fullPath7);
+        File.Delete(fullPath8);
+        File.Delete(fullPath9);
     }
 
 
